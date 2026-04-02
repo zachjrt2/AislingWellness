@@ -34,7 +34,7 @@ function renderNav(activePage = '') {
 
   document.getElementById('nav').innerHTML = `
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Aisling <em>Wellness</em></a>
+      <a href="index.html" class="nav-logo"><img src="./images/hlogo.png"></a>
       <nav class="nav-links">
         ${links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
         <a href="book.html" class="btn-gold">Book now</a>
