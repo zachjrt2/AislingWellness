@@ -1,5 +1,0 @@
-1:"$Sreact.fragment"
-2:"$Sreact.suspense"
-3:I[38162,["/_next/static/chunks/0qa.w-51fz0wa.js","/_next/static/chunks/0g8pxr7p34mdw.js"],"default"]
-4:I[4214,["/_next/static/chunks/0qa.w-51fz0wa.js","/_next/static/chunks/0g8pxr7p34mdw.js"],"default"]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"zOfnxPvb1OYnDp5SfXfI2"}
