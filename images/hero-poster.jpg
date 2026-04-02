@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0e1a0c"/>
+  <circle cx="960" cy="540" r="700" fill="none" stroke="#1a2e18" stroke-width="0.5" opacity="0.5"/>
+  <circle cx="960" cy="540" r="450" fill="none" stroke="#1a2e18" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="960" cy="540" r="220" fill="none" stroke="#2a3e28" stroke-width="0.5" opacity="0.6"/>
+  <text x="960" y="600" font-family="Georgia,serif" font-size="110" font-weight="300" fill="#c8b97a" opacity="0.08" text-anchor="middle" font-style="italic">Aisling</text>
+</svg>
