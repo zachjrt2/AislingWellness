@@ -88,7 +88,7 @@ function renderFooter() {
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
-          <div class="footer-logo">Aisling <em>Wellness</em></div>
+          <div class="footer-logo"><img src="./images/hlogo.png"></div>
           <div class="footer-tagline">A dream of wellness, made real.</div>
           <div class="footer-socials">
             <a href="https://facebook.com/aislingwellnesscenter" target="_blank" rel="noopener" aria-label="Facebook">${icon('facebook', 18)}</a>

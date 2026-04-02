@@ -71,3 +71,12 @@ In `js/data.js`, find each provider's `bookingUrl` and replace with their direct
 ## Add Google Maps embed
 
 In `about.html`, find the `map-placeholder` div and replace it with your Google Maps embed code (get it from Google Maps → Share → Embed a map).
+
+
+Add meta data tags for better SEO score
+
+Make searchable via tags?
+
+Add staff images
+
+Expand 5 star reviews to all 5 star in google reviews (approved ones)
