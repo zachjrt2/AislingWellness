@@ -1,22 +1,24 @@
 // ─── SVG ICONS ────────────────────────────────────────────────────────────────
 const ICONS = {
-  hands:   `<path d="M8 14s-1-1-1-4V6a1 1 0 0 1 2 0v3M9 6V3a1 1 0 0 1 2 0v5M11 5a1 1 0 0 1 2 0v4M13 6a1 1 0 0 1 2 0v4c0 3-2 5-4 6a6 6 0 0 1-4-1" stroke-linecap="round" stroke-linejoin="round"/>`,
-  leaf:    `<path d="M12 2C6 2 3 7 3 12c0 2 1 4 3 5M12 2c6 0 9 5 9 10 0 2-1 4-3 5M12 2v20M7 17l5-5" stroke-linecap="round" stroke-linejoin="round"/>`,
-  face:    `<circle cx="12" cy="8" r="5"/><path d="M10 6.5c0 1 .9 1.5 2 1.5s2-.5 2-1.5M9 11c-2 1.5-4 4-4 7h14c0-3-2-5.5-4-7" stroke-linecap="round"/>`,
-  body:    `<circle cx="12" cy="5" r="2.5"/><path d="M8 10h8M12 10v8M9 18l-1 4M15 18l1 4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  hands: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a9e68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002"/>
+</svg>`,
+  leaf: `<path d="M12 2C6 2 3 7 3 12c0 2 1 4 3 5M12 2c6 0 9 5 9 10 0 2-1 4-3 5M12 2v20M7 17l5-5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  face: `<circle cx="12" cy="8" r="5"/><path d="M10 6.5c0 1 .9 1.5 2 1.5s2-.5 2-1.5M9 11c-2 1.5-4 4-4 7h14c0-3-2-5.5-4-7" stroke-linecap="round"/>`,
+  body: `<circle cx="12" cy="5" r="2.5"/><path d="M8 10h8M12 10v8M9 18l-1 4M15 18l1 4" stroke-linecap="round" stroke-linejoin="round"/>`,
   droplet: `<path d="M12 2C8 6 5 10 5 13a7 7 0 0 0 14 0c0-3-3-7-7-11z" stroke-linecap="round"/><path d="M9 14c.5 1.5 2 2.5 3 2.5" stroke-linecap="round"/>`,
-  needle:  `<path d="M17 3l4 4-10 10-4-4L17 3zM3 21l4-4M14 7l-4 10" stroke-linecap="round" stroke-linejoin="round"/>`,
-  heat:    `<path d="M12 2v4M6 6l2.8 2.8M2 12h4M6 18l2.8-2.8M12 18v4M17.2 15.2L20 18M22 12h-4M17.2 8.8L20 6" stroke-linecap="round"/><circle cx="12" cy="12" r="4"/>`,
-  glow:    `<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M19.1 4.9l-2.1 2.1M7.1 16.9l-2.1 2.1" stroke-linecap="round"/>`,
-  star:    `<path d="M12 2l3.1 6.3L22 9.3l-5 4.9 1.2 6.9L12 18l-6.2 3.1L7 14.2 2 9.3l6.9-1L12 2z" stroke-linejoin="round"/>`,
-  calendar:`<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round"/>`,
-  location:`<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
-  phone:   `<path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 4.1 5.2 2 2 0 0 1 6.1 3h3a2 2 0 0 1 2 1.7 12.7 12.7 0 0 0 .7 2.8 2 2 0 0 1-.4 2.1L10.1 11a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4 12.7 12.7 0 0 0 2.8.7 2 2 0 0 1 1.7 2z" stroke-linecap="round"/>`,
-  clock:   `<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke-linecap="round"/>`,
-  facebook:`<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke-linejoin="round"/>`,
-  instagram:`<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>`,
-  menu:    `<path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>`,
-  close:   `<path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>`,
+  needle: `<path d="M17 3l4 4-10 10-4-4L17 3zM3 21l4-4M14 7l-4 10" stroke-linecap="round" stroke-linejoin="round"/>`,
+  heat: `<path d="M12 2v4M6 6l2.8 2.8M2 12h4M6 18l2.8-2.8M12 18v4M17.2 15.2L20 18M22 12h-4M17.2 8.8L20 6" stroke-linecap="round"/><circle cx="12" cy="12" r="4"/>`,
+  glow: `<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M16.9 16.9l2.1 2.1M19.1 4.9l-2.1 2.1M7.1 16.9l-2.1 2.1" stroke-linecap="round"/>`,
+  star: `<path d="M12 2l3.1 6.3L22 9.3l-5 4.9 1.2 6.9L12 18l-6.2 3.1L7 14.2 2 9.3l6.9-1L12 2z" stroke-linejoin="round"/>`,
+  calendar: `<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round"/>`,
+  location: `<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
+  phone: `<path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 4.1 5.2 2 2 0 0 1 6.1 3h3a2 2 0 0 1 2 1.7 12.7 12.7 0 0 0 .7 2.8 2 2 0 0 1-.4 2.1L10.1 11a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4 12.7 12.7 0 0 0 2.8.7 2 2 0 0 1 1.7 2z" stroke-linecap="round"/>`,
+  clock: `<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke-linecap="round"/>`,
+  facebook: `<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke-linejoin="round"/>`,
+  instagram: `<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>`,
+  menu: `<path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>`,
+  close: `<path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>`,
 };
 
 function icon(name, size = 20, color = 'currentColor') {
@@ -27,8 +29,8 @@ function icon(name, size = 20, color = 'currentColor') {
 function renderNav(activePage = '') {
   const links = [
     { href: 'index.html', label: 'Home' },
-    { href: 'book.html',  label: 'Services' },
-    { href: 'team.html',  label: 'Our team' },
+    { href: 'book.html', label: 'Services' },
+    { href: 'team.html', label: 'Our team' },
     { href: 'about.html', label: 'About' },
   ];
 
@@ -130,7 +132,7 @@ function ornament(dark = true) {
 
 // ─── STARS ───────────────────────────────────────────────────────────────────
 function stars(rating, size = 14) {
-  return `<div class="stars">${[1,2,3,4,5].map(i =>
+  return `<div class="stars">${[1, 2, 3, 4, 5].map(i =>
     `<span class="star${i > rating ? ' empty' : ''}" style="font-size:${size}px">★</span>`
   ).join('')}</div>`;
 }

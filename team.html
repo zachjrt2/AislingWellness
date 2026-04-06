@@ -98,10 +98,12 @@
     grid.innerHTML = filtered.length ? filtered.map(p => `
       <div class="team-card">
         <div class="team-card-photo" style="background:${p.avatarBg}">
-          <div class="team-avatar" style="background:${p.avatarBg};border:2px solid ${p.avatarColor}55;color:${p.avatarColor}">
-            ${p.avatarInitials}
-          </div>
-          <span class="team-photo-label">Photo coming soon</span>
+          ${p.photo ? `<img src="${p.photo}" alt="${p.name}" class="team-photo-img">` : `
+            <div class="team-avatar" style="background:${p.avatarBg};border:2px solid ${p.avatarColor}55;color:${p.avatarColor}">
+              ${p.avatarInitials}
+            </div>
+            <span class="team-photo-label">Photo coming soon</span>
+          `}
         </div>
         <div class="team-card-body">
           <h2>${p.name}</h2>
