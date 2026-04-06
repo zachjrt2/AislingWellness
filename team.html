@@ -28,8 +28,17 @@
   </div>
 </div>
 
+<!-- Search & Filter Controls -->
+<div class="team-controls">
+  <div class="team-search-wrap">
+    <div id="team-search-icon-box" class="team-search-icon"></div>
+    <input type="text" id="team-search" class="team-search-input" placeholder="Search by name, title, or specialty...">
+  </div>
+</div>
+<div id="filter-status-container"></div>
+
 <!-- Grid -->
-<section class="section">
+<section class="section" style="padding-top:0">
   <div class="container">
     <div class="team-grid" id="team-grid"></div>
 
@@ -53,31 +62,92 @@
 <script src="js/shared.js"></script>
 <script>
   initShared('team');
+  document.getElementById('team-search-icon-box').innerHTML = icon('search', 18, '#7a9e68');
 
-  document.getElementById('team-grid').innerHTML = PROVIDERS.map(p => `
-    <div class="team-card">
-      <div class="team-card-photo" style="background:${p.avatarBg}">
-        <div class="team-avatar" style="background:${p.avatarBg};border:2px solid ${p.avatarColor}55;color:${p.avatarColor}">
-          ${p.avatarInitials}
+  let activeTag = null;
+  let searchQuery = '';
+
+  function renderTeam() {
+    const grid = document.getElementById('team-grid');
+    const status = document.getElementById('filter-status-container');
+    const container = document.querySelector('.container');
+    
+    const filtered = PROVIDERS.filter(p => {
+      const q = searchQuery.toLowerCase();
+      const matchesSearch = !searchQuery || 
+        p.name.toLowerCase().includes(q) ||
+        p.title.toLowerCase().includes(q) ||
+        p.specialties.some(s => s.toLowerCase().includes(q));
+      
+      const matchesTag = !activeTag || p.specialties.includes(activeTag);
+      return matchesSearch && matchesTag;
+    });
+
+    if (activeTag || searchQuery) {
+      status.innerHTML = `
+        <div class="team-filter-status">
+          Showing ${filtered.length} specialists ${activeTag ? `specializing in <strong>${activeTag}</strong>` : ''} 
+          ${searchQuery ? `${activeTag ? 'and' : ''} matching "<strong>${searchQuery}</strong>"` : ''}
+          <span onclick="clearFilters()" style="cursor:pointer; color:var(--forest-moss); text-decoration:underline; margin-left:8px">Clear all</span>
         </div>
-        <span class="team-photo-label">Photo coming soon</span>
-      </div>
-      <div class="team-card-body">
-        <h2>${p.name}</h2>
-        <div class="team-card-title">${p.title}</div>
-        <div class="team-card-creds">${p.credentials} · ${p.years} years experience</div>
-        <p class="team-card-bio">${p.bio}</p>
-        <div class="specialty-label">Specialties</div>
-        <div class="specialty-tags">
-          ${p.specialties.map(s => `<span class="specialty-tag">${s}</span>`).join('')}
+      `;
+    } else {
+      status.innerHTML = '';
+    }
+
+    grid.innerHTML = filtered.length ? filtered.map(p => `
+      <div class="team-card">
+        <div class="team-card-photo" style="background:${p.avatarBg}">
+          <div class="team-avatar" style="background:${p.avatarBg};border:2px solid ${p.avatarColor}55;color:${p.avatarColor}">
+            ${p.avatarInitials}
+          </div>
+          <span class="team-photo-label">Photo coming soon</span>
         </div>
-        <a href="${p.bookingUrl}" target="_blank" rel="noopener" class="team-book-btn">
-          ${icon('calendar', 14, '#c8b97a')}
-          Book with ${p.name.split(' ')[0]}
-        </a>
+        <div class="team-card-body">
+          <h2>${p.name}</h2>
+          <div class="team-card-title">${p.title}</div>
+          <div class="team-card-creds">${p.credentials} · ${p.years} years experience</div>
+          <p class="team-card-bio">${p.bio}</p>
+          <div class="specialty-label">Specialties</div>
+          <div class="specialty-tags">
+            ${p.specialties.map(s => `
+              <button class="specialty-tag${s === activeTag ? ' active' : ''}" onclick="toggleTag('${s}')">
+                ${s}
+              </button>
+            `).join('')}
+          </div>
+          <a href="${p.bookingUrl}" target="_blank" rel="noopener" class="team-book-btn">
+            ${icon('calendar', 14, '#c8b97a')}
+            Book with ${p.name.split(' ')[0]}
+          </a>
+        </div>
       </div>
-    </div>
-  `).join('');
+    `).join('') : `
+      <div style="grid-column: 1/-1; text-align:center; padding:60px 0; color:#8a8270">
+        <p>No specialists found matching your criteria.</p>
+        <button onclick="clearFilters()" class="btn-ghost--bark" style="margin-top:16px">Clear all filters</button>
+      </div>
+    `;
+  }
+
+  window.toggleTag = (tag) => {
+    activeTag = (activeTag === tag) ? null : tag;
+    renderTeam();
+  };
+
+  window.clearFilters = () => {
+    activeTag = null;
+    searchQuery = '';
+    document.getElementById('team-search').value = '';
+    renderTeam();
+  };
+
+  document.getElementById('team-search').addEventListener('input', (e) => {
+    searchQuery = e.target.value;
+    renderTeam();
+  });
+
+  renderTeam();
 </script>
 </body>
 </html>

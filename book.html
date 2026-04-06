@@ -51,7 +51,9 @@
     if (svcParam && SERVICES.find(s => s.id === svcParam)) return svcParam;
     if (catParam) {
       const cat = CATEGORIES.find(c => c.id === catParam);
-      if (cat && cat.serviceIds.length) return cat.serviceIds[0];
+      if (cat && cat.subCategories && cat.subCategories.length) {
+        return cat.subCategories[0].serviceIds[0];
+      }
     }
     return SERVICES[0].id;
   }
@@ -60,28 +62,125 @@
 
   // ── Build sidebar ────────────────────────────────────────────────────────
   function buildSidebar() {
-    document.getElementById('sidebar').innerHTML = `
-      <span class="sidebar-label">Services</span>
-      ${CATEGORIES.map(cat => {
-        const catSvcs = SERVICES.filter(s => cat.serviceIds.includes(s.id));
-        return `
-          <div class="sidebar-category">
-            <span class="sidebar-category-name">${cat.label}</span>
-            ${catSvcs.map(svc => `
-              <button class="sidebar-item${svc.id === activeId ? ' active' : ''}" data-id="${svc.id}">
-                <span class="sidebar-dot"></span>${svc.name}
-              </button>
-            `).join('')}
-          </div>`;
-      }).join('')}
+    const sidebar = document.getElementById('sidebar');
+    sidebar.innerHTML = `
+      <div class="sidebar-search-wrap">
+        <div class="sidebar-search-icon">${icon('search', 14, '#8a8270')}</div>
+        <input type="text" id="service-search" class="sidebar-search" placeholder="Search services...">
+      </div>
+      <div class="sidebar-scroll-area" id="sidebar-nav">
+        <!-- Content will be rendered here -->
+      </div>
     `;
+
+    renderSidebar();
+
+    document.getElementById('service-search').addEventListener('input', (e) => {
+      handleSearch(e.target.value);
+    });
+  }
+
+  function renderSidebar() {
+    const nav = document.getElementById('sidebar-nav');
+    nav.innerHTML = `
+      <span class="sidebar-label">Categories</span>
+      <div id="accordion-root">
+        ${CATEGORIES.map(cat => {
+          const isCatExpanded = cat.subCategories.some(sub => sub.serviceIds.includes(activeId));
+          return `
+            <div class="sidebar-category${isCatExpanded ? ' expanded' : ''}">
+              <button class="sidebar-category-header">
+                <span class="label">${cat.label}</span>
+                <span class="chevron">›</span>
+              </button>
+              <div class="sidebar-sub-list">
+                ${cat.subCategories.map(sub => {
+                  const isSubExpanded = sub.serviceIds.includes(activeId);
+                  return `
+                    <div class="sidebar-subcategory${isSubExpanded ? ' expanded' : ''}">
+                      <button class="sidebar-subcategory-header">
+                        <span class="label">${sub.label}</span>
+                        <span class="chevron">›</span>
+                      </button>
+                      <div class="sidebar-svc-list">
+                        ${sub.serviceIds.map(svcId => {
+                          const svc = SERVICES.find(s => s.id === svcId);
+                          if (!svc) return '';
+                          return `
+                            <button class="sidebar-item${svc.id === activeId ? ' active' : ''}" data-id="${svc.id}">
+                              <span class="sidebar-dot"></span>${svc.name}
+                            </button>
+                          `;
+                        }).join('')}
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+
+    // Attach listeners
+    document.querySelectorAll('.sidebar-category-header').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const parent = btn.parentElement;
+        const wasExpanded = parent.classList.contains('expanded');
+        // Collapse others if desired, but here we just toggle
+        parent.classList.toggle('expanded');
+      });
+    });
+
+    document.querySelectorAll('.sidebar-subcategory-header').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.parentElement.classList.toggle('expanded');
+      });
+    });
+
     document.querySelectorAll('.sidebar-item').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectService(btn.dataset.id);
+      });
+    });
+  }
+
+  function handleSearch(query) {
+    const nav = document.getElementById('sidebar-nav');
+    if (!query.trim()) {
+      renderNav();
+      return;
+    }
+
+    const matches = SERVICES.filter(s => 
+      s.name.toLowerCase().includes(query.toLowerCase()) || 
+      (s.tags && s.tags.some(t => t.toLowerCase().includes(query.toLowerCase())))
+    );
+
+    nav.innerHTML = `
+      <span class="sidebar-label">Results for "${query}"</span>
+      <div style="padding-bottom:12px">
+        ${matches.length ? matches.map(svc => `
+          <button class="sidebar-item${svc.id === activeId ? ' active' : ''}" data-id="${svc.id}" style="width: calc(100% - 24px); margin-left:12px; margin-bottom:4px">
+            <span class="sidebar-dot"></span>${svc.name}
+          </button>
+        `).join('') : '<p style="font-size:12px;color:#8a8270;padding:12px">No services found...</p>'}
+      </div>
+    `;
+
+    nav.querySelectorAll('.sidebar-item').forEach(btn => {
       btn.addEventListener('click', () => selectService(btn.dataset.id));
     });
   }
 
   // ── Build mobile pills ───────────────────────────────────────────────────
   function buildPills() {
+    // Grouping pills by category for mobile might also be nice, 
+    // but for now let's keep them as a searchable or scrollable list.
     document.getElementById('mobile-pills').innerHTML = SERVICES.map(s => `
       <button class="pill${s.id === activeId ? ' active' : ''}" data-id="${s.id}">${s.name}</button>
     `).join('');
@@ -99,6 +198,9 @@
         <div class="detail-top">
           <div class="detail-icon-wrap">${icon(svc.icon, 22, '#7a9e68')}</div>
           <div class="detail-body">
+            <div style="font-size:10px; color:#6b8560; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px">
+              ${CATEGORIES.find(c => c.subCategories.some(sub => sub.serviceIds.includes(svc.id)))?.label || ''}
+            </div>
             <h2>${svc.name}</h2>
             <p class="desc">${svc.fullDescription}</p>
             <div class="detail-tags">${svc.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
@@ -157,10 +259,9 @@
     url.searchParams.set('service', id);
     history.replaceState({}, '', url);
 
-    // Update sidebar active state
-    document.querySelectorAll('.sidebar-item').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.id === id);
-    });
+    // Update sidebar active state and ensure expanded path
+    renderSidebar();
+    
     document.querySelectorAll('.pill').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.id === id);
     });
