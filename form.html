@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provider Info — Aisling Wellness Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #3a4f38;
+    --sage-light: #6b8c68;
+    --sage-faint: #f0f4ef;
+    --warm-white: #faf9f6;
+    --cream: #f3efe8;
+    --ink: #1e1e1b;
+    --muted: #7a7870;
+    --border: #dcd9d0;
+    --radius: 4px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background: var(--warm-white);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  .page-header {
+    background: var(--sage);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+
+  .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 10px;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .page-title em {
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .page-sub {
+    margin-top: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.02em;
+    font-weight: 300;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--sage);
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border);
+    display: none;
+  }
+
+  .field {
+    margin-bottom: 1.25rem;
+  }
+
+  .field label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 7px;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    width: 100%;
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 11px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--sage-light);
+    box-shadow: 0 0 0 3px rgba(107,140,104,0.1);
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 520px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 8px;
+  }
+
+  .svc-item {
+    position: relative;
+  }
+
+  .svc-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0; height: 0;
+  }
+
+  .svc-item label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 12px;
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink);
+    transition: all 0.15s;
+    line-height: 1.3;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .svc-item label::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    background: var(--warm-white);
+  }
+
+  .svc-item input:checked + label {
+    background: var(--sage-faint);
+    border-color: var(--sage-light);
+    color: var(--sage);
+  }
+
+  .svc-item input:checked + label::before {
+    background: var(--sage);
+    border-color: var(--sage);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .svc-category-header {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin: 1.25rem 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 5px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .submit-wrap {
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .submit-btn {
+    display: inline-block;
+    background: var(--sage);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 40px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    width: 100%;
+  }
+
+  .submit-btn:hover { background: #2d4028; }
+  .submit-btn:active { transform: scale(0.99); }
+
+  .required-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 12px;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: #c5c2b8;
+    font-style: italic;
+  }
+
+  select option { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <p class="wordmark">Aisling Wellness Center</p>
+  <h1 class="page-title">Provider <em>information</em></h1>
+  <p class="page-sub">Please fill out all fields as completely as possible.</p>
+</header>
+
+<div class="container">
+  <form action="https://formspree.io/f/xeoqogwq" method="POST">
+
+    <!-- Hidden redirect after submit -->
+    <input type="hidden" name="_subject" value="New Provider Submission — Aisling Wellness Center">
+    <input type="hidden" name="_next" value="https://aislingwellnesscenter.com">
+
+    <!-- ── BASIC INFO ── -->
+    <div class="section">
+      <div class="section-label">Basic information</div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>First name *</label>
+          <input type="text" name="first_name" required placeholder="e.g. Regan">
+        </div>
+        <div class="field">
+          <label>Last name initial *</label>
+          <input type="text" name="last_name_initial" required placeholder="e.g. B." maxlength="3">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Full title / role *</label>
+        <input type="text" name="title" required placeholder="e.g. Licensed Massage Therapist">
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>Credentials</label>
+          <input type="text" name="credentials" placeholder="e.g. LMT, CA">
+          <p class="hint">Abbreviations that appear after your name</p>
+        </div>
+        <div class="field">
+          <label>Years of experience *</label>
+          <input type="number" name="years_experience" required min="0" max="60" placeholder="e.g. 7">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BIO ── -->
+    <div class="section">
+      <div class="section-label">Biography</div>
+      <div class="field">
+        <label>Bio *</label>
+        <textarea name="bio" required placeholder="Write 2–4 sentences describing your approach, background, and what clients can expect from working with you."></textarea>
+      </div>
+    </div>
+
+    <!-- ── SPECIALTIES ── -->
+    <div class="section">
+      <div class="section-label">Specialties</div>
+      <div class="field">
+        <label>List your top specialties *</label>
+        <textarea name="specialties" required placeholder="Swedish massage, Deep tissue, Prenatal massage, Couples massage…&#10;&#10;Separate each with a comma or new line." style="min-height: 80px;"></textarea>
+        <p class="hint">These appear on your provider profile card</p>
+      </div>
+    </div>
+
+    <!-- ── SERVICES ── -->
+    <div class="section">
+      <div class="section-label">Services offered</div>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 1rem; font-weight: 300;">Select all services you are qualified and available to perform.</p>
+
+      <div class="svc-category-header">Massage &amp; Body</div>
+      <div class="services-grid">
+        <div class="svc-item"><input type="checkbox" id="swedish" name="services" value="swedish"><label for="swedish">Swedish Massage</label></div>
+        <div class="svc-item"><input type="checkbox" id="deep-tissue" name="services" value="deep-tissue"><label for="deep-tissue">Deep Tissue Massage</label></div>
+        <div class="svc-item"><input type="checkbox" id="lymphatic" name="services" value="lymphatic"><label for="lymphatic">Lymphatic Drainage</label></div>
+        <div class="svc-item"><input type="checkbox" id="couples" name="services" value="couples"><label for="couples">Couples Massage</label></div>
+      </div>
+
+      <div class="svc-category-header">Laser &amp; Skin</div>
+      <div class="services-grid">
+        <div class="svc-item"><input type="checkbox" id="alma-harmony" name="services" value="alma-harmony"><label for="alma-harmony">Alma Harmony Laser</label></div>
+        <div class="svc-item"><input type="checkbox" id="signature-facial" name="services" value="signature-facial"><label for="signature-facial">Signature Facial</label></div>
+        <div class="svc-item"><input type="checkbox" id="emface" name="services" value="emface"><label for="emface">EMFACE</label></div>
+        <div class="svc-item"><input type="checkbox" id="red-light" name="services" value="red-light"><label for="red-light">Red Light Therapy</label></div>
+      </div>
+
+      <div class="svc-category-header">Body Sculpting</div>
+      <div class="services-grid">
+        <div class="svc-item"><input type="checkbox" id="emsculpt-neo" name="services" value="emsculpt-neo"><label for="emsculpt-neo">EmSculpt Neo</label></div>
+        <div class="svc-item"><input type="checkbox" id="emsella" name="services" value="emsella"><label for="emsella">EMSELLA</label></div>
+        <div class="svc-item"><input type="checkbox" id="body-composition" name="services" value="body-composition"><label for="body-composition">3D Body Composition</label></div>
+      </div>
+
+      <div class="svc-category-header">IV &amp; Wellness</div>
+      <div class="services-grid">
+        <div class="svc-item"><input type="checkbox" id="iv-therapy" name="services" value="iv-therapy"><label for="iv-therapy">IV Therapy</label></div>
+        <div class="svc-item"><input type="checkbox" id="infrared-sauna" name="services" value="infrared-sauna"><label for="infrared-sauna">Infrared Sauna</label></div>
+        <div class="svc-item"><input type="checkbox" id="foot-detox" name="services" value="foot-detox"><label for="foot-detox">Foot Detox</label></div>
+      </div>
+
+      <div class="svc-category-header">Injectables</div>
+      <div class="services-grid">
+        <div class="svc-item"><input type="checkbox" id="botox" name="services" value="botox"><label for="botox">Neurotoxin (Botox etc.)</label></div>
+        <div class="svc-item"><input type="checkbox" id="dermal-fillers" name="services" value="dermal-fillers"><label for="dermal-fillers">Dermal Fillers</label></div>
+      </div>
+
+      <div class="svc-category-header">Weight Management</div>
+      <div class="services-grid">
+        <div class="svc-item"><input type="checkbox" id="semaglutide" name="services" value="semaglutide"><label for="semaglutide">Semaglutide Program</label></div>
+        <div class="svc-item"><input type="checkbox" id="tirzepatide" name="services" value="tirzepatide"><label for="tirzepatide">Tirzepatide Program</label></div>
+      </div>
+    </div>
+
+    <!-- ── OTHER SERVICES ── -->
+    <div class="section">
+      <div class="section-label">Other services</div>
+      <div class="field">
+        <label>Additional services not listed above</label>
+        <textarea name="other_services" placeholder="e.g. Hot stone massage, Cupping therapy, Microneedling…&#10;&#10;List any services you offer that aren't covered above. We'll use this to expand our menu." style="min-height: 90px;"></textarea>
+        <p class="hint">Don't worry about formatting — just list what you do and we'll handle the rest</p>
+      </div>
+    </div>
+
+    <!-- ── SUBMIT ── -->
+    <div class="submit-wrap">
+      <button type="submit" class="submit-btn">Submit information</button>
+      <p class="required-note">* Required fields</p>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>
