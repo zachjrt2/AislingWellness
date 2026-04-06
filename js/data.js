@@ -3,14 +3,90 @@
 // No build step needed — just save and push.
 
 const CATEGORIES = [
-  { id: "massage",      label: "Massage & Body",    serviceIds: ["swedish","deep-tissue","lymphatic","couples"] },
-  { id: "laser",        label: "Laser & Skin",      serviceIds: ["alma-harmony","signature-facial","emface","red-light"] },
-  { id: "sculpting",    label: "Body Sculpting",    serviceIds: ["emsculpt-neo","emsella","body-composition"] },
-  { id: "wellness",     label: "IV & Wellness",     serviceIds: ["iv-therapy","infrared-sauna","foot-detox"] },
-  { id: "injectables",  label: "Injectables",       serviceIds: ["botox","dermal-fillers"] },
-  { id: "weight",       label: "Weight Management", serviceIds: ["semaglutide","tirzepatide"] },
-];
+  { 
+    id: "massage",
+    label: "Massage & Body",
+    serviceIds: [
+      "swedish",
+      "deep-tissue",
+      "lymphatic",
+      "couples"
+    ]
+  },
 
+  { 
+    id: "laser",
+    label: "Laser & Skin",
+    serviceIds: [
+      "alma-harmony",
+      "signature-facial",
+      "emface",
+      "red-light",
+      "microneedling",
+      "chemical-peel"
+    ]
+  },
+
+  { 
+    id: "sculpting",
+    label: "Body Sculpting",
+    serviceIds: [
+      "emsculpt-neo",
+      "emsella",
+      "body-composition"
+    ]
+  },
+
+  { 
+    id: "wellness",
+    label: "IV & Wellness",
+    serviceIds: [
+      "iv-therapy",
+      "infrared-sauna",
+      "foot-detox",
+      "gut-health",
+      "health-optimization"
+    ]
+  },
+
+  { 
+    id: "injectables",
+    label: "Injectables",
+    serviceIds: [
+      "botox",
+      "neurotoxin-daxxify",
+      "dermal-fillers",
+      "prf-injections"
+    ]
+  },
+
+  { 
+    id: "weight",
+    label: "Weight Management",
+    serviceIds: [
+      "semaglutide",
+      "tirzepatide",
+      "metabolic-reset"
+    ]
+  },
+
+  { 
+    id: "hormone",
+    label: "Hormone & Functional Health",
+    serviceIds: [
+      "bhrt",
+      "pcos"
+    ]
+  },
+
+  { 
+    id: "hair",
+    label: "Hair Restoration",
+    serviceIds: [
+      "prf-hair"
+    ]
+  }
+];
 const SERVICES = [
   // ── MASSAGE ──
   { id:"swedish", name:"Swedish Massage", category:"massage", icon:"hands",
@@ -75,14 +151,14 @@ const SERVICES = [
     fullDescription:"During the procedure, ultra-fine needles create controlled micro-injuries in the skin, stimulating your body's natural healing response and boosting collagen and elastin production. This process helps smooth fine lines, reduce acne scars, minimize pores, and restore a healthy, youthful glow. We use advanced medical-grade microneedling devices to ensure precision, safety, and visible results. Treatments can also be enhanced with PRF (Platelet-Rich Fibrin) for even greater rejuvenation through your body's own growth factors. Common treatment areas include face, neck, décolletage, and scalp. Downtime: mild redness for 24–48 hours, with smoother, brighter skin emerging over the following week.",
     tags:["Collagen","Acne scars","Skin texture","Anti-aging"],
     duration:"30–60 min", price:"Consultation required", area:"Face, neck, décolletage, scalp",
-    providerIds:["jordan","ashley"] },
+    providerIds:["jordan","ashley", "regan"] },
 
   { id:"chemical-peel", name:"Chemical Peel — Sensi Peel", category:"laser", icon:"face",
     description:"Medical-grade exfoliating peel for smoother, brighter, more even skin.",
     fullDescription:"Our Sensi Peel uses a medical-grade blend of exfoliating acids to gently remove dull, damaged surface cells — revealing smoother texture, improved clarity, and a brighter, more even complexion. Each peel is selected based on your unique skin type and goals, whether addressing acne, pigmentation, fine lines, or overall rejuvenation. Treatments are quick, with minimal downtime and visible radiance within days.",
     tags:["Exfoliation","Pigmentation","Acne","Brightening"],
     duration:"30–60 min", price:"Consultation required", area:"Face",
-    providerIds:["jordan","ashley"] },
+    providerIds:["jordan","ashley", "regan"] },
 
   // ── SCULPTING ──
   { id:"emsculpt-neo", name:"EmSculpt Neo", category:"sculpting", icon:"body",
@@ -133,14 +209,14 @@ const SERVICES = [
     fullDescription:"Gut health plays a central role in overall wellness — including digestion, energy, immune function, hormone balance, and inflammation. When the gut is out of balance, it can contribute to symptoms such as bloating, reflux, constipation, diarrhea, brain fog, skin issues, and difficulty with weight or hormones. We take a root-cause, functional approach — looking beyond symptoms to identify underlying imbalances such as dysbiosis, inflammation, infections, or impaired digestion. Our structured, stepwise process restores gut health by removing triggers, replacing digestive support, repairing the gut lining, reinoculating beneficial bacteria, and rebalancing the microbiome for long-term function.",
     tags:["Gut health","Digestion","Inflammation","Functional medicine"],
     duration:"Ongoing program", price:"Consultation required", area:"Systemic",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 
   { id:"health-optimization", name:"Health Optimization", category:"wellness", icon:"heat",
     description:"Proactive, prevention-focused approach to long-term health and longevity.",
     fullDescription:"Our health optimization appointments take a proactive, prevention-focused approach to your long-term health. During your initial consultation, we complete a comprehensive review of your history, symptoms, lifestyle, and goals. Based on your evaluation, we may recommend advanced lab testing to assess hormones, metabolism, nutrient status, and overall function. From there, we create a personalized plan that may include targeted lifestyle changes, nutrition, peptide therapy, and vitamin and mineral supplementation to optimize your health, energy, and longevity.",
     tags:["Longevity","Prevention","Peptides","Lab testing"],
     duration:"60–90 min (initial)", price:"Consultation required", area:"Systemic",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 
   // ── INJECTABLES ──
   { id:"botox", name:"Neurotoxin (Botox / Dysport / Xeomin)", category:"injectables", icon:"needle",
@@ -155,7 +231,7 @@ const SERVICES = [
     fullDescription:"We also offer Daxxify and Jeuveau for patients seeking alternatives to traditional neurotoxins. Daxxify is notable for its extended duration — clinical data shows results lasting up to 6 months or more in many patients. Jeuveau is a modern, highly purified formulation optimized for aesthetic use. Your provider will recommend the best option based on your goals, anatomy, and treatment history. Initial consult includes assessment of facial features and personalized unit dosing recommendations.",
     tags:["Anti-aging","Long-lasting","Daxxify","Jeuveau"],
     duration:"30–60 min", price:"Consultation required", area:"Face",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 
   { id:"dermal-fillers", name:"Dermal Fillers", category:"injectables", icon:"needle",
     description:"Hyaluronic acid fillers to restore volume and contour gracefully.",
@@ -169,7 +245,7 @@ const SERVICES = [
     fullDescription:"Platelet-Rich Fibrin (PRF) injections use your body's own growth factors to stimulate collagen production, improve skin texture, and restore a more youthful appearance. This natural, additive-free treatment helps soften fine lines, improve elasticity, and enhance skin quality over time with minimal downtime. Ideal for the face, under-eyes, and areas of skin thinning or volume loss.",
     tags:["Natural","Collagen","Under-eyes","Skin quality"],
     duration:"30–60 min", price:"Consultation required", area:"Face, under-eyes",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 
   // ── WEIGHT ──
   { id:"semaglutide", name:"Semaglutide Program", category:"weight", icon:"body",
@@ -191,7 +267,7 @@ const SERVICES = [
     fullDescription:"Our medical weight loss programs are designed to help you achieve sustainable results through a comprehensive, evidence-based approach. Each plan combines nutrition counseling, exercise guidance, and — when appropriate — metabolic or peptide support to optimize fat loss, muscle preservation, and overall health. We focus on creating realistic, personalized strategies that fit your lifestyle. You'll receive one-on-one support, ongoing progress monitoring, and education to build lasting habits for improved energy, body composition, and confidence.",
     tags:["Nutrition","Lifestyle","Peptides","Sustainable results"],
     duration:"60–90 min (initial)", price:"Consultation required", area:"Systemic",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 
   // ── HORMONE & FUNCTIONAL HEALTH ──
   { id:"bhrt", name:"Bioidentical Hormone Replacement (BHRT)", category:"hormone", icon:"droplet",
@@ -199,14 +275,14 @@ const SERVICES = [
     fullDescription:"Hormones play a vital role in regulating mood, metabolism, energy, sleep, and sexual health. Over time, natural hormone levels decline — often beginning in your 30s or 40s — leading to symptoms that can significantly impact quality of life. Bioidentical Hormone Replacement Therapy (BHRT) uses hormones that are molecularly identical to those your body produces, restoring balance and supporting long-term wellness. At Regan Aesthetics & Health, each BHRT plan is based on your unique lab values, symptoms, and goals, using precise doses of estrogen, progesterone, testosterone, DHEA, and thyroid support when appropriate. We take a functional, preventative approach — addressing the root cause of imbalance while optimizing overall health and vitality.",
     tags:["Hormones","Energy","Mood","Longevity"],
     duration:"60–90 min (initial)", price:"Consultation required", area:"Systemic",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 
   { id:"pcos", name:"PCOS Management", category:"hormone", icon:"leaf",
     description:"Root-cause, individualized care for polycystic ovary syndrome.",
     fullDescription:"Polycystic Ovary Syndrome (PCOS) is a complex hormonal and metabolic condition that can affect cycles, weight, energy, skin, and fertility. At Regan Aesthetics & Health, we take a root-cause, individualized approach to managing PCOS — focusing on balancing hormones, improving metabolic health, and supporting long-term wellness. Treatment may include targeted nutrition, exercise guidance, supplementation, and when appropriate, medication support to improve insulin sensitivity, regulate cycles, and reduce symptoms.",
     tags:["Women's health","Hormones","Metabolic health","Fertility"],
     duration:"Ongoing program", price:"Consultation required", area:"Systemic",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 
   // ── HAIR RESTORATION ──
   { id:"prf-hair", name:"Hair Restoration (PRF)", category:"hair", icon:"leaf",
@@ -214,7 +290,7 @@ const SERVICES = [
     fullDescription:"Restore fuller, healthier hair naturally with Platelet-Rich Fibrin (PRF) therapy. This regenerative treatment uses your body's own growth factors to stimulate dormant follicles, improve scalp circulation, and strengthen hair at the root — without synthetic additives. Over a series of treatments, PRF helps reduce shedding and encourages new growth for thicker, denser hair. Enhance your results with peptide therapy add-ons, which support follicle activity, boost collagen production, and extend the growth phase of your hair cycle from within. Together, PRF and peptides provide a powerful, inside-out approach to lasting hair restoration.",
     tags:["Hair loss","PRF","Peptides","Scalp health"],
     duration:"60–90 min", price:"Consultation required", area:"Scalp",
-    providerIds:["dr-nguyen"] },
+    providerIds:["dr-nguyen", "regan"] },
 ];
 
 const PROVIDERS = [
@@ -238,6 +314,47 @@ const PROVIDERS = [
     specialties:["Gentle Swedish","Relaxation","New client introductions","Sensitivity care"],
     bookingUrl:"https://aislingwellnesscenter.com/book",
     serviceIds:["swedish","deep-tissue","couples"] },
+
+  { 
+    id: "regan",
+    name: "Regan Bednorz",
+    title: "Physician Assistant & Founder",
+    credentials: "PA-C, MPAS",
+    years: 10, // adjust if needed
+    avatarInitials: "RB",
+    avatarBg: "rgba(45,74,40,0.2)",
+    avatarColor: "#2d4a28",
+
+    bio: "Regan is a West Texas native and the founder of Regan Aesthetics and Health. As a dedicated Physician Assistant, she takes a personalized, root-cause approach to helping patients optimize their health and achieve their goals. Her background spans nutritional sciences, sports nutrition, oncology, emergency medicine, and family medicine, shaping her belief in proactive, preventative care rather than reactive treatment. Regan combines functional medicine with advanced aesthetic training to deliver natural, individualized results that support both internal health and outward confidence. Outside of her practice, she enjoys traveling, weight lifting, spending time outdoors, and cheering on Texas Tech with her family.",
+
+    specialties: [
+      "Bioidentical Hormone Replacement Therapy (BHRT)",
+      "Metabolic Reset & Medical Weight Loss",
+      "PCOS Management",
+      "Gut Health & Functional Medicine",
+      "Health Optimization & Preventative Care",
+      "Neurotoxin Injections (Daxxify, Jeuveau)",
+      "Platelet-Rich Fibrin (PRF) Injections",
+      "Microneedling",
+      "Chemical Peels",
+      "Hair Restoration (PRF)"
+    ],
+
+    bookingUrl: "https://www.optimantra.com/optimus/patient/patientaccess/servicesall?pid=SG1SbVp0cUZpMGdJWVFQMWV3Yks0UT09&lid=eHdZUUptN2daRFhBdFYxRUdTUitGQT09",
+
+    serviceIds: [
+      "bhrt",
+      "metabolic-reset",
+      "pcos",
+      "gut-health",
+      "health-optimization",
+      "neurotoxin-daxxify",
+      "prf-injections",
+      "microneedling",
+      "chemical-peel",
+      "prf-hair"
+    ]
+  }, 
 
   { id:"jordan", name:"Jordan P.", title:"Medical Aesthetician & Laser Tech", credentials:"LE, CLT", years:6,
     avatarInitials:"JP", avatarBg:"rgba(42,32,64,0.2)", avatarColor:"#2a2040",
