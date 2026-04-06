@@ -1,96 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book a Treatment | Aisling Wellness Center</title>
-  <meta name="description" content="Browse all treatments at Aisling Wellness Center. Find the right service, read about your provider, and book directly.">
+  <meta name="description"
+    content="Browse all treatments at Aisling Wellness Center. Find the right service, read about your provider, and book directly.">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<nav id="nav"></nav>
-<div id="nav-overlay"></div>
-<div id="nav-drawer"></div>
+  <nav id="nav"></nav>
+  <div id="nav-overlay"></div>
+  <div id="nav-drawer"></div>
 
-<!-- Page header -->
-<div class="book-header">
-  <div class="book-header-inner">
-    <h1 style="font-family:var(--display);font-size:clamp(26px,4vw,36px);font-weight:300;color:#eae5d5;margin-bottom:6px">Book a Treatment</h1>
-    <p style="font-size:13px;color:#9ab88a;letter-spacing:.03em">Select a service to explore details and find your provider</p>
+  <!-- Page header -->
+  <div class="book-header">
+    <div class="book-header-inner">
+      <h1
+        style="font-family:var(--display);font-size:clamp(26px,4vw,36px);font-weight:300;color:#eae5d5;margin-bottom:6px">
+        Book a Treatment</h1>
+      <p style="font-size:13px;color:#9ab88a;letter-spacing:.03em">Select a service to explore details and find your
+        provider</p>
+    </div>
   </div>
-</div>
 
-<!-- Mobile search and pills -->
-<div id="mobile-search-area"></div>
-<div id="mobile-pills"></div>
+  <!-- Mobile search and pills -->
+  <div id="mobile-search-area"></div>
+  <div id="mobile-pills"></div>
 
-<!-- Main layout -->
-<div class="book-layout">
-  <aside id="sidebar"></aside>
-  <div id="detail"></div>
-</div>
+  <!-- Main layout -->
+  <div class="book-layout">
+    <aside id="sidebar"></aside>
+    <div id="detail"></div>
+  </div>
 
-<footer id="footer"></footer>
+  <footer id="footer"></footer>
 
-<script src="js/data.js"></script>
-<script src="js/shared.js"></script>
-<script>
-  initShared('book');
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    initShared('book');
 
-  // ── Determine initial service from URL params ────────────────────────────
-  const params = new URLSearchParams(location.search);
-  const catParam = params.get('category');
-  const svcParam = params.get('service');
+    // ── Determine initial service from URL params ────────────────────────────
+    const params = new URLSearchParams(location.search);
+    const catParam = params.get('category');
+    const svcParam = params.get('service');
 
-  function getInitialId() {
-    if (svcParam && SERVICES.find(s => s.id === svcParam)) return svcParam;
-    if (catParam) {
-      const cat = CATEGORIES.find(c => c.id === catParam);
-      if (cat && cat.subCategories && cat.subCategories.length) {
-        return cat.subCategories[0].serviceIds[0];
-      }
-    }
-    return SERVICES[0].id;
-  }
-
-  let activeId = getInitialId();
-
-  // Mobile state for hierarchical navigation
-  let mobileView = 'categories'; 
-  let mobileCatId = null;
-  let mobileSubLabel = null;
-
-  function setMobileContext(svcId) {
-    const svc = SERVICES.find(s => s.id === svcId);
-    if (!svc) return;
-    CATEGORIES.forEach(cat => {
-      cat.subCategories.forEach(sub => {
-        if (sub.serviceIds.includes(svcId)) {
-          mobileCatId = cat.id;
-          mobileSubLabel = sub.label;
-          // If a category param was provided but no service, and there are multiple subcats,
-          // we might want to stay in subcategories view.
-          if (svcParam) {
-            mobileView = 'services';
-          } else if (catParam) {
-            mobileView = (cat.subCategories.length > 1) ? 'subcategories' : 'services';
-          } else {
-            mobileView = 'categories';
-          }
+    function getInitialId() {
+      if (svcParam && SERVICES.find(s => s.id === svcParam)) return svcParam;
+      if (catParam) {
+        const cat = CATEGORIES.find(c => c.id === catParam);
+        if (cat && cat.subCategories && cat.subCategories.length) {
+          return cat.subCategories[0].serviceIds[0];
         }
+      }
+      return SERVICES[0].id;
+    }
+
+    let activeId = getInitialId();
+
+    // Mobile state for hierarchical navigation
+    let mobileView = 'categories';
+    let mobileCatId = null;
+    let mobileSubLabel = null;
+
+    function setMobileContext(svcId) {
+      const svc = SERVICES.find(s => s.id === svcId);
+      if (!svc) return;
+      CATEGORIES.forEach(cat => {
+        cat.subCategories.forEach(sub => {
+          if (sub.serviceIds.includes(svcId)) {
+            mobileCatId = cat.id;
+            mobileSubLabel = sub.label;
+            // If a category param was provided but no service, and there are multiple subcats,
+            // we might want to stay in subcategories view.
+            if (svcParam) {
+              mobileView = 'services';
+            } else if (catParam) {
+              mobileView = (cat.subCategories.length > 1) ? 'subcategories' : 'services';
+            } else {
+              mobileView = 'categories';
+            }
+          }
+        });
       });
-    });
-  }
+    }
 
-  if (svcParam || catParam) {
-    setMobileContext(activeId);
-  }
+    if (svcParam || catParam) {
+      setMobileContext(activeId);
+    }
 
-  // ── Build sidebar ────────────────────────────────────────────────────────
-  function buildSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.innerHTML = `
+    // ── Build sidebar ────────────────────────────────────────────────────────
+    function buildSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.innerHTML = `
       <div class="sidebar-search-wrap">
         <div class="sidebar-search-icon">${icon('search', 14, '#8a8270')}</div>
         <input type="text" id="service-search" class="sidebar-search" placeholder="Search services...">
@@ -100,66 +106,66 @@
       </div>
     `;
 
-    renderSidebar();
+      renderSidebar();
 
-    document.getElementById('service-search').addEventListener('input', (e) => {
-      const q = e.target.value;
-      handleSearch(q);
-      const mobileInput = document.getElementById('mobile-service-search');
-      if (mobileInput) mobileInput.value = q;
-    });
-  }
+      document.getElementById('service-search').addEventListener('input', (e) => {
+        const q = e.target.value;
+        handleSearch(q);
+        const mobileInput = document.getElementById('mobile-service-search');
+        if (mobileInput) mobileInput.value = q;
+      });
+    }
 
-  // ── Build mobile search ──────────────────────────────────────────────────
-  function buildMobileSearch() {
-    const container = document.getElementById('mobile-search-area');
-    
-    // 1. Initial shell if empty (prevents re-rendering input and losing focus)
-    if (!container.innerHTML) {
-      container.innerHTML = `
+    // ── Build mobile search ──────────────────────────────────────────────────
+    function buildMobileSearch() {
+      const container = document.getElementById('mobile-search-area');
+
+      // 1. Initial shell if empty (prevents re-rendering input and losing focus)
+      if (!container.innerHTML) {
+        container.innerHTML = `
         <div class="mobile-search-wrap">
           <div class="mobile-search-icon">${icon('search', 14, '#8a8270')}</div>
           <input type="text" id="mobile-service-search" class="mobile-search-input" placeholder="Search services...">
         </div>
         <div id="mobile-nav-header-dynamic"></div>
       `;
-      
-      const mobileInput = document.getElementById('mobile-service-search');
-      const desktopInput = document.getElementById('service-search');
-      if (mobileInput) {
-        mobileInput.addEventListener('input', (e) => {
-          const q = e.target.value;
-          if (desktopInput) desktopInput.value = q;
-          handleSearch(q);
-        });
-      }
-    }
 
-    // 2. Breadcrumb and indicator logic
-    let breadcrumb = 'All Treatments';
-    let indicator = 'Choose a category';
-    
-    if (mobileView === 'search') {
-      breadcrumb = 'Search results';
-      indicator = 'Found treatments';
-    } else if (mobileView === 'subcategories' && mobileCatId) {
-      const cat = CATEGORIES.find(c => c.id === mobileCatId);
-      breadcrumb = cat ? cat.label : 'Categories';
-      indicator = 'Choose a sub-category';
-    } else if (mobileView === 'services' && mobileCatId) {
-      const cat = CATEGORIES.find(c => c.id === mobileCatId);
-      if (cat && cat.subCategories.length > 1) {
-        breadcrumb = `${cat.label} &rsaquo; ${mobileSubLabel}`;
-      } else {
-        breadcrumb = cat ? cat.label : mobileSubLabel;
+        const mobileInput = document.getElementById('mobile-service-search');
+        const desktopInput = document.getElementById('service-search');
+        if (mobileInput) {
+          mobileInput.addEventListener('input', (e) => {
+            const q = e.target.value;
+            if (desktopInput) desktopInput.value = q;
+            handleSearch(q);
+          });
+        }
       }
-      indicator = 'Select a treatment';
-    }
 
-    // 3. Update only the dynamic navigation header
-    const headerTarget = document.getElementById('mobile-nav-header-dynamic');
-    if (headerTarget) {
-      headerTarget.innerHTML = `
+      // 2. Breadcrumb and indicator logic
+      let breadcrumb = 'All Treatments';
+      let indicator = 'Choose a category';
+
+      if (mobileView === 'search') {
+        breadcrumb = 'Search results';
+        indicator = 'Found treatments';
+      } else if (mobileView === 'subcategories' && mobileCatId) {
+        const cat = CATEGORIES.find(c => c.id === mobileCatId);
+        breadcrumb = cat ? cat.label : 'Categories';
+        indicator = 'Choose a sub-category';
+      } else if (mobileView === 'services' && mobileCatId) {
+        const cat = CATEGORIES.find(c => c.id === mobileCatId);
+        if (cat && cat.subCategories.length > 1) {
+          breadcrumb = `${cat.label} &rsaquo; ${mobileSubLabel}`;
+        } else {
+          breadcrumb = cat ? cat.label : mobileSubLabel;
+        }
+        indicator = 'Select a treatment';
+      }
+
+      // 3. Update only the dynamic navigation header
+      const headerTarget = document.getElementById('mobile-nav-header-dynamic');
+      if (headerTarget) {
+        headerTarget.innerHTML = `
         <div class="mobile-nav-header">
           ${mobileView !== 'categories' ? `
             <button class="back-btn" onclick="goBackMobile()">
@@ -172,46 +178,46 @@
           </div>
         </div>
       `;
-    }
+      }
 
-    // Sync input values (safely without refocusing)
-    const mobileInput = document.getElementById('mobile-service-search');
-    const desktopInput = document.getElementById('service-search');
-    if (mobileInput && desktopInput && mobileInput.value !== desktopInput.value) {
-      mobileInput.value = desktopInput.value || '';
-    }
-  }
-
-  window.goBackMobile = () => {
-    if (mobileView === 'search') {
-      mobileView = 'categories';
-      document.getElementById('mobile-service-search').value = '';
+      // Sync input values (safely without refocusing)
+      const mobileInput = document.getElementById('mobile-service-search');
       const desktopInput = document.getElementById('service-search');
-      if (desktopInput) desktopInput.value = '';
-    } else if (mobileView === 'services') {
-      const cat = CATEGORIES.find(c => c.id === mobileCatId);
-      if (cat && cat.subCategories.length === 1) {
+      if (mobileInput && desktopInput && mobileInput.value !== desktopInput.value) {
+        mobileInput.value = desktopInput.value || '';
+      }
+    }
+
+    window.goBackMobile = () => {
+      if (mobileView === 'search') {
+        mobileView = 'categories';
+        document.getElementById('mobile-service-search').value = '';
+        const desktopInput = document.getElementById('service-search');
+        if (desktopInput) desktopInput.value = '';
+      } else if (mobileView === 'services') {
+        const cat = CATEGORIES.find(c => c.id === mobileCatId);
+        if (cat && cat.subCategories.length === 1) {
+          mobileView = 'categories';
+          mobileCatId = null;
+        } else {
+          mobileView = 'subcategories';
+        }
+      } else if (mobileView === 'subcategories') {
         mobileView = 'categories';
         mobileCatId = null;
-      } else {
-        mobileView = 'subcategories';
       }
-    } else if (mobileView === 'subcategories') {
-      mobileView = 'categories';
-      mobileCatId = null;
-    }
-    buildMobileSearch();
-    buildPills();
-  };
+      buildMobileSearch();
+      buildPills();
+    };
 
-  function renderSidebar() {
-    const nav = document.getElementById('sidebar-nav');
-    nav.innerHTML = `
+    function renderSidebar() {
+      const nav = document.getElementById('sidebar-nav');
+      nav.innerHTML = `
       <span class="sidebar-label">Categories</span>
       <div id="accordion-root">
         ${CATEGORIES.map(cat => {
-          const isCatExpanded = cat.subCategories.some(sub => sub.serviceIds.includes(activeId));
-          return `
+        const isCatExpanded = cat.subCategories.some(sub => sub.serviceIds.includes(activeId));
+        return `
             <div class="sidebar-category${isCatExpanded ? ' expanded' : ''}">
               <button class="sidebar-category-header">
                 <span class="label">${cat.label}</span>
@@ -219,8 +225,8 @@
               </button>
               <div class="sidebar-sub-list">
                 ${cat.subCategories.map(sub => {
-                  const isSubExpanded = sub.serviceIds.includes(activeId);
-                  return `
+          const isSubExpanded = sub.serviceIds.includes(activeId);
+          return `
                     <div class="sidebar-subcategory${isSubExpanded ? ' expanded' : ''}">
                       <button class="sidebar-subcategory-header">
                         <span class="label">${sub.label}</span>
@@ -228,74 +234,75 @@
                       </button>
                       <div class="sidebar-svc-list">
                         ${sub.serviceIds.map(svcId => {
-                          const svc = SERVICES.find(s => s.id === svcId);
-                          if (!svc) return '';
-                          return `
+            const svc = SERVICES.find(s => s.id === svcId);
+            if (!svc) return '';
+            return `
                             <button class="sidebar-item${svc.id === activeId ? ' active' : ''}" data-id="${svc.id}">
                               <span class="sidebar-dot"></span>${svc.name}
                             </button>
                           `;
-                        }).join('')}
+          }).join('')}
                       </div>
                     </div>
                   `;
-                }).join('')}
+        }).join('')}
               </div>
             </div>
           `;
-        }).join('')}
+      }).join('')}
       </div>
     `;
 
-    // Attach listeners
-    document.querySelectorAll('.sidebar-category-header').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const parent = btn.parentElement;
-        const wasExpanded = parent.classList.contains('expanded');
-        // Collapse others if desired, but here we just toggle
-        parent.classList.toggle('expanded');
+      // Attach listeners
+      document.querySelectorAll('.sidebar-category-header').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const parent = btn.parentElement;
+          const wasExpanded = parent.classList.contains('expanded');
+          // Collapse others if desired, but here we just toggle
+          parent.classList.toggle('expanded');
+        });
       });
-    });
 
-    document.querySelectorAll('.sidebar-subcategory-header').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        btn.parentElement.classList.toggle('expanded');
+      document.querySelectorAll('.sidebar-subcategory-header').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          btn.parentElement.classList.toggle('expanded');
+        });
       });
-    });
 
-    document.querySelectorAll('.sidebar-item').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        selectService(btn.dataset.id);
+      document.querySelectorAll('.sidebar-item').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectService(btn.dataset.id);
+        });
       });
-    });
-  }
-
-  function handleSearch(query) {
-    const nav = document.getElementById('sidebar-nav');
-    const mobilePills = document.getElementById('mobile-pills');
-    const q = query.trim().toLowerCase();
-
-    if (!q) {
-      mobileView = 'categories';
-      renderSidebar();
-      buildMobileSearch();
-      buildPills();
-      return;
     }
 
-    mobileView = 'search';
-    const matches = SERVICES.filter(s => 
-      s.name.toLowerCase().includes(q) || 
-      (s.tags && s.tags.some(t => t.toLowerCase().includes(q)))
-    );
+    function handleSearch(query) {
+      const nav = document.getElementById('sidebar-nav');
+      const mobilePills = document.getElementById('mobile-pills');
+      const q = query.trim().toLowerCase();
 
-    buildMobileSearch(); // Refresh breadcrumbs
+      if (!q) {
+        mobileView = 'categories';
+        renderSidebar();
+        buildMobileSearch();
+        buildPills();
+        return;
+      }
 
-    // Update sidebar nav
-    nav.innerHTML = `
+      mobileView = 'search';
+      activeId = null;
+      const matches = SERVICES.filter(s =>
+        s.name.toLowerCase().includes(q) ||
+        (s.tags && s.tags.some(t => t.toLowerCase().includes(q)))
+      );
+
+      buildMobileSearch(); // Refresh breadcrumbs
+
+      // Update sidebar nav
+      nav.innerHTML = `
       <span class="sidebar-label">Results for "${query}"</span>
       <div style="padding-bottom:12px">
         ${matches.length ? matches.map(svc => `
@@ -306,89 +313,89 @@
       </div>
     `;
 
-    // Update mobile pills
-    mobilePills.innerHTML = matches.length ? matches.map(svc => `
+      // Update mobile pills
+      mobilePills.innerHTML = matches.length ? matches.map(svc => `
       <button class="pill${svc.id === activeId ? ' active' : ''}" data-id="${svc.id}">${svc.name}</button>
     `).join('') : '<p style="font-size:12px;color:#8a8270;padding:14px 20px">No matches found</p>';
 
-    nav.querySelectorAll('.sidebar-item').forEach(btn => {
-      btn.addEventListener('click', () => selectService(btn.dataset.id));
-    });
-    mobilePills.querySelectorAll('.pill').forEach(btn => {
-      btn.addEventListener('click', () => selectService(btn.dataset.id));
-    });
-  }
+      nav.querySelectorAll('.sidebar-item').forEach(btn => {
+        btn.addEventListener('click', () => selectService(btn.dataset.id));
+      });
+      mobilePills.querySelectorAll('.pill').forEach(btn => {
+        btn.addEventListener('click', () => selectService(btn.dataset.id));
+      });
+    }
 
-  // ── Build mobile pills ───────────────────────────────────────────────────
-  function buildPills() {
-    const container = document.getElementById('mobile-pills');
-    let html = '';
+    // ── Build mobile pills ───────────────────────────────────────────────────
+    function buildPills() {
+      const container = document.getElementById('mobile-pills');
+      let html = '';
 
-    if (mobileView === 'categories') {
-      html = CATEGORIES.map(c => `
+      if (mobileView === 'categories') {
+        html = CATEGORIES.map(c => `
         <button class="pill" onclick="selectMobileCat('${c.id}')">
           <span class="pill-icon">${icon('folder', 14, '#7a9e68')}</span>
           ${c.label}
         </button>
       `).join('');
-    } 
-    else if (mobileView === 'subcategories') {
-      const cat = CATEGORIES.find(c => c.id === mobileCatId);
-      html = (cat?.subCategories || []).map(sub => `
+      }
+      else if (mobileView === 'subcategories') {
+        const cat = CATEGORIES.find(c => c.id === mobileCatId);
+        html = (cat?.subCategories || []).map(sub => `
         <button class="pill" onclick="selectMobileSub('${cat.id}', '${sub.label}')">
           <span class="pill-icon">${icon('list', 14, '#b0a880')}</span>
           ${sub.label}
         </button>
       `).join('');
-    }
-    else if (mobileView === 'services') {
-      const cat = CATEGORIES.find(c => c.id === mobileCatId);
-      const sub = cat?.subCategories.find(s => s.label === mobileSubLabel);
-      html = (sub?.serviceIds || []).map(svcId => {
-        const svc = SERVICES.find(s => s.id === svcId);
-        return `
+      }
+      else if (mobileView === 'services') {
+        const cat = CATEGORIES.find(c => c.id === mobileCatId);
+        const sub = cat?.subCategories.find(s => s.label === mobileSubLabel);
+        html = (sub?.serviceIds || []).map(svcId => {
+          const svc = SERVICES.find(s => s.id === svcId);
+          return `
           <button class="pill${svc.id === activeId ? ' active' : ''}" onclick="selectService('${svc.id}')">
             ${svc.name}
           </button>
         `;
-      }).join('');
-    }
-    else if (mobileView === 'search') {
-      // In search mode, handleSearch already updates pills. 
-      // But we call buildPills sometimes, so let's ensure it doesn't wipe search results.
-      // We'll skip re-rendering if in search mode to let handleSearch handle it.
-      return;
+        }).join('');
+      }
+      else if (mobileView === 'search') {
+        // In search mode, handleSearch already updates pills. 
+        // But we call buildPills sometimes, so let's ensure it doesn't wipe search results.
+        // We'll skip re-rendering if in search mode to let handleSearch handle it.
+        return;
+      }
+
+      container.innerHTML = html;
     }
 
-    container.innerHTML = html;
-  }
+    window.selectMobileCat = (catId) => {
+      mobileCatId = catId;
+      const cat = CATEGORIES.find(c => c.id === catId);
+      if (cat && cat.subCategories.length === 1) {
+        mobileSubLabel = cat.subCategories[0].label;
+        mobileView = 'services';
+      } else {
+        mobileView = 'subcategories';
+      }
+      buildMobileSearch();
+      buildPills();
+    };
 
-  window.selectMobileCat = (catId) => {
-    mobileCatId = catId;
-    const cat = CATEGORIES.find(c => c.id === catId);
-    if (cat && cat.subCategories.length === 1) {
-      mobileSubLabel = cat.subCategories[0].label;
+    window.selectMobileSub = (catId, subLabel) => {
+      mobileCatId = catId;
+      mobileSubLabel = subLabel;
       mobileView = 'services';
-    } else {
-      mobileView = 'subcategories';
-    }
-    buildMobileSearch();
-    buildPills();
-  };
+      buildMobileSearch();
+      buildPills();
+    };
 
-  window.selectMobileSub = (catId, subLabel) => {
-    mobileCatId = catId;
-    mobileSubLabel = subLabel;
-    mobileView = 'services';
-    buildMobileSearch();
-    buildPills();
-  };
+    // ── Render detail panel ──────────────────────────────────────────────────
+    function renderDetail(svc) {
+      const svcProviders = PROVIDERS.filter(p => svc.providerIds.includes(p.id));
 
-  // ── Render detail panel ──────────────────────────────────────────────────
-  function renderDetail(svc) {
-    const svcProviders = PROVIDERS.filter(p => svc.providerIds.includes(p.id));
-
-    document.getElementById('detail').innerHTML = `
+      document.getElementById('detail').innerHTML = `
       <div class="detail-hero">
         <div class="detail-top">
           <div class="detail-icon-wrap">${icon(svc.icon, 22, '#7a9e68')}</div>
@@ -436,40 +443,56 @@
       <div class="detail-ornament">· · ✦ · ·</div>
     `;
 
-    // Provider card selection highlight
-    document.querySelectorAll('.provider-card').forEach(card => {
-      card.addEventListener('click', function() {
-        document.querySelectorAll('.provider-card').forEach(c => c.classList.remove('selected'));
-        this.classList.add('selected');
+      // Provider card selection highlight
+      document.querySelectorAll('.provider-card').forEach(card => {
+        card.addEventListener('click', function () {
+          document.querySelectorAll('.provider-card').forEach(c => c.classList.remove('selected'));
+          this.classList.add('selected');
+        });
       });
-    });
-  }
+    }
 
-  // ── Select service ───────────────────────────────────────────────────────
-  function selectService(id) {
-    activeId = id;
-    const svc = SERVICES.find(s => s.id === id);
-    if (!svc) return;
+    // ── Select service ───────────────────────────────────────────────────────
+    function selectService(id) {
+      const wasSearch = mobileView === 'search';
 
-    // Sync mobile UI
-    setMobileContext(id);
+      // Get the service FIRST (you were missing this)
+      const svc = SERVICES.find(s => s.id === id);
+      if (!svc) return;
+
+      activeId = id;
+
+      // Only update category context if NOT searching
+      if (!wasSearch) {
+        setMobileContext(id);
+      }
+
+      // Always rebuild header (breadcrumb etc.)
+      buildMobileSearch();
+
+      if (wasSearch) {
+        // 🔑 KEY FIX: Re-run search instead of resetting UI
+        const query = document.getElementById('service-search')?.value || '';
+        handleSearch(query);
+      } else {
+        buildPills();
+        renderSidebar();
+      }
+
+      renderDetail(svc);
+
+      // Update URL without reload
+      const url = new URL(location.href);
+      url.searchParams.set('service', id);
+      history.replaceState({}, '', url);
+    }
+
+    // ── Init ─────────────────────────────────────────────────────────────────
+    buildSidebar();
     buildMobileSearch();
     buildPills();
-
-    renderSidebar();
-    renderDetail(svc);
-
-    // Update URL without reload
-    const url = new URL(location.href);
-    url.searchParams.set('service', id);
-    history.replaceState({}, '', url);
-  }
-
-  // ── Init ─────────────────────────────────────────────────────────────────
-  buildSidebar();
-  buildMobileSearch();
-  buildPills();
-  renderDetail(SERVICES.find(s => s.id === activeId));
-</script>
+    renderDetail(SERVICES.find(s => s.id === activeId));
+  </script>
 </body>
+
 </html>
