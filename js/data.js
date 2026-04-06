@@ -70,6 +70,20 @@ const SERVICES = [
     duration:"20–30 min", price:"From $45", area:"Full body or face",
     providerIds:["ashley"] },
 
+  { id:"microneedling", name:"Microneedling", category:"laser", icon:"face",
+    description:"Collagen-inducing treatment that improves tone, texture, and firmness naturally.",
+    fullDescription:"During the procedure, ultra-fine needles create controlled micro-injuries in the skin, stimulating your body's natural healing response and boosting collagen and elastin production. This process helps smooth fine lines, reduce acne scars, minimize pores, and restore a healthy, youthful glow. We use advanced medical-grade microneedling devices to ensure precision, safety, and visible results. Treatments can also be enhanced with PRF (Platelet-Rich Fibrin) for even greater rejuvenation through your body's own growth factors. Common treatment areas include face, neck, décolletage, and scalp. Downtime: mild redness for 24–48 hours, with smoother, brighter skin emerging over the following week.",
+    tags:["Collagen","Acne scars","Skin texture","Anti-aging"],
+    duration:"30–60 min", price:"Consultation required", area:"Face, neck, décolletage, scalp",
+    providerIds:["jordan","ashley"] },
+
+  { id:"chemical-peel", name:"Chemical Peel — Sensi Peel", category:"laser", icon:"face",
+    description:"Medical-grade exfoliating peel for smoother, brighter, more even skin.",
+    fullDescription:"Our Sensi Peel uses a medical-grade blend of exfoliating acids to gently remove dull, damaged surface cells — revealing smoother texture, improved clarity, and a brighter, more even complexion. Each peel is selected based on your unique skin type and goals, whether addressing acne, pigmentation, fine lines, or overall rejuvenation. Treatments are quick, with minimal downtime and visible radiance within days.",
+    tags:["Exfoliation","Pigmentation","Acne","Brightening"],
+    duration:"30–60 min", price:"Consultation required", area:"Face",
+    providerIds:["jordan","ashley"] },
+
   // ── SCULPTING ──
   { id:"emsculpt-neo", name:"EmSculpt Neo", category:"sculpting", icon:"body",
     description:"The only device that simultaneously builds muscle and reduces fat.",
@@ -114,6 +128,20 @@ const SERVICES = [
     duration:"30 min", price:"From $35", area:"Feet",
     providerIds:["ashley"] },
 
+  { id:"gut-health", name:"Gut Health", category:"wellness", icon:"leaf",
+    description:"Root-cause, functional approach to restoring digestive balance and overall wellness.",
+    fullDescription:"Gut health plays a central role in overall wellness — including digestion, energy, immune function, hormone balance, and inflammation. When the gut is out of balance, it can contribute to symptoms such as bloating, reflux, constipation, diarrhea, brain fog, skin issues, and difficulty with weight or hormones. We take a root-cause, functional approach — looking beyond symptoms to identify underlying imbalances such as dysbiosis, inflammation, infections, or impaired digestion. Our structured, stepwise process restores gut health by removing triggers, replacing digestive support, repairing the gut lining, reinoculating beneficial bacteria, and rebalancing the microbiome for long-term function.",
+    tags:["Gut health","Digestion","Inflammation","Functional medicine"],
+    duration:"Ongoing program", price:"Consultation required", area:"Systemic",
+    providerIds:["dr-nguyen"] },
+
+  { id:"health-optimization", name:"Health Optimization", category:"wellness", icon:"heat",
+    description:"Proactive, prevention-focused approach to long-term health and longevity.",
+    fullDescription:"Our health optimization appointments take a proactive, prevention-focused approach to your long-term health. During your initial consultation, we complete a comprehensive review of your history, symptoms, lifestyle, and goals. Based on your evaluation, we may recommend advanced lab testing to assess hormones, metabolism, nutrient status, and overall function. From there, we create a personalized plan that may include targeted lifestyle changes, nutrition, peptide therapy, and vitamin and mineral supplementation to optimize your health, energy, and longevity.",
+    tags:["Longevity","Prevention","Peptides","Lab testing"],
+    duration:"60–90 min (initial)", price:"Consultation required", area:"Systemic",
+    providerIds:["dr-nguyen"] },
+
   // ── INJECTABLES ──
   { id:"botox", name:"Neurotoxin (Botox / Dysport / Xeomin)", category:"injectables", icon:"needle",
     description:"Precise muscle relaxation for a smooth, natural, refreshed look.",
@@ -122,11 +150,25 @@ const SERVICES = [
     duration:"30 min", price:"From $12/unit", area:"Face",
     providerIds:["dr-nguyen"] },
 
+  { id:"neurotoxin-daxxify", name:"Neurotoxin (Daxxify / Jeuveau)", category:"injectables", icon:"needle",
+    description:"Next-generation neurotoxins for longer-lasting wrinkle relaxation.",
+    fullDescription:"We also offer Daxxify and Jeuveau for patients seeking alternatives to traditional neurotoxins. Daxxify is notable for its extended duration — clinical data shows results lasting up to 6 months or more in many patients. Jeuveau is a modern, highly purified formulation optimized for aesthetic use. Your provider will recommend the best option based on your goals, anatomy, and treatment history. Initial consult includes assessment of facial features and personalized unit dosing recommendations.",
+    tags:["Anti-aging","Long-lasting","Daxxify","Jeuveau"],
+    duration:"30–60 min", price:"Consultation required", area:"Face",
+    providerIds:["dr-nguyen"] },
+
   { id:"dermal-fillers", name:"Dermal Fillers", category:"injectables", icon:"needle",
     description:"Hyaluronic acid fillers to restore volume and contour gracefully.",
     fullDescription:"Dermal fillers use hyaluronic acid to restore lost volume, soften deep lines, and refine facial contours. Common areas include lips, nasolabial folds, cheeks, under-eyes, and jawline. Results are immediate and can last 9–18 months. Our practitioners prioritize balance and proportion — results should enhance your features, not redefine them.",
     tags:["Volume","Contouring","Natural","Immediate results"],
     duration:"45–60 min", price:"From $650/syringe", area:"Face",
+    providerIds:["dr-nguyen"] },
+
+  { id:"prf-injections", name:"Platelet Rich Fibrin (PRF) Injections", category:"injectables", icon:"needle",
+    description:"Your body's own growth factors to stimulate collagen and restore a youthful appearance.",
+    fullDescription:"Platelet-Rich Fibrin (PRF) injections use your body's own growth factors to stimulate collagen production, improve skin texture, and restore a more youthful appearance. This natural, additive-free treatment helps soften fine lines, improve elasticity, and enhance skin quality over time with minimal downtime. Ideal for the face, under-eyes, and areas of skin thinning or volume loss.",
+    tags:["Natural","Collagen","Under-eyes","Skin quality"],
+    duration:"30–60 min", price:"Consultation required", area:"Face, under-eyes",
     providerIds:["dr-nguyen"] },
 
   // ── WEIGHT ──
@@ -142,6 +184,36 @@ const SERVICES = [
     fullDescription:"Tirzepatide acts on two separate hormone receptors (GIP and GLP-1) to more powerfully regulate appetite, blood sugar, and metabolism. Clinical trials show 15–20% body weight loss over treatment. Our program wraps the medication in comprehensive clinical support and goal tracking.",
     tags:["Medical weight loss","Dual agonist","Clinically supervised","Advanced"],
     duration:"Ongoing program", price:"Consultation required", area:"Systemic",
+    providerIds:["dr-nguyen"] },
+
+  { id:"metabolic-reset", name:"Metabolic Reset & Weight Loss", category:"weight", icon:"body",
+    description:"Comprehensive, evidence-based weight loss combining nutrition, exercise, and metabolic support.",
+    fullDescription:"Our medical weight loss programs are designed to help you achieve sustainable results through a comprehensive, evidence-based approach. Each plan combines nutrition counseling, exercise guidance, and — when appropriate — metabolic or peptide support to optimize fat loss, muscle preservation, and overall health. We focus on creating realistic, personalized strategies that fit your lifestyle. You'll receive one-on-one support, ongoing progress monitoring, and education to build lasting habits for improved energy, body composition, and confidence.",
+    tags:["Nutrition","Lifestyle","Peptides","Sustainable results"],
+    duration:"60–90 min (initial)", price:"Consultation required", area:"Systemic",
+    providerIds:["dr-nguyen"] },
+
+  // ── HORMONE & FUNCTIONAL HEALTH ──
+  { id:"bhrt", name:"Bioidentical Hormone Replacement (BHRT)", category:"hormone", icon:"droplet",
+    description:"Personalized hormone restoration using molecules identical to those your body produces.",
+    fullDescription:"Hormones play a vital role in regulating mood, metabolism, energy, sleep, and sexual health. Over time, natural hormone levels decline — often beginning in your 30s or 40s — leading to symptoms that can significantly impact quality of life. Bioidentical Hormone Replacement Therapy (BHRT) uses hormones that are molecularly identical to those your body produces, restoring balance and supporting long-term wellness. At Regan Aesthetics & Health, each BHRT plan is based on your unique lab values, symptoms, and goals, using precise doses of estrogen, progesterone, testosterone, DHEA, and thyroid support when appropriate. We take a functional, preventative approach — addressing the root cause of imbalance while optimizing overall health and vitality.",
+    tags:["Hormones","Energy","Mood","Longevity"],
+    duration:"60–90 min (initial)", price:"Consultation required", area:"Systemic",
+    providerIds:["dr-nguyen"] },
+
+  { id:"pcos", name:"PCOS Management", category:"hormone", icon:"leaf",
+    description:"Root-cause, individualized care for polycystic ovary syndrome.",
+    fullDescription:"Polycystic Ovary Syndrome (PCOS) is a complex hormonal and metabolic condition that can affect cycles, weight, energy, skin, and fertility. At Regan Aesthetics & Health, we take a root-cause, individualized approach to managing PCOS — focusing on balancing hormones, improving metabolic health, and supporting long-term wellness. Treatment may include targeted nutrition, exercise guidance, supplementation, and when appropriate, medication support to improve insulin sensitivity, regulate cycles, and reduce symptoms.",
+    tags:["Women's health","Hormones","Metabolic health","Fertility"],
+    duration:"Ongoing program", price:"Consultation required", area:"Systemic",
+    providerIds:["dr-nguyen"] },
+
+  // ── HAIR RESTORATION ──
+  { id:"prf-hair", name:"Hair Restoration (PRF)", category:"hair", icon:"leaf",
+    description:"Regenerative PRF therapy to stimulate dormant follicles and restore fuller, healthier hair.",
+    fullDescription:"Restore fuller, healthier hair naturally with Platelet-Rich Fibrin (PRF) therapy. This regenerative treatment uses your body's own growth factors to stimulate dormant follicles, improve scalp circulation, and strengthen hair at the root — without synthetic additives. Over a series of treatments, PRF helps reduce shedding and encourages new growth for thicker, denser hair. Enhance your results with peptide therapy add-ons, which support follicle activity, boost collagen production, and extend the growth phase of your hair cycle from within. Together, PRF and peptides provide a powerful, inside-out approach to lasting hair restoration.",
+    tags:["Hair loss","PRF","Peptides","Scalp health"],
+    duration:"60–90 min", price:"Consultation required", area:"Scalp",
     providerIds:["dr-nguyen"] },
 ];
 
