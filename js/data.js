@@ -1175,6 +1175,82 @@ const REVIEWS = [
     id: "r6", author: "Patricia W.", initials: "PW", rating: 5, date: "February 2025",
     text: "Dr. Nguyen is exceptional. She took so much time with me during our consultation and the results from my fillers are so natural — exactly what I wanted. This is the only place I trust for injectables."
   },
+  {
+    id: "r7", author: "Camila Anderson", initials: "CA", rating: 5, date: "July 2025",
+    text: "I received a massage from Gabriel and it was GREAT!!! Super calming atmosphere and Gabriel is such a nice guy. He really helped alleviate the back pain I’ve been having since my c-section."
+  },
+  {
+    id: "r8", author: "Ashley Dilly", initials: "AD", rating: 5, date: "July 2025",
+    text: "I come here weekly for massages and they are really able to help with all of my issues. I leave feeling so refreshed. They are very courteous and respectful. Gabriel listens and I feel better after every session."
+  },
+  {
+    id: "r9", author: "Skylar Davis", initials: "SD", rating: 5, date: "September 2025",
+    text: "Kasden is the best I recommend her for facials. She’s helped me so much. I struggle with hormonal acne and she always gives me great advice and tips and products to use!"
+  },
+  {
+    id: "r10", author: "Marci Puryear", initials: "MP", rating: 5, date: "June 2025",
+    text: "The foot detox was so relaxing and made my feet feel so relaxed all day!! Teresa also whitened my teeth and I had zero sensitivity and they were 3 shades whiter! Clean and inviting atmosphere!"
+  },
+  {
+    id: "r11", author: "Tonda Elliott", initials: "TE", rating: 5, date: "July 2025",
+    text: "Gabe has helped my back so much with massage therapy. I am able to swing the golf club with no pain in my back with the regular massages. I am grateful he has been able to help keep me active."
+  },
+  {
+    id: "r12", author: "Jennifer Byrd", initials: "JB", rating: 5, date: "September 2025",
+    text: "They offer a list of amazing services and their staff is top notch! I enjoy their skin products and Gabriel, their massage therapist is amazing! I Highly recommend their location!"
+  },
+  {
+    id: "r13", author: "Gabriel Sanders", initials: "GS", rating: 5, date: "June 2025",
+    text: "I got a foot detox from Teressa and it was an amazing experience! She was very attentive and explained everything to me so effectively! I will definitely be back as often as I can!"
+  },
+  {
+    id: "r14", author: "Blake Smith", initials: "BS", rating: 5, date: "September 2025",
+    text: "Excellent building and location. Gabe was tremendously helpful at getting my body back where it needs to be. Reasonable price and great service."
+  },
+  {
+    id: "r15", author: "Stephanie Day", initials: "SD", rating: 5, date: "April 2025",
+    text: "What a warm, inviting, encouraging environment! They go far and beyond with the many services they offer. And it was such a joy to see Natali. All staff were so friendly and informative."
+  },
+  {
+    id: "r16", author: "Jenny Walker", initials: "JW", rating: 5, date: "April 2025",
+    text: "Marci Puryear is the best!! My dermaplaning was like no other!! I do not let anyone else touch my face! She is perfection!"
+  },
+  {
+    id: "r17", author: "Kimberly Browning", initials: "KB", rating: 5, date: "April 2025",
+    text: "Waxing with Lauren is such a pleasure and so painless. A true professional! Highly recommended and at a beautiful, relaxed location."
+  },
+  {
+    id: "r18", author: "Kayli H", initials: "KH", rating: 5, date: "July 2025",
+    text: "Gabriel did amazing as always and will forever be my new favorite massage therapist. He’s so talented and very soft-spoken! That really helps with the meditation side of the massage."
+  },
+  {
+    id: "r19", author: "Mary Ann Moralez-Williamson", initials: "MM", rating: 5, date: "September 2025",
+    text: "Gabriel is very professional. Relaxing massage yet therapeutic. Thank you!! Professional service in a beautiful environment."
+  },
+  {
+    id: "r20", author: "Libby Everett", initials: "LE", rating: 5, date: "August 2025",
+    text: "Great environment! Can find all wellness needs in one place. Highly recommend Gabes Healing Touch for massages!"
+  },
+  {
+    id: "r21", author: "Teressa Sisk", initials: "TS", rating: 5, date: "June 2025",
+    text: "Everyone is so awesome at this place. From facials, waxers to massage therapist. You will be well taken care of."
+  },
+  {
+    id: "r22", author: "Greg Goodnight", initials: "GG", rating: 5, date: "April 2025",
+    text: "This place is amazing! The people are very professional, personable, knowledgeable and efficient. I highly recommend Aisling Wellness Center!"
+  },
+  {
+    id: "r23", author: "Tara Givens", initials: "TG", rating: 5, date: "April 2025",
+    text: "Lauren was so sweet and professional! I felt super comfortable. So glad I found them!"
+  },
+  {
+    id: "r24", author: "Lisa Mullins", initials: "LM", rating: 5, date: "May 2025",
+    text: "This place is amazing!! Professional atmosphere and incredible staff."
+  },
+  {
+    id: "r25", author: "Tillery Sims", initials: "TS", rating: 5, date: "April 2026",
+    text: "Such a beautiful place with great services! I had a body wrap by Teressa and the results on my arms were amazing! Erin Stone gives the greatest therapeutic massage."
+  },
 ];
 
 const CREDENTIALS = [
@@ -1183,10 +1259,16 @@ const CREDENTIALS = [
 ];
 
 const HOME_SERVICES = [
-  { id: "massage", name: "Massage therapy", desc: "Swedish, deep tissue, lymphatic drainage, aromatherapy, and couples.", icon: "hands" },
-  { id: "laser", name: "Laser & skin", desc: "Alma Harmony, EMFACE, signature facials, and red light therapy.", icon: "glow" },
-  { id: "sculpting", name: "Body sculpting", desc: "EmSculpt Neo, EMSELLA, and 3D body composition analysis.", icon: "body" },
-  { id: "wellness", name: "IV & wellness", desc: "IV therapy, infrared sauna, foot detox, and holistic treatments.", icon: "droplet" },
-  { id: "injectables", name: "Injectables", desc: "Botox, Dysport, Xeomin, and dermal fillers — natural results.", icon: "needle" },
-  { id: "weight", name: "Weight management", desc: "Semaglutide, tirzepatide, and medically guided programs.", icon: "leaf" },
+  { id: "massage", name: "Massage therapy", desc: "Swedish, deep tissue, lymphatic drainage, and couples.", icon: "hands" },
+  { id: "laser", name: "Laser & skin", desc: "Alma Harmony, EMFACE, facials, and resurfacing.", icon: "glow" },
+  { id: "sculpting", name: "Body sculpting", desc: "EmSculpt Neo, EMSELLA, and 3D body composition.", icon: "body" },
+  { id: "wellness", name: "IV & wellness", desc: "IV therapy, infrared sauna, and detox treatments.", icon: "droplet" },
+  { id: "injectables", name: "Injectables", desc: "Botox, fillers, and PRF — natural, expert results.", icon: "needle" },
+  { id: "weight", name: "Weight loss", desc: "Semaglutide, tirzepatide, and medical programs.", icon: "scale" },
+  { id: "hormone", name: "Hormone health", desc: "Bioidentical hormone replacement (BHRT) and PCOS.", icon: "scale" },
+  { id: "acne", name: "Acne clinic", desc: "Face Reality certified clear skin programs.", icon: "face" },
+  { id: "headspa", name: "Holistic headspa", desc: "Japanese scalp rituals and tranquil head therapy.", icon: "hands" },
+  { id: "hair", name: "Hair restoration", desc: "Regenerative PRF treatments for hair growth.", icon: "glow" },
+  { id: "lashes", name: "Lashes & brows", desc: "Lash lifts, brow lamination, and artistic dyeing.", icon: "star" },
+  { id: "waxing", name: "Precision waxing", desc: "Expert full body and facial hair removal.", icon: "scale" },
 ];

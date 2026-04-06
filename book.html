@@ -16,11 +16,6 @@
 <!-- Page header -->
 <div class="book-header">
   <div class="book-header-inner">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="sep">›</span>
-      <span class="current">Book a treatment</span>
-    </div>
     <h1 style="font-family:var(--display);font-size:clamp(26px,4vw,36px);font-weight:300;color:#eae5d5;margin-bottom:6px">Book a Treatment</h1>
     <p style="font-size:13px;color:#9ab88a;letter-spacing:.03em">Select a service to explore details and find your provider</p>
   </div>
@@ -62,7 +57,7 @@
   let activeId = getInitialId();
 
   // Mobile state for hierarchical navigation
-  let mobileView = svcParam ? 'services' : 'categories'; // Start at categories if no service param
+  let mobileView = 'categories'; 
   let mobileCatId = null;
   let mobileSubLabel = null;
 
@@ -74,11 +69,20 @@
         if (sub.serviceIds.includes(svcId)) {
           mobileCatId = cat.id;
           mobileSubLabel = sub.label;
-          mobileView = 'services';
+          // If a category param was provided but no service, and there are multiple subcats,
+          // we might want to stay in subcategories view.
+          if (svcParam) {
+            mobileView = 'services';
+          } else if (catParam) {
+            mobileView = (cat.subCategories.length > 1) ? 'subcategories' : 'services';
+          } else {
+            mobileView = 'categories';
+          }
         }
       });
     });
   }
+
   if (svcParam || catParam) {
     setMobileContext(activeId);
   }
@@ -110,7 +114,28 @@
   function buildMobileSearch() {
     const container = document.getElementById('mobile-search-area');
     
-    // Breadcrumb and indicator logic
+    // 1. Initial shell if empty (prevents re-rendering input and losing focus)
+    if (!container.innerHTML) {
+      container.innerHTML = `
+        <div class="mobile-search-wrap">
+          <div class="mobile-search-icon">${icon('search', 14, '#8a8270')}</div>
+          <input type="text" id="mobile-service-search" class="mobile-search-input" placeholder="Search services...">
+        </div>
+        <div id="mobile-nav-header-dynamic"></div>
+      `;
+      
+      const mobileInput = document.getElementById('mobile-service-search');
+      const desktopInput = document.getElementById('service-search');
+      if (mobileInput) {
+        mobileInput.addEventListener('input', (e) => {
+          const q = e.target.value;
+          if (desktopInput) desktopInput.value = q;
+          handleSearch(q);
+        });
+      }
+    }
+
+    // 2. Breadcrumb and indicator logic
     let breadcrumb = 'All Treatments';
     let indicator = 'Choose a category';
     
@@ -131,34 +156,29 @@
       indicator = 'Select a treatment';
     }
 
-    container.innerHTML = `
-      <div class="mobile-search-wrap">
-        <div class="mobile-search-icon">${icon('search', 14, '#8a8270')}</div>
-        <input type="text" id="mobile-service-search" class="mobile-search-input" placeholder="Search services...">
-      </div>
-      <div class="mobile-nav-header">
-        ${mobileView !== 'categories' ? `
-          <button class="back-btn" onclick="goBackMobile()">
-            ${icon('chevron-left', 12, '#fff')} BACK
-          </button>
-        ` : '<div></div>'}
-        <div style="text-align: right">
-          <span class="mobile-view-indicator">${indicator}</span>
-          <span class="nav-breadcrumb">${breadcrumb}</span>
+    // 3. Update only the dynamic navigation header
+    const headerTarget = document.getElementById('mobile-nav-header-dynamic');
+    if (headerTarget) {
+      headerTarget.innerHTML = `
+        <div class="mobile-nav-header">
+          ${mobileView !== 'categories' ? `
+            <button class="back-btn" onclick="goBackMobile()">
+              ${icon('chevron-left', 12, '#fff')} BACK
+            </button>
+          ` : '<div></div>'}
+          <div style="text-align: right">
+            <span class="mobile-view-indicator">${indicator}</span>
+            <span class="nav-breadcrumb">${breadcrumb}</span>
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    }
 
-    // Sync input values
+    // Sync input values (safely without refocusing)
     const mobileInput = document.getElementById('mobile-service-search');
     const desktopInput = document.getElementById('service-search');
-    if (mobileInput && desktopInput) {
+    if (mobileInput && desktopInput && mobileInput.value !== desktopInput.value) {
       mobileInput.value = desktopInput.value || '';
-      mobileInput.addEventListener('input', (e) => {
-        const q = e.target.value;
-        desktopInput.value = q;
-        handleSearch(q);
-      });
     }
   }
 

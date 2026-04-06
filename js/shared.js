@@ -5,7 +5,9 @@ const ICONS = {
 </svg>`,
   leaf: `<path d="M12 2C6 2 3 7 3 12c0 2 1 4 3 5M12 2c6 0 9 5 9 10 0 2-1 4-3 5M12 2v20M7 17l5-5" stroke-linecap="round" stroke-linejoin="round"/>`,
   face: `<circle cx="12" cy="8" r="5"/><path d="M10 6.5c0 1 .9 1.5 2 1.5s2-.5 2-1.5M9 11c-2 1.5-4 4-4 7h14c0-3-2-5.5-4-7" stroke-linecap="round"/>`,
-  body: `<circle cx="12" cy="5" r="2.5"/><path d="M8 10h8M12 10v8M9 18l-1 4M15 18l1 4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  body: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a9e68" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
+</svg>`,
   droplet: `<path d="M12 2C8 6 5 10 5 13a7 7 0 0 0 14 0c0-3-3-7-7-11z" stroke-linecap="round"/><path d="M9 14c.5 1.5 2 2.5 3 2.5" stroke-linecap="round"/>`,
   needle: `<path d="M17 3l4 4-10 10-4-4L17 3zM3 21l4-4M14 7l-4 10" stroke-linecap="round" stroke-linejoin="round"/>`,
   heat: `<path d="M12 2v4M6 6l2.8 2.8M2 12h4M6 18l2.8-2.8M12 18v4M17.2 15.2L20 18M22 12h-4M17.2 8.8L20 6" stroke-linecap="round"/><circle cx="12" cy="12" r="4"/>`,
@@ -19,6 +21,11 @@ const ICONS = {
   instagram: `<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>`,
   menu: `<path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>`,
   close: `<path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>`,
+  search: `<circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>`,
+  folder: `<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>`,
+  list: `<line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line>`,
+  'chevron-left': `<polyline points="15 18 9 12 15 6"></polyline>`,
+  scale: `<path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"/>`,
 };
 
 function icon(name, size = 20, color = 'currentColor') {
