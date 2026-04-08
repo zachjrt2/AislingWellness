@@ -15,24 +15,24 @@ const CATEGORIES = [
     id: "laser",
     label: "Laser & Skin",
     subCategories: [
-      { 
-        label: "Clinical Facials", 
+      {
+        label: "Clinical Facials",
         serviceIds: [
-          "signature-facial", "signature-glow-enzyme", "european-facial", "express-facial", 
-          "not-sure-facial", "mini-facial", "back-treatment", "mama-mia", "swich-dermal", 
+          "signature-facial", "signature-glow-enzyme", "european-facial", "express-facial",
+          "not-sure-facial", "mini-facial", "back-treatment", "mama-mia", "swich-dermal",
           "firming-peptide", "lymphatic-facial", "oxygen-rx", "oxygen-rx-express", "ultimate-glow"
-        ] 
+        ]
       },
-      { 
-        label: "Advanced Resurfacing", 
+      {
+        label: "Advanced Resurfacing",
         serviceIds: [
-          "alma-harmony", "emface", "microneedling", "nanoneedling", "nanoneedling-exosomes", 
+          "alma-harmony", "emface", "microneedling", "nanoneedling", "nanoneedling-exosomes",
           "microdermabrasion", "dermaplane-facial", "dermaplane-only"
-        ] 
+        ]
       },
-      { 
-        label: "Chemical Peels", 
-        serviceIds: ["chemical-peel", "tca-peel", "acne-peel", "micro-peel", "herbal-peel"] 
+      {
+        label: "Chemical Peels",
+        serviceIds: ["chemical-peel", "tca-peel", "acne-peel", "micro-peel", "herbal-peel"]
       }
     ]
   },
@@ -49,9 +49,9 @@ const CATEGORIES = [
     id: "wellness",
     label: "IV & Wellness",
     subCategories: [
-      { 
-        label: "Clinical & Functional", 
-        serviceIds: ["iv-therapy", "gut-health", "health-optimization", "consultation-skin", "consultation-full"] 
+      {
+        label: "Clinical & Functional",
+        serviceIds: ["iv-therapy", "gut-health", "health-optimization", "consultation-skin", "consultation-full"]
       },
       { label: "Detox & Recovery", serviceIds: ["infrared-sauna", "foot-detox"] }
     ]
@@ -81,7 +81,7 @@ const CATEGORIES = [
     ]
   },
 
-  { 
+  {
     id: "acne",
     label: "Acne Clinic",
     subCategories: [
@@ -89,7 +89,7 @@ const CATEGORIES = [
     ]
   },
 
-  { 
+  {
     id: "headspa",
     label: "Holistic Headspa",
     subCategories: [
@@ -109,7 +109,8 @@ const CATEGORIES = [
     id: "lashes",
     label: "Lashes & Brows",
     subCategories: [
-      { label: "Lash & Brow Artistry", serviceIds: ["lash-lift", "brow-lamination", "lash-dye", "brow-dye"] }
+      { label: "Lash & Brow Artistry", serviceIds: ["lash-lift", "brow-lamination", "lash-dye", "brow-dye"] },
+      { label: "Lash Extensions", serviceIds: ["volume-full-set", "volume-extended-fill", "volume-fill", "mega-volume-full-set", "mega-volume-extended-fill", "mega-volume-fill", "mega-mini-fill", "mini-fill", "lash-removal"] }
     ]
   },
 
@@ -117,17 +118,17 @@ const CATEGORIES = [
     id: "waxing",
     label: "Waxing",
     subCategories: [
-      { 
-        label: "Facial Waxing", 
-        serviceIds: ["wax-brow", "wax-lip", "wax-chin", "wax-sideburn", "wax-nose", "wax-neck", "wax-face", "wax-hairline", "wax-ear"] 
+      {
+        label: "Facial Waxing",
+        serviceIds: ["wax-brow", "wax-lip", "wax-chin", "wax-sideburn", "wax-nose", "wax-neck", "wax-face", "wax-hairline", "wax-ear"]
       },
-      { 
-        label: "Body Waxing", 
+      {
+        label: "Body Waxing",
         serviceIds: [
-          "wax-underarm", "wax-brazilian", "wax-full-bikini", "wax-bikini-line", "wax-full-butt", 
-          "wax-stomach-strip", "wax-full-stomach", "wax-inner-thigh", "wax-upper-leg", "wax-lower-leg", 
+          "wax-underarm", "wax-brazilian", "wax-full-bikini", "wax-bikini-line", "wax-full-butt",
+          "wax-stomach-strip", "wax-full-stomach", "wax-inner-thigh", "wax-upper-leg", "wax-lower-leg",
           "wax-full-leg", "wax-shoulders", "wax-upper-back", "wax-lower-back", "wax-full-back", "wax-chest"
-        ] 
+        ]
       }
     ]
   }
@@ -189,83 +190,105 @@ const SERVICES = [
     providerIds: ["jordan", "ashley", "kasden", "marci", "jaime"]
   },
 
-  { id:"signature-glow-enzyme", name:"Signature Glow + Enzyme", category:"laser", icon:"face",
-    description:"Brightening facial using botanical enzymes for a smooth, radiant glow.",
-    fullDescription:"Our Signature Glow + Enzyme treatment uses advanced botanical enzymes to gently dissolve dead skin cells while nourishing the skin. It focuses on brightening, smoothing texture, and restoring a healthy, youthful radiance without the downtime of stronger peels.",
-    tags:["Brightening","Botanical","Enzymes","Glow"],
-    duration:"60 min", price:"$135", area:"Face & neck",
-    providerIds:["jaime"] },
+  {
+    id: "signature-glow-enzyme", name: "Signature Glow + Enzyme", category: "laser", icon: "face",
+    description: "Brightening facial using botanical enzymes for a smooth, radiant glow.",
+    fullDescription: "Our Signature Glow + Enzyme treatment uses advanced botanical enzymes to gently dissolve dead skin cells while nourishing the skin. It focuses on brightening, smoothing texture, and restoring a healthy, youthful radiance without the downtime of stronger peels.",
+    tags: ["Brightening", "Botanical", "Enzymes", "Glow"],
+    duration: "60 min", price: "$135", area: "Face & neck",
+    providerIds: ["jaime"]
+  },
 
-  { id:"dermaglow-facial", name:"Dermaglow Dermaplaning Facial", category:"laser", icon:"face",
-    description:"A specialized dermaplaning session combined with an enzyme glow.",
-    fullDescription:"The ultimate manual exfoliation. This facial combines clinical dermaplaning to remove vellus hair and dead skin with a customized enzyme treatment for maximum glow and product penetration.",
-    tags:["Exfoliation","Glow","Smooth skin","Clinical"],
-    duration:"60 min", price:"$145", area:"Face & neck",
-    providerIds:["jaime"] },
+  {
+    id: "dermaglow-facial", name: "Dermaglow Dermaplaning Facial", category: "laser", icon: "face",
+    description: "A specialized dermaplaning session combined with an enzyme glow.",
+    fullDescription: "The ultimate manual exfoliation. This facial combines clinical dermaplaning to remove vellus hair and dead skin with a customized enzyme treatment for maximum glow and product penetration.",
+    tags: ["Exfoliation", "Glow", "Smooth skin", "Clinical"],
+    duration: "60 min", price: "$145", area: "Face & neck",
+    providerIds: ["jaime"]
+  },
 
-  { id:"swich-dermal", name:"Swich Dermal Series", category:"laser", icon:"face",
-    description:"High-performance anti-aging treatment that activates cellular repair.",
-    fullDescription:"Swich is an alternative to chemical peels that works from the inside out. It utilizes your body's natural healing response to revitalize and firm the skin without significant surface peeling. Excellent for mature skin.",
-    tags:["Anti-aging","Cellular repair","Firming","No-peel"],
-    duration:"45 min", price:"$75", area:"Face",
-    providerIds:["jaime"] },
+  {
+    id: "swich-dermal", name: "Swich Dermal Series", category: "laser", icon: "face",
+    description: "High-performance anti-aging treatment that activates cellular repair.",
+    fullDescription: "Swich is an alternative to chemical peels that works from the inside out. It utilizes your body's natural healing response to revitalize and firm the skin without significant surface peeling. Excellent for mature skin.",
+    tags: ["Anti-aging", "Cellular repair", "Firming", "No-peel"],
+    duration: "45 min", price: "$75", area: "Face",
+    providerIds: ["jaime"]
+  },
 
-  { id:"firming-peptide", name:"Firming Peptide Facial", category:"laser", icon:"face",
-    description:"Advanced firming treatment using targeted peptides and antioxidants.",
-    fullDescription:"This high-performance facial utilizes a blend of firming peptides to tighten and lift the skin. It stimulates collagen production and provides intense antioxidant protection against environmental damage.",
-    tags:["Lifting","Peptides","Anti-aging","Firming"],
-    duration:"60 min", price:"$169", area:"Face & neck",
-    providerIds:["jaime"] },
+  {
+    id: "firming-peptide", name: "Firming Peptide Facial", category: "laser", icon: "face",
+    description: "Advanced firming treatment using targeted peptides and antioxidants.",
+    fullDescription: "This high-performance facial utilizes a blend of firming peptides to tighten and lift the skin. It stimulates collagen production and provides intense antioxidant protection against environmental damage.",
+    tags: ["Lifting", "Peptides", "Anti-aging", "Firming"],
+    duration: "60 min", price: "$169", area: "Face & neck",
+    providerIds: ["jaime"]
+  },
 
-  { id:"lymphatic-facial", name:"Lymphatic Facial", category:"laser", icon:"leaf",
-    description:"Specialized drainage technique to reduce puffiness and detoxify.",
-    fullDescription:"Using gentle, rhythmic pressure, this treatment stimulates the lymphatic system to remove toxins, reduce inflammation, and decrease puffiness. Excellent for facial contouring and boosting immune function.",
-    tags:["Detox","Contouring","Anti-inflammatory","Gentle"],
-    duration:"60 min", price:"$165", area:"Face",
-    providerIds:["jaime"] },
+  {
+    id: "lymphatic-facial", name: "Lymphatic Facial", category: "laser", icon: "leaf",
+    description: "Specialized drainage technique to reduce puffiness and detoxify.",
+    fullDescription: "Using gentle, rhythmic pressure, this treatment stimulates the lymphatic system to remove toxins, reduce inflammation, and decrease puffiness. Excellent for facial contouring and boosting immune function.",
+    tags: ["Detox", "Contouring", "Anti-inflammatory", "Gentle"],
+    duration: "60 min", price: "$165", area: "Face",
+    providerIds: ["jaime"]
+  },
 
-  { id:"oxygen-rx", name:"Oxygen Rx Facial", category:"laser", icon:"glow",
-    description:"Professional oxygen infusion for immediate brightening and calming.",
-    fullDescription:"Oxygen Rx is an effective treatment for acne, rosacea, and dull skin. It delivers a controlled amount of oxygen directly to the skin, which helps to kill bacteria, calm redness, and brighten the complexion instantly.",
-    tags:["Brightening","Acne","Rosacea","Calming"],
-    duration:"60 min", price:"$175", area:"Face",
-    providerIds:["jaime"] },
+  {
+    id: "oxygen-rx", name: "Oxygen Rx Facial", category: "laser", icon: "glow",
+    description: "Professional oxygen infusion for immediate brightening and calming.",
+    fullDescription: "Oxygen Rx is an effective treatment for acne, rosacea, and dull skin. It delivers a controlled amount of oxygen directly to the skin, which helps to kill bacteria, calm redness, and brighten the complexion instantly.",
+    tags: ["Brightening", "Acne", "Rosacea", "Calming"],
+    duration: "60 min", price: "$175", area: "Face",
+    providerIds: ["jaime"]
+  },
 
-  { id:"oxygen-rx-express", name:"Oxygen Rx Express", category:"laser", icon:"glow",
-    description:"A quick, targeted oxygen boost for problematic skin.",
-    fullDescription:"The express version of our Oxygen Rx treatment. Focused on delivering the antibacterial and brightening benefits of oxygen in half the time.",
-    tags:["Quick refresh","Acne","Brightening","Efficient"],
-    duration:"30 min", price:"$150", area:"Face",
-    providerIds:["jaime"] },
+  {
+    id: "oxygen-rx-express", name: "Oxygen Rx Express", category: "laser", icon: "glow",
+    description: "A quick, targeted oxygen boost for problematic skin.",
+    fullDescription: "The express version of our Oxygen Rx treatment. Focused on delivering the antibacterial and brightening benefits of oxygen in half the time.",
+    tags: ["Quick refresh", "Acne", "Brightening", "Efficient"],
+    duration: "30 min", price: "$150", area: "Face",
+    providerIds: ["jaime"]
+  },
 
-  { id:"ultimate-glow", name:"Ultimate Glow Facial", category:"laser", icon:"glow",
-    description:"Our most comprehensive glow-inducing treatment for ultimate radiance.",
-    fullDescription:"This premium facial combines multiple modalities — including double cleansing, enzyme exfoliation, and high-concentration serums — to deliver a profound, lasting glow. Designed for clients seeking maximum radiance.",
-    tags:["Max radiance","Premium","Nourishing","Glow"],
-    duration:"75 min", price:"$175", area:"Face & neck",
-    providerIds:["jaime"] },
+  {
+    id: "ultimate-glow", name: "Ultimate Glow Facial", category: "laser", icon: "glow",
+    description: "Our most comprehensive glow-inducing treatment for ultimate radiance.",
+    fullDescription: "This premium facial combines multiple modalities — including double cleansing, enzyme exfoliation, and high-concentration serums — to deliver a profound, lasting glow. Designed for clients seeking maximum radiance.",
+    tags: ["Max radiance", "Premium", "Nourishing", "Glow"],
+    duration: "75 min", price: "$175", area: "Face & neck",
+    providerIds: ["jaime"]
+  },
 
-  { id:"mama-mia", name:"Mama Mia Facial", category:"laser", icon:"leaf",
-    description:"Safe, soothing clinical facial for expecting or nursing mothers.",
-    fullDescription:"Specially curated using only pregnancy and nursing-safe ingredients. Addresses common hormonal skin changes while providing a relaxing, clinical-grade skin boost for new and expecting moms.",
-    tags:["Safe","Pregnancy-safe","Soothing","Hormonal support"],
-    duration:"60 min", price:"$135", area:"Face",
-    providerIds:["jaime"] },
+  {
+    id: "mama-mia", name: "Mama Mia Facial", category: "laser", icon: "leaf",
+    description: "Safe, soothing clinical facial for expecting or nursing mothers.",
+    fullDescription: "Specially curated using only pregnancy and nursing-safe ingredients. Addresses common hormonal skin changes while providing a relaxing, clinical-grade skin boost for new and expecting moms.",
+    tags: ["Safe", "Pregnancy-safe", "Soothing", "Hormonal support"],
+    duration: "60 min", price: "$135", area: "Face",
+    providerIds: ["jaime"]
+  },
 
   // ── ACNE CLINIC ──
-  { id:"acne-consult-treatment", name:"Face Reality Acne Consultation + Treatment", category:"acne", icon:"face",
-    description:"Comprehensive acne analysis followed by your first Face Reality treatment.",
-    fullDescription:"Required for all new acne clients. Includes a thorough skin analysis, sensitivity testing, and an initial treatment. We'll also design your customized home care routine and discuss lifestyle factors that may be contributing to your breakouts.",
-    tags:["Acne","Consultation","First -time clients","Results-driven"],
-    duration:"90 min", price:"$150", area:"Face",
-    providerIds:["jaime"] },
+  {
+    id: "acne-consult-treatment", name: "Face Reality Acne Consultation + Treatment", category: "acne", icon: "face",
+    description: "Comprehensive acne analysis followed by your first Face Reality treatment.",
+    fullDescription: "Required for all new acne clients. Includes a thorough skin analysis, sensitivity testing, and an initial treatment. We'll also design your customized home care routine and discuss lifestyle factors that may be contributing to your breakouts.",
+    tags: ["Acne", "Consultation", "First -time clients", "Results-driven"],
+    duration: "90 min", price: "$150", area: "Face",
+    providerIds: ["jaime"]
+  },
 
-  { id:"acne-fr-current", name:"Face Reality Acne Treatment", category:"acne", icon:"face",
-    description:"Maintenance acne treatment for established Face Reality clients.",
-    fullDescription:"For current clients enrolled in our acne program. Includes a check-in on your progress, deep cleansing, exfoliation or a light chemical peel depending on your skin's needs, and expert extractions to keep your clear skin journey on track.",
-    tags:["Acne","Maintenance","Clearing","Professional care"],
-    duration:"45 min", price:"$95", area:"Face",
-    providerIds:["jaime"] },
+  {
+    id: "acne-fr-current", name: "Face Reality Acne Treatment", category: "acne", icon: "face",
+    description: "Maintenance acne treatment for established Face Reality clients.",
+    fullDescription: "For current clients enrolled in our acne program. Includes a check-in on your progress, deep cleansing, exfoliation or a light chemical peel depending on your skin's needs, and expert extractions to keep your clear skin journey on track.",
+    tags: ["Acne", "Maintenance", "Clearing", "Professional care"],
+    duration: "45 min", price: "$95", area: "Face",
+    providerIds: ["jaime"]
+  },
 
   {
     id: "european-facial", name: "European Facial", category: "laser", icon: "face",
@@ -390,7 +413,7 @@ const SERVICES = [
     fullDescription: "During the procedure, ultra-fine needles create controlled micro-injuries in the skin, stimulating your body's natural healing response and boosting collagen and elastin production. This process helps smooth fine lines, reduce acne scars, minimize pores, and restore a healthy, youthful glow. We use advanced medical-grade microneedling devices to ensure precision, safety, and visible results. Treatments can also be enhanced with PRF (Platelet-Rich Fibrin) for even greater rejuvenation through your body's own growth factors. Common treatment areas include face, neck, décolletage, and scalp. Downtime: mild redness for 24–48 hours, with smoother, brighter skin emerging over the following week.",
     tags: ["Collagen", "Acne scars", "Skin texture", "Anti-aging"],
     duration: "30–60 min", price: "From $60", area: "Face, neck, décolletage, scalp",
-    providerIds: ["jordan", "ashley", "regan", "kasden", "marci", "jaime"]
+    providerIds: ["jordan", "ashley", "regan", "kasden", "marci", "jaime", "vivian"]
   },
 
   {
@@ -464,7 +487,7 @@ const SERVICES = [
     fullDescription: "IV therapy bypasses the digestive system entirely, delivering vitamins, minerals, and hydration directly into the bloodstream for 100% absorption. Our clinical team offers a menu of formulas for hydration, immune support, energy, athletic recovery, and beauty (biotin, glutathione). Sessions are relaxing — settle in and let your body absorb what it needs.",
     tags: ["Hydration", "Immunity", "Energy", "Recovery"],
     duration: "45–60 min", price: "From $120", area: "Intravenous",
-    providerIds: ["dr-nguyen"]
+    providerIds: ["dr-nguyen", "vivian"]
   },
 
   {
@@ -491,7 +514,7 @@ const SERVICES = [
     fullDescription: "Gut health plays a central role in overall wellness — including digestion, energy, immune function, hormone balance, and inflammation. When the gut is out of balance, it can contribute to symptoms such as bloating, reflux, constipation, diarrhea, brain fog, skin issues, and difficulty with weight or hormones. We take a root-cause, functional approach — looking beyond symptoms to identify underlying imbalances such as dysbiosis, inflammation, infections, or impaired digestion. Our structured, stepwise process restores gut health by removing triggers, replacing digestive support, repairing the gut lining, reinoculating beneficial bacteria, and rebalancing the microbiome for long-term function.",
     tags: ["Gut health", "Digestion", "Inflammation", "Functional medicine"],
     duration: "Ongoing program", price: "Consultation required", area: "Systemic",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 
   {
@@ -500,7 +523,7 @@ const SERVICES = [
     fullDescription: "Our health optimization appointments take a proactive, prevention-focused approach to your long-term health. During your initial consultation, we complete a comprehensive review of your history, symptoms, lifestyle, and goals. Based on your evaluation, we may recommend advanced lab testing to assess hormones, metabolism, nutrient status, and overall function. From there, we create a personalized plan that may include targeted lifestyle changes, nutrition, peptide therapy, and vitamin and mineral supplementation to optimize your health, energy, and longevity.",
     tags: ["Longevity", "Prevention", "Peptides", "Lab testing"],
     duration: "60–90 min (initial)", price: "Consultation required", area: "Systemic",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 
   {
@@ -558,210 +581,349 @@ const SERVICES = [
     providerIds: ["marci"]
   },
 
+  {
+    id: "volume-full-set", name: "Volume Full Set", category: "lashes", icon: "glow",
+    description: "Intricate lash extensions for a full, voluminous look.",
+    fullDescription: "Our Volume Full Set uses precision techniques to apply multiple lightweight extensions to each natural lash. The result is a lush, multidimensional look that adds significant depth and drama to the eyes without compromising natural lash health.",
+    tags: ["Volume", "Lash extensions", "Drama", "Custom look"],
+    duration: "2.5 hours", price: "$180", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "volume-extended-fill", name: "Volume Extended Fill", category: "lashes", icon: "glow",
+    description: "Extended maintenance for volume lashes (over 3 weeks).",
+    fullDescription: "Recommended for clients who have gone 3.5 to 4 weeks since their last fill. We meticulously remove outgrown extensions and replace them with fresh fans to restore your set to its original fullness.",
+    tags: ["Maintenance", "Volume", "Lash care"],
+    duration: "1.75 hours", price: "$95", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "volume-fill", name: "Volume Fill", category: "lashes", icon: "glow",
+    description: "Standard maintenance for volume lashes (2-3 weeks).",
+    fullDescription: "The essential maintenance session to keep your volume set looking perfect. We replace extensions that have naturally shed and ensure your lash line remains dense and uniform.",
+    tags: ["Maintenance", "Volume", "Regular care"],
+    duration: "1.5 hours", price: "$80", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "mega-volume-full-set", name: "Mega Volume Full Set", category: "lashes", icon: "glow",
+    description: "Maximum density and drama using advanced mega-volume techniques.",
+    fullDescription: "For the ultimate high-impact look. Mega volume uses the finest, lightest extensions to create dense black lash lines and incredible fluff. Highly customized to your eye shape for maximum effect.",
+    tags: ["Mega volume", "Maximum drama", "High impact", "Artistry"],
+    duration: "3 hours", price: "$200", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "mega-volume-extended-fill", name: "Mega Volume Extended Fill", category: "lashes", icon: "glow",
+    description: "Extended maintenance for mega volume lashes (over 3 weeks).",
+    fullDescription: "Restore your mega volume set after an extended period. We carefully rebuild the density and ensure each fan is perfectly balanced for a flawless, dark lash line.",
+    tags: ["Maintenance", "Mega volume", "Detailed care"],
+    duration: "2 hours", price: "$105", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "mega-volume-fill", name: "Mega Volume Fill", category: "lashes", icon: "glow",
+    description: "Standard maintenance for mega volume lashes (2-3 weeks).",
+    fullDescription: "Keep your mega volume set at its peak. This session focuses on maintaining the extreme density and perfect symmetry that defines the mega volume look.",
+    tags: ["Maintenance", "Mega volume", "Regular care"],
+    duration: "1.75 hours", price: "$90", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "mega-mini-fill", name: "Mega Mini Fill", category: "lashes", icon: "glow",
+    description: "Quick touch-up for mega volume lashes between fills.",
+    fullDescription: "A short, focused session to fill in any gaps or address specific areas of concern in a mega volume set. Perfect for a quick refresh before an event.",
+    tags: ["Quick refresh", "Mega volume", "Touch-up"],
+    duration: "45 mins", price: "$50", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "mini-fill", name: "Mini Fill", category: "lashes", icon: "glow",
+    description: "Quick touch-up for standard volume lashes.",
+    fullDescription: "A fast refresh session for volume lash clients. Ideal for those who need a little extra fullness between their regular fill appointments.",
+    tags: ["Quick refresh", "Volume", "Maintenance"],
+    duration: "30 mins", price: "$40", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
+  {
+    id: "lash-removal", name: "Lash Removal", category: "lashes", icon: "glow",
+    description: "Professional, safe removal of eyelash extensions.",
+    fullDescription: "Safe and gentle removal of lash extensions using a professional-grade debonding agent. We ensure your natural lashes remain healthy and intact throughout the process.",
+    tags: ["Lash health", "Gentle", "Professional removal"],
+    duration: "30 mins", price: "$30", area: "Eyelashes",
+    providerIds: ["taylor"]
+  },
+
   // ── WAXING ──
-  { id:"wax-brow", name:"Brow Wax", category:"waxing", icon:"face",
-    description:"Precision eyebrow shaping using high-quality wax.",
-    fullDescription:"Professional brow waxing and shaping to define your arch and maintain a clean, polished look that complements your facial features.",
-    tags:["Brows","Grooming","Symmetry","Precision"],
-    duration:"20 min", price:"From $20", area:"Eyebrows",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-brow", name: "Brow Wax", category: "waxing", icon: "face",
+    description: "Precision eyebrow shaping using high-quality wax.",
+    fullDescription: "Professional brow waxing and shaping to define your arch and maintain a clean, polished look that complements your facial features.",
+    tags: ["Brows", "Grooming", "Symmetry", "Precision"],
+    duration: "20 min", price: "From $20", area: "Eyebrows",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-lip", name:"Lip Wax", category:"waxing", icon:"face",
-    description:"Quick removal of unwanted hair from the upper lip.",
-    fullDescription:"Gentle hair removal for the upper lip area, providing a smooth finish for weeks.",
-    tags:["Quick","Smooth","Maintenance"],
-    duration:"10 min", price:"From $10", area:"Upper lip",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-lip", name: "Lip Wax", category: "waxing", icon: "face",
+    description: "Quick removal of unwanted hair from the upper lip.",
+    fullDescription: "Gentle hair removal for the upper lip area, providing a smooth finish for weeks.",
+    tags: ["Quick", "Smooth", "Maintenance"],
+    duration: "10 min", price: "From $10", area: "Upper lip",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-chin", name:"Chin Wax", category:"waxing", icon:"face",
-    description:"Focused hair removal for the chin area.",
-    fullDescription:"Removal of unwanted hair from the chin, ensuring a clean and smooth profile.",
-    tags:["Focused","Smooth","Maintenance"],
-    duration:"10 min", price:"From $10", area:"Chin",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-chin", name: "Chin Wax", category: "waxing", icon: "face",
+    description: "Focused hair removal for the chin area.",
+    fullDescription: "Removal of unwanted hair from the chin, ensuring a clean and smooth profile.",
+    tags: ["Focused", "Smooth", "Maintenance"],
+    duration: "10 min", price: "From $10", area: "Chin",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-underarm", name:"Underarm Wax", category:"waxing", icon:"body",
-    description:"Quick and effective hair removal for smoother underarms.",
-    fullDescription:"Long-lasting hair removal for the underarms, reducing the need for daily shaving and promoting smoother skin.",
-    tags:["Body care","Smooth skin","Long-lasting"],
-    duration:"20 min", price:"$25", area:"Underarms",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-underarm", name: "Underarm Wax", category: "waxing", icon: "body",
+    description: "Quick and effective hair removal for smoother underarms.",
+    fullDescription: "Long-lasting hair removal for the underarms, reducing the need for daily shaving and promoting smoother skin.",
+    tags: ["Body care", "Smooth skin", "Long-lasting"],
+    duration: "20 min", price: "$25", area: "Underarms",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-sideburn", name:"Sideburn Wax", category:"waxing", icon:"face",
-    description:"Clean removal of hair from the sideburn area.",
-    fullDescription:"Precise hair removal for the sideburns, providing a cleaner hairline and smoother complexion.",
-    tags:["Face","Smooth","Grooming"],
-    duration:"15 min", price:"From $10", area:"Sideburns",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-sideburn", name: "Sideburn Wax", category: "waxing", icon: "face",
+    description: "Clean removal of hair from the sideburn area.",
+    fullDescription: "Precise hair removal for the sideburns, providing a cleaner hairline and smoother complexion.",
+    tags: ["Face", "Smooth", "Grooming"],
+    duration: "15 min", price: "From $10", area: "Sideburns",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-nose", name:"Nose Wax", category:"waxing", icon:"face",
-    description:"Quick removal of visible hair from the nostrils.",
-    fullDescription:"Safely and efficiently removes visible hair from just inside the nostrils for a clean, groomed appearance.",
-    tags:["Quick","Grooming","Precision"],
-    duration:"15 min", price:"From $10", area:"Nose",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-nose", name: "Nose Wax", category: "waxing", icon: "face",
+    description: "Quick removal of visible hair from the nostrils.",
+    fullDescription: "Safely and efficiently removes visible hair from just inside the nostrils for a clean, groomed appearance.",
+    tags: ["Quick", "Grooming", "Precision"],
+    duration: "15 min", price: "From $10", area: "Nose",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-neck", name:"Neck Wax", category:"waxing", icon:"face",
-    description:"Removal of unwanted hair from the neck area.",
-    fullDescription:"Cleaning up the neck area for a tidier, smoother look. Often combined with hair or facial services.",
-    tags:["Neck","Grooming","Smooth"],
-    duration:"15 min", price:"From $12", area:"Neck",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-neck", name: "Neck Wax", category: "waxing", icon: "face",
+    description: "Removal of unwanted hair from the neck area.",
+    fullDescription: "Cleaning up the neck area for a tidier, smoother look. Often combined with hair or facial services.",
+    tags: ["Neck", "Grooming", "Smooth"],
+    duration: "15 min", price: "From $12", area: "Neck",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-face", name:"Full Face Wax", category:"waxing", icon:"face",
-    description:"Comprehensive hair removal for the entire facial area.",
-    fullDescription:"A thorough hair removal session including lip, chin, cheeks, and sideburns (brows separate). Leaves the entire face incredibly smooth and facilitates better makeup application.",
-    tags:["Comprehensive","Face","Smooth skin","Deep removal"],
-    duration:"45 min", price:"From $45", area:"Full face",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-face", name: "Full Face Wax", category: "waxing", icon: "face",
+    description: "Comprehensive hair removal for the entire facial area.",
+    fullDescription: "A thorough hair removal session including lip, chin, cheeks, and sideburns (brows separate). Leaves the entire face incredibly smooth and facilitates better makeup application.",
+    tags: ["Comprehensive", "Face", "Smooth skin", "Deep removal"],
+    duration: "45 min", price: "From $45", area: "Full face",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
-  { id:"wax-hairline", name:"Hairline Wax", category:"waxing", icon:"face",
-    description:"Smoothing and cleaning up the natural hairline.",
-    fullDescription:"A focused service to clean up baby hairs or create a more defined forehead/temple hairline.",
-    tags:["Face","Precision","Grooming"],
-    duration:"15 min", price:"$10", area:"Hairline",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-hairline", name: "Hairline Wax", category: "waxing", icon: "face",
+    description: "Smoothing and cleaning up the natural hairline.",
+    fullDescription: "A focused service to clean up baby hairs or create a more defined forehead/temple hairline.",
+    tags: ["Face", "Precision", "Grooming"],
+    duration: "15 min", price: "$10", area: "Hairline",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-brazilian", name:"Brazilian Wax", category:"waxing", icon:"body",
-    description:"Complete hair removal for the intimate area.",
-    fullDescription:"A full Brazilian wax removes hair from the front, back, and everything in between. We use high-quality wax designed for sensitive areas to ensure the most comfortable experience possible.",
-    tags:["Intimate","Smooth skin","Long-lasting","Clinical"],
-    duration:"30 min", price:"$60", area:"Intimate area",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-brazilian", name: "Brazilian Wax", category: "waxing", icon: "body",
+    description: "Complete hair removal for the intimate area.",
+    fullDescription: "A full Brazilian wax removes hair from the front, back, and everything in between. We use high-quality wax designed for sensitive areas to ensure the most comfortable experience possible.",
+    tags: ["Intimate", "Smooth skin", "Long-lasting", "Clinical"],
+    duration: "30 min", price: "$60", area: "Intimate area",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-full-bikini", name:"Full Bikini", category:"waxing", icon:"body",
-    description:"Comprehensive bikini wax removing hair from the labia and top.",
-    fullDescription:"The full bikini wax removes as much or as little hair as you like from the front and labia area (does not include the back/thong area). Personalized to your comfort level.",
-    tags:["Bikini","Smooth","Customized"],
-    duration:"30 min", price:"$50", area:"Bikini area",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-full-bikini", name: "Full Bikini", category: "waxing", icon: "body",
+    description: "Comprehensive bikini wax removing hair from the labia and top.",
+    fullDescription: "The full bikini wax removes as much or as little hair as you like from the front and labia area (does not include the back/thong area). Personalized to your comfort level.",
+    tags: ["Bikini", "Smooth", "Customized"],
+    duration: "30 min", price: "$50", area: "Bikini area",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-bikini-line", name:"Bikini Line", category:"waxing", icon:"body",
-    description:"Clean hair removal from the areas outside a standard bikini bottom.",
-    fullDescription:"Focuses on the hair visible outside a standard bikini line. A quick and effective clean-up for the beach or everyday comfort.",
-    tags:["Quick","Bikini","Beach-ready"],
-    duration:"30 min", price:"$30", area:"Bikini line",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-bikini-line", name: "Bikini Line", category: "waxing", icon: "body",
+    description: "Clean hair removal from the areas outside a standard bikini bottom.",
+    fullDescription: "Focuses on the hair visible outside a standard bikini line. A quick and effective clean-up for the beach or everyday comfort.",
+    tags: ["Quick", "Bikini", "Beach-ready"],
+    duration: "30 min", price: "$30", area: "Bikini line",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-full-butt", name:"Full Butt Wax", category:"waxing", icon:"body",
-    description:"Smooth hair removal for the entire gluteal area.",
-    fullDescription:"Removes unwanted hair from the entire surface of the buttocks, including the between-the-cheeks area if desired. Provides a clean and smooth feel.",
-    tags:["Body","Smooth skin","Complete"],
-    duration:"15 min", price:"$25", area:"Gluteal area",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-full-butt", name: "Full Butt Wax", category: "waxing", icon: "body",
+    description: "Smooth hair removal for the entire gluteal area.",
+    fullDescription: "Removes unwanted hair from the entire surface of the buttocks, including the between-the-cheeks area if desired. Provides a clean and smooth feel.",
+    tags: ["Body", "Smooth skin", "Complete"],
+    duration: "15 min", price: "$25", area: "Gluteal area",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-stomach-strip", name:"Stomach Strip", category:"waxing", icon:"body",
-    description:"Removal of the 'happy trail' or vertical line of hair on the stomach.",
-    fullDescription:"A quick session focused on the vertical strip of hair leading from the navel to the bikini line.",
-    tags:["Focused","Quick","Aesthetic"],
-    duration:"10 min", price:"$12", area:"Lower stomach",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-stomach-strip", name: "Stomach Strip", category: "waxing", icon: "body",
+    description: "Removal of the 'happy trail' or vertical line of hair on the stomach.",
+    fullDescription: "A quick session focused on the vertical strip of hair leading from the navel to the bikini line.",
+    tags: ["Focused", "Quick", "Aesthetic"],
+    duration: "10 min", price: "$12", area: "Lower stomach",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-full-stomach", name:"Full Stomach", category:"waxing", icon:"body",
-    description:"Hair removal for the entire abdominal area.",
-    fullDescription:"Removes all unwanted hair from the lower ribs down to the bikini line for a perfectly smooth abdominal surface.",
-    tags:["Abdominal","Smooth","Long-lasting"],
-    duration:"20 min", price:"$30", area:"Abdomen",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-full-stomach", name: "Full Stomach", category: "waxing", icon: "body",
+    description: "Hair removal for the entire abdominal area.",
+    fullDescription: "Removes all unwanted hair from the lower ribs down to the bikini line for a perfectly smooth abdominal surface.",
+    tags: ["Abdominal", "Smooth", "Long-lasting"],
+    duration: "20 min", price: "$30", area: "Abdomen",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-inner-thigh", name:"Inner Thigh Wax", category:"waxing", icon:"body",
-    description:"Focused hair removal for the inner thigh area.",
-    fullDescription:"Addresses hair on the very inner part of the thighs, often requested alongside bikini services for a seamless look.",
-    tags:["Legs","Bikini complement","Smooth"],
-    duration:"15 min", price:"$14", area:"Inner thighs",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-inner-thigh", name: "Inner Thigh Wax", category: "waxing", icon: "body",
+    description: "Focused hair removal for the inner thigh area.",
+    fullDescription: "Addresses hair on the very inner part of the thighs, often requested alongside bikini services for a seamless look.",
+    tags: ["Legs", "Bikini complement", "Smooth"],
+    duration: "15 min", price: "$14", area: "Inner thighs",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-upper-leg", name:"Upper Leg Wax", category:"waxing", icon:"body",
-    description:"Hair removal from the hips down to just above the knee.",
-    fullDescription:"Provides smooth skin for the entire upper half of the legs, stopping right at the kneecap.",
-    tags:["Legs","Smooth skin","Half-leg"],
-    duration:"25 min", price:"$40", area:"Upper legs",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-upper-leg", name: "Upper Leg Wax", category: "waxing", icon: "body",
+    description: "Hair removal from the hips down to just above the knee.",
+    fullDescription: "Provides smooth skin for the entire upper half of the legs, stopping right at the kneecap.",
+    tags: ["Legs", "Smooth skin", "Half-leg"],
+    duration: "25 min", price: "$40", area: "Upper legs",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-lower-leg", name:"Lower Leg Wax", category:"waxing", icon:"body",
-    description:"Hair removal from the knee down to the ankles.",
-    fullDescription:"The most popular leg service. Removes hair from the kneecap down to the ankle bone for silky smooth shins and calves.",
-    tags:["Legs","Popular","Smooth skin"],
-    duration:"25 min", price:"$40", area:"Lower legs",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-lower-leg", name: "Lower Leg Wax", category: "waxing", icon: "body",
+    description: "Hair removal from the knee down to the ankles.",
+    fullDescription: "The most popular leg service. Removes hair from the kneecap down to the ankle bone for silky smooth shins and calves.",
+    tags: ["Legs", "Popular", "Smooth skin"],
+    duration: "25 min", price: "$40", area: "Lower legs",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-full-leg", name:"Full Leg Wax", category:"waxing", icon:"body",
-    description:"Comprehensive hair removal from hip to ankle.",
-    fullDescription:"A full leg session covering both upper and lower halves. Leaves your entire legs smooth and hair-free for weeks.",
-    tags:["Legs","Complete","Smooth"],
-    duration:"45 min", price:"$80", area:"Full legs",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-full-leg", name: "Full Leg Wax", category: "waxing", icon: "body",
+    description: "Comprehensive hair removal from hip to ankle.",
+    fullDescription: "A full leg session covering both upper and lower halves. Leaves your entire legs smooth and hair-free for weeks.",
+    tags: ["Legs", "Complete", "Smooth"],
+    duration: "45 min", price: "$80", area: "Full legs",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-shoulders", name:"Shoulder Wax", category:"waxing", icon:"body",
-    description:"Removal of unwanted hair from the tops of the shoulders.",
-    fullDescription:"Cleans up the shoulder area for a smoother look, often requested to blend with back or chest waxing.",
-    tags:["Body","Grooming","Clean lines"],
-    duration:"15 min", price:"$20", area:"Shoulders",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-shoulders", name: "Shoulder Wax", category: "waxing", icon: "body",
+    description: "Removal of unwanted hair from the tops of the shoulders.",
+    fullDescription: "Cleans up the shoulder area for a smoother look, often requested to blend with back or chest waxing.",
+    tags: ["Body", "Grooming", "Clean lines"],
+    duration: "15 min", price: "$20", area: "Shoulders",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-upper-back", name:"Upper Back Wax", category:"waxing", icon:"body",
-    description:"Hair removal for the top half of the back.",
-    fullDescription:"Addresses hair from the base of the neck down to the mid-back area.",
-    tags:["Back","Grooming","Half-back"],
-    duration:"15 min", price:"$35", area:"Upper back",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-upper-back", name: "Upper Back Wax", category: "waxing", icon: "body",
+    description: "Hair removal for the top half of the back.",
+    fullDescription: "Addresses hair from the base of the neck down to the mid-back area.",
+    tags: ["Back", "Grooming", "Half-back"],
+    duration: "15 min", price: "$35", area: "Upper back",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-lower-back", name:"Lower Back Wax", category:"waxing", icon:"body",
-    description:"Hair removal for the bottom half of the back.",
-    fullDescription:"Addresses hair from the mid-back down to the top of the gluteal line.",
-    tags:["Back","Grooming","Half-back"],
-    duration:"15 min", price:"$35", area:"Lower back",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-lower-back", name: "Lower Back Wax", category: "waxing", icon: "body",
+    description: "Hair removal for the bottom half of the back.",
+    fullDescription: "Addresses hair from the mid-back down to the top of the gluteal line.",
+    tags: ["Back", "Grooming", "Half-back"],
+    duration: "15 min", price: "$35", area: "Lower back",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-full-back", name:"Full Back Wax", category:"waxing", icon:"body",
-    description:"Comprehensive hair removal for the entire back surface.",
-    fullDescription:"A complete session covering the entire back area, from the base of the neck to the waistline.",
-    tags:["Back","Complete","Grooming"],
-    duration:"30 min", price:"$60", area:"Full back",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-full-back", name: "Full Back Wax", category: "waxing", icon: "body",
+    description: "Comprehensive hair removal for the entire back surface.",
+    fullDescription: "A complete session covering the entire back area, from the base of the neck to the waistline.",
+    tags: ["Back", "Complete", "Grooming"],
+    duration: "30 min", price: "$60", area: "Full back",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-chest", name:"Full Chest Wax", category:"waxing", icon:"body",
-    description:"Comprehensive hair removal for the chest and pectoral area.",
-    fullDescription:"Removes all unwanted hair from the collarbone down to the top of the stomach for a smooth, defined chest.",
-    tags:["Body","Grooming","Smooth"],
-    duration:"30 min", price:"$40", area:"Chest",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-chest", name: "Full Chest Wax", category: "waxing", icon: "body",
+    description: "Comprehensive hair removal for the chest and pectoral area.",
+    fullDescription: "Removes all unwanted hair from the collarbone down to the top of the stomach for a smooth, defined chest.",
+    tags: ["Body", "Grooming", "Smooth"],
+    duration: "30 min", price: "$40", area: "Chest",
+    providerIds: ["hannah", "lauren"]
+  },
 
   // ── HOLISTIC HEADSPA ──
-  { id:"wax-relax", name:"Wax & Relax: Self-love Special", category:"headspa", icon:"glow",
-    description:"Signature Brazilian wax followed by a calming Holistic Headspace session.",
-    fullDescription:"The ultimate self-care combination. Begin with a 30-minute Brazilian wax for complete smoothness, then transition into a 30-minute 'Holistic Headspace' ritual to fully unwind and reset your mind. A $130 value.",
-    tags:["Self-care","Signature combo","Smoothing","Relaxation"],
-    duration:"1 hr", price:"$95", area:"Intimate & Scalp",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "wax-relax", name: "Wax & Relax: Self-love Special", category: "headspa", icon: "glow",
+    description: "Signature Brazilian wax followed by a calming Holistic Headspace session.",
+    fullDescription: "The ultimate self-care combination. Begin with a 30-minute Brazilian wax for complete smoothness, then transition into a 30-minute 'Holistic Headspace' ritual to fully unwind and reset your mind. A $130 value.",
+    tags: ["Self-care", "Signature combo", "Smoothing", "Relaxation"],
+    duration: "1 hr", price: "$95", area: "Intimate & Scalp",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"tranquility-touch", name:"Tranquility Touch Headspa", category:"headspa", icon:"glow",
-    description:"Restorative scalp ritual using natural oils and a soothing head massage.",
-    fullDescription:"Sink into a full-body massage bed for this restorative scalp experience. Includes a detailed before-and-after scalp analysis, a nourishing oil treatment to awaken roots, and a gentle cleanse with all-natural products. Ends with a tension-melting head massage.",
-    tags:["Scalp health","Relaxation","Natural","Ritual"],
-    duration:"1 hr", price:"$90", area:"Scalp & hair",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "tranquility-touch", name: "Tranquility Touch Headspa", category: "headspa", icon: "glow",
+    description: "Restorative scalp ritual using natural oils and a soothing head massage.",
+    fullDescription: "Sink into a full-body massage bed for this restorative scalp experience. Includes a detailed before-and-after scalp analysis, a nourishing oil treatment to awaken roots, and a gentle cleanse with all-natural products. Ends with a tension-melting head massage.",
+    tags: ["Scalp health", "Relaxation", "Natural", "Ritual"],
+    duration: "1 hr", price: "$90", area: "Scalp & hair",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"headspa-harmony", name:"Headspa Harmony", category:"headspa", icon:"glow",
-    description:"Advanced scalp therapeutic session with steam and herbal rinses.",
-    fullDescription:"Our most comprehensive scalp treatment. Includes scalp analysis, a 10-minute steam to open pores, oil massage on a full-body massage bed, plant-based cleansing, and a customized herbal rinse for soft, healthy hair and scalp.",
-    tags:["Therapeutic","Steam","Nourishing","Complete care"],
-    duration:"1 hr 30 mins", price:"$125", area:"Scalp & hair",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "headspa-harmony", name: "Headspa Harmony", category: "headspa", icon: "glow",
+    description: "Advanced scalp therapeutic session with steam and herbal rinses.",
+    fullDescription: "Our most comprehensive scalp treatment. Includes scalp analysis, a 10-minute steam to open pores, oil massage on a full-body massage bed, plant-based cleansing, and a customized herbal rinse for soft, healthy hair and scalp.",
+    tags: ["Therapeutic", "Steam", "Nourishing", "Complete care"],
+    duration: "1 hr 30 mins", price: "$125", area: "Scalp & hair",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"crown-clarity", name:"Crown Clarity", category:"headspa", icon:"glow",
-    description:"Nourishing scalp cleanse and massage for mental clarity and balance.",
-    fullDescription:"Indulge in a restorative scalp experience designed to bring clarity. Includes scalp analysis, a holistic all-natural cleanse, and a soothing massage that restores balance and melts away tension.",
-    tags:["Focus","Balance","Cleanse","Massage"],
-    duration:"45 mins", price:"$70", area:"Scalp & hair",
-    providerIds:["hannah", "lauren"] },
+  {
+    id: "crown-clarity", name: "Crown Clarity", category: "headspa", icon: "glow",
+    description: "Nourishing scalp cleanse and massage for mental clarity and balance.",
+    fullDescription: "Indulge in a restorative scalp experience designed to bring clarity. Includes scalp analysis, a holistic all-natural cleanse, and a soothing massage that restores balance and melts away tension.",
+    tags: ["Focus", "Balance", "Cleanse", "Massage"],
+    duration: "45 mins", price: "$70", area: "Scalp & hair",
+    providerIds: ["hannah", "lauren"]
+  },
 
-  { id:"wax-ear", name:"Ear Wax", category:"waxing", icon:"face",
-    description:"Removal of unwanted hair from the ears.",
-    fullDescription:"Safe removal of hair from the outer ear and ear lobes for a clean, professional finish.",
-    tags:["Grooming","Quick","Precision"],
-    duration:"15 min", price:"$20", area:"Ears",
-    providerIds:["marci", "hannah", "lauren"] },
+  {
+    id: "wax-ear", name: "Ear Wax", category: "waxing", icon: "face",
+    description: "Removal of unwanted hair from the ears.",
+    fullDescription: "Safe removal of hair from the outer ear and ear lobes for a clean, professional finish.",
+    tags: ["Grooming", "Quick", "Precision"],
+    duration: "15 min", price: "$20", area: "Ears",
+    providerIds: ["marci", "hannah", "lauren"]
+  },
 
   // ── INJECTABLES ──
   {
@@ -770,7 +932,7 @@ const SERVICES = [
     fullDescription: "Our injectable practitioners have a refined, conservative philosophy: the goal is always to look like yourself — just more rested. Neurotoxins are placed with precision in the forehead, glabella, and crow's feet to relax overactive muscles without sacrificing expression. We carry Botox, Dysport, and Xeomin.",
     tags: ["Anti-aging", "Natural results", "No downtime", "Wrinkle relaxer"],
     duration: "30 min", price: "From $12/unit", area: "Face",
-    providerIds: ["dr-nguyen"]
+    providerIds: ["dr-nguyen", "vivian"]
   },
 
   {
@@ -779,7 +941,7 @@ const SERVICES = [
     fullDescription: "We also offer Daxxify and Jeuveau for patients seeking alternatives to traditional neurotoxins. Daxxify is notable for its extended duration — clinical data shows results lasting up to 6 months or more in many patients. Jeuveau is a modern, highly purified formulation optimized for aesthetic use. Your provider will recommend the best option based on your goals, anatomy, and treatment history. Initial consult includes assessment of facial features and personalized unit dosing recommendations.",
     tags: ["Anti-aging", "Long-lasting", "Daxxify", "Jeuveau"],
     duration: "30–60 min", price: "Consultation required", area: "Face",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 
   {
@@ -788,7 +950,7 @@ const SERVICES = [
     fullDescription: "Dermal fillers use hyaluronic acid to restore lost volume, soften deep lines, and refine facial contours. Common areas include lips, nasolabial folds, cheeks, under-eyes, and jawline. Results are immediate and can last 9–18 months. Our practitioners prioritize balance and proportion — results should enhance your features, not redefine them.",
     tags: ["Volume", "Contouring", "Natural", "Immediate results"],
     duration: "45–60 min", price: "From $650/syringe", area: "Face",
-    providerIds: ["dr-nguyen"]
+    providerIds: ["dr-nguyen", "vivian"]
   },
 
   {
@@ -797,7 +959,7 @@ const SERVICES = [
     fullDescription: "Platelet-Rich Fibrin (PRF) injections use your body's own growth factors to stimulate collagen production, improve skin texture, and restore a more youthful appearance. This natural, additive-free treatment helps soften fine lines, improve elasticity, and enhance skin quality over time with minimal downtime. Ideal for the face, under-eyes, and areas of skin thinning or volume loss.",
     tags: ["Natural", "Collagen", "Under-eyes", "Skin quality"],
     duration: "30–60 min", price: "Consultation required", area: "Face, under-eyes",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 
   // ── WEIGHT ──
@@ -807,7 +969,7 @@ const SERVICES = [
     fullDescription: "Semaglutide is a GLP-1 receptor agonist that regulates appetite and blood sugar. Our program includes an initial consultation and lab work, personalized dosing, weekly injections, and ongoing clinical monitoring. Most patients experience meaningful weight loss within the first 4–8 weeks. Requires consultation prior to starting.",
     tags: ["Medical weight loss", "GLP-1", "Clinically supervised", "Appetite regulation"],
     duration: "Ongoing program", price: "Consultation required", area: "Systemic",
-    providerIds: ["dr-nguyen"]
+    providerIds: ["dr-nguyen", "vivian"]
   },
 
   {
@@ -816,7 +978,7 @@ const SERVICES = [
     fullDescription: "Tirzepatide acts on two separate hormone receptors (GIP and GLP-1) to more powerfully regulate appetite, blood sugar, and metabolism. Clinical trials show 15–20% body weight loss over treatment. Our program wraps the medication in comprehensive clinical support and goal tracking.",
     tags: ["Medical weight loss", "Dual agonist", "Clinically supervised", "Advanced"],
     duration: "Ongoing program", price: "Consultation required", area: "Systemic",
-    providerIds: ["dr-nguyen"]
+    providerIds: ["dr-nguyen", "vivian"]
   },
 
   {
@@ -825,7 +987,7 @@ const SERVICES = [
     fullDescription: "Our medical weight loss programs are designed to help you achieve sustainable results through a comprehensive, evidence-based approach. Each plan combines nutrition counseling, exercise guidance, and — when appropriate — metabolic or peptide support to optimize fat loss, muscle preservation, and overall health. We focus on creating realistic, personalized strategies that fit your lifestyle. You'll receive one-on-one support, ongoing progress monitoring, and education to build lasting habits for improved energy, body composition, and confidence.",
     tags: ["Nutrition", "Lifestyle", "Peptides", "Sustainable results"],
     duration: "60–90 min (initial)", price: "Consultation required", area: "Systemic",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 
   // ── HORMONE & FUNCTIONAL HEALTH ──
@@ -835,7 +997,7 @@ const SERVICES = [
     fullDescription: "Hormones play a vital role in regulating mood, metabolism, energy, sleep, and sexual health. Over time, natural hormone levels decline — often beginning in your 30s or 40s — leading to symptoms that can significantly impact quality of life. Bioidentical Hormone Replacement Therapy (BHRT) uses hormones that are molecularly identical to those your body produces, restoring balance and supporting long-term wellness. At Regan Aesthetics & Health, each BHRT plan is based on your unique lab values, symptoms, and goals, using precise doses of estrogen, progesterone, testosterone, DHEA, and thyroid support when appropriate. We take a functional, preventative approach — addressing the root cause of imbalance while optimizing overall health and vitality.",
     tags: ["Hormones", "Energy", "Mood", "Longevity"],
     duration: "60–90 min (initial)", price: "Consultation required", area: "Systemic",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 
   {
@@ -844,7 +1006,7 @@ const SERVICES = [
     fullDescription: "Polycystic Ovary Syndrome (PCOS) is a complex hormonal and metabolic condition that can affect cycles, weight, energy, skin, and fertility. At Regan Aesthetics & Health, we take a root-cause, individualized approach to managing PCOS — focusing on balancing hormones, improving metabolic health, and supporting long-term wellness. Treatment may include targeted nutrition, exercise guidance, supplementation, and when appropriate, medication support to improve insulin sensitivity, regulate cycles, and reduce symptoms.",
     tags: ["Women's health", "Hormones", "Metabolic health", "Fertility"],
     duration: "Ongoing program", price: "Consultation required", area: "Systemic",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 
   // ── HAIR RESTORATION ──
@@ -854,7 +1016,7 @@ const SERVICES = [
     fullDescription: "Restore fuller, healthier hair naturally with Platelet-Rich Fibrin (PRF) therapy. This regenerative treatment uses your body's own growth factors to stimulate dormant follicles, improve scalp circulation, and strengthen hair at the root — without synthetic additives. Over a series of treatments, PRF helps reduce shedding and encourages new growth for thicker, denser hair. Enhance your results with peptide therapy add-ons, which support follicle activity, boost collagen production, and extend the growth phase of your hair cycle from within. Together, PRF and peptides provide a powerful, inside-out approach to lasting hair restoration.",
     tags: ["Hair loss", "PRF", "Peptides", "Scalp health"],
     duration: "60–90 min", price: "Consultation required", area: "Scalp",
-    providerIds: ["dr-nguyen", "regan"]
+    providerIds: ["dr-nguyen", "regan", "vivian"]
   },
 ];
 
@@ -875,6 +1037,7 @@ const PROVIDERS = [
     bio: "Rachel brings a multi-sensory dimension to her practice — a licensed massage therapist and certified aromatherapist who creates custom scent blends for each session. She's particularly beloved for her lymphatic drainage work and her clients often report sleeping better for days afterward.",
     specialties: ["Lymphatic drainage", "Aromatherapy massage", "Swedish massage", "Stress relief"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
+    staffEmail: "rachel@aislingwellness.com",
     serviceIds: ["swedish", "lymphatic", "couples"]
   },
 
@@ -914,7 +1077,7 @@ const PROVIDERS = [
     ],
 
     bookingUrl: "https://www.optimantra.com/optimus/patient/patientaccess/servicesall?pid=SG1SbVp0cUZpMGdJWVFQMWV3Yks0UT09&lid=eHdZUUptN2daRFhBdFYxRUdTUitGQT09",
-
+    staffEmail: "regan@aislingwellness.com",
     serviceIds: [
       "bhrt",
       "metabolic-reset",
@@ -935,6 +1098,7 @@ const PROVIDERS = [
     bio: "Jordan is our technology specialist — trained on every device in the Aisling suite and certified in laser therapy across all Fitzpatrick skin types. She approaches aesthetic treatments with a clinical mindset and an artist's eye, always prioritizing natural, proportionate results.",
     specialties: ["Alma Harmony laser", "EmSculpt Neo", "EMFACE", "EMSELLA", "Skin analysis"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
+    staffEmail: "jordan@aislingwellness.com",
     serviceIds: ["alma-harmony", "signature-facial", "emface", "emsculpt-neo", "emsella"]
   },
 
@@ -944,6 +1108,7 @@ const PROVIDERS = [
     bio: "Ashley is a skin-care purist who believes the foundation of great aesthetics is great skin health. She customizes every facial to what the skin is doing that day, and her clients trust her completely. Also certified in red light therapy and body composition analysis.",
     specialties: ["Signature facial", "Red light therapy", "Infrared sauna", "3D body composition", "Foot detox"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
+    staffEmail: "ashley@aislingwellness.com",
     serviceIds: ["signature-facial", "red-light", "infrared-sauna", "foot-detox", "body-composition", "emsculpt-neo"]
   },
 
@@ -953,6 +1118,7 @@ const PROVIDERS = [
     bio: "Dr. Nguyen oversees all medical treatments at Aisling with the precision and warmth that defines everything we do. Over a decade of experience in medical aesthetics and functional wellness, with a philosophy of treating the whole person. Her injectable work is known for its restraint and natural results.",
     specialties: ["Neurotoxins", "Dermal fillers", "IV therapy", "Semaglutide", "Tirzepatide", "Medical oversight"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
+    staffEmail: "linh@aislingwellness.com",
     serviceIds: ["botox", "dermal-fillers", "iv-therapy", "semaglutide", "tirzepatide"]
   },
 
@@ -969,6 +1135,7 @@ const PROVIDERS = [
     bio: "Kasden Davis is the owner of Kasden Aesthetics in Lubbock, Texas, and has been a licensed aesthetician since 2019. Specializing in dermaplaning, microneedling, and customized facials, she focuses on creating personalized skincare experiences that address each client’s unique needs. Living in a dry climate, she emphasizes hydration and skin barrier support to restore glow and maintain healthy, radiant skin year-round. Her goal is to provide results-driven treatments in a relaxing, supportive environment.",
     specialties: ["Dermaplaning", "Microneedling", "Customized Facials", "Lash Lift", "Brow Lamination"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
+    staffEmail: "kasden@aislingwellness.com",
     serviceIds: [
       "microneedling",
       "signature-facial",
@@ -998,7 +1165,8 @@ const PROVIDERS = [
     avatarColor: "#1e3040",
     bio: "While working in the social work field, Marci realized her passion for helping people was best expressed on an individual level. As a licensed esthetician since 2010, she helps clients feel great about their skin while boosting their self-esteem. Marci's reputation is built on 15 years of experience, ethical practices, and a commitment to delivering outstanding, result-driven outcomes. She specializes in chemical peels, microneedling, and holistic techniques like facial cupping and lymphatic drainage.",
     specialties: ["TCA Peels", "Microneedling", "European Facials", "Waxing", "Lymphatic Drainage"],
-    bookingUrl: "https://aislingwellnesscenter.com/book",
+    bookingUrl: "https://www.lubbock-esthetics.com/",
+    staffEmail: "marci@aislingwellness.com",
     serviceIds: [
       "microneedling",
       "signature-facial",
@@ -1026,7 +1194,7 @@ const PROVIDERS = [
     ]
   },
 
-  { 
+  {
     id: "jaime",
     name: "Jaime Revilla",
     title: "Licensed Esthetician",
@@ -1038,7 +1206,8 @@ const PROVIDERS = [
     avatarColor: "#7a9e68",
     bio: "Jaime brings a uniquely holistic and science-driven approach to skincare, cultivated through 22 years as an Occupational Therapist. As a Face Reality Acne Expert, she specializes in transformative acne treatments and anti-aging corrective skincare. Her deep knowledge of anatomy, physiology, and therapeutic modalities allows her to tailor personalized treatment plans that address the root causes of skin concerns, ensuring measurable, science-based results and radiant skin.",
     specialties: ["Face Reality Acne Expert", "Anti-Aging Corrective Skincare", "Lymphatic Facial", "Oxygen Rx", "Holistic Health"],
-    bookingUrl: "https://aislingwellnesscenter.com/book",
+    bookingUrl: "https://skintheorylbk.glossgenius.com/services",
+    staffEmail: "jaime@aislingwellness.com",
     serviceIds: [
       "acne-consult-treatment",
       "acne-fr-current",
@@ -1057,7 +1226,7 @@ const PROVIDERS = [
     ]
   },
 
-  { 
+  {
     id: "hannah",
     name: "Hannah Lowrey",
     title: "Co-Owner of Smooth Daze Waxing & Full Body Wax Specialist",
@@ -1103,7 +1272,7 @@ const PROVIDERS = [
     ]
   },
 
-  { 
+  {
     id: "lauren",
     name: "Lauren Gomez",
     title: "Full Body Wax Specialist & Co-Owner of Smooth Daze",
@@ -1146,6 +1315,65 @@ const PROVIDERS = [
       "wax-sideburn",
       "wax-ear",
       "wax-hairline"
+    ]
+  },
+
+  {
+    id: "taylor",
+    name: "Taylor Hock",
+    title: "Lash Artist",
+    credentials: "LE",
+    years: 6,
+    photo: "images/staff/TaylorHock.jpg",
+    avatarInitials: "TH",
+    avatarBg: "rgba(122, 158, 104, 0.2)",
+    avatarColor: "#7a9e68",
+    bio: "Taylor Hock is a dedicated lash artist with 6 years of experience in the beauty industry. She specializes in intricate volume and mega volume techniques, focusing on creating custom looks that enhance each client’s natural beauty while maintaining lash health.",
+    specialties: ["Volume Full Sets", "Mega Volume Artistry", "Lash Design", "Lash Maintenance"],
+    bookingUrl: "https://www.instagram.com/lazymorninglashes/",
+    staffEmail: "taylor@aislingwellness.com",
+    serviceIds: [
+      "volume-full-set",
+      "volume-extended-fill",
+      "volume-fill",
+      "mega-volume-full-set",
+      "mega-volume-extended-fill",
+      "mega-volume-fill",
+      "mega-mini-fill",
+      "mini-fill",
+      "lash-removal"
+    ]
+  },
+
+  {
+    id: "vivian",
+    name: "Vivian Jimenez",
+    title: "Nurse Practitioner",
+    credentials: "DNP, FNP-C, APRN",
+    years: 16,
+    photo: "images/staff/VivianJimenez.jpg",
+    avatarInitials: "VJ",
+    avatarBg: "rgba(30,48,64,0.2)",
+    avatarColor: "#1e3040",
+    bio: "Vivian Jimenez has been a nurse practitioner for over 16 years and in the medical field for over 25 years. She holds a Doctor of Nursing Practice from Texas Woman’s University and a Master of Nursing from West Texas A&M. With a background in emergency care, internal medicine, and aesthetics, Vivian focuses on personalized treatments like bioidentical hormone therapy and IV wellness, helping clients maintain their natural beauty with science-backed care.",
+    specialties: ["Bioidentical Hormone Therapy", "Peptide Therapy", "Vitamin IV Therapy", "Aesthetic Injections"],
+    bookingUrl: "mailto:beautifyaesthiticaslbk@gmail.com",
+    staffEmail: "beautifyaesthiticaslbk@gmail.com",
+    serviceIds: [
+      "iv-therapy",
+      "gut-health",
+      "health-optimization",
+      "semaglutide",
+      "tirzepatide",
+      "metabolic-reset",
+      "botox",
+      "neurotoxin-daxxify",
+      "dermal-fillers",
+      "prf-injections",
+      "bhrt",
+      "pcos",
+      "microneedling",
+      "prf-hair"
     ]
   },
 ];

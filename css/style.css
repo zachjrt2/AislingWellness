@@ -1397,26 +1397,51 @@ button {
   margin-bottom: 12px;
 }
 
-.provider-book-btn {
-  display: block;
-  width: 100%;
-  padding: 9px 0;
-  background: var(--forest);
-  color: var(--gold);
-  border: none;
+.provider-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.provider-request-btn,
+.provider-hub-btn {
+  flex: 1;
+  padding: 10px 4px;
   border-radius: 6px;
   font-family: var(--body);
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-size: 10px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
   font-weight: 500;
-  transition: background 150ms;
+  transition: all 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  min-height: 38px;
 }
 
-.provider-book-btn:hover {
-  background: #3f5838;
+.provider-request-btn {
+  background: var(--forest);
   color: var(--gold);
+  border: 1px solid var(--forest);
+}
+
+.provider-request-btn:hover {
+  background: var(--forest-canopy);
+  color: var(--gold);
+}
+
+.provider-hub-btn {
+  background: transparent;
+  color: var(--forest-moss);
+  border: 1px solid rgba(74, 104, 66, 0.3);
+}
+
+.provider-hub-btn:hover {
+  background: rgba(74, 104, 66, 0.05);
+  border-color: var(--forest-moss);
 }
 
 .match-card {
@@ -1670,27 +1695,51 @@ button {
   margin-left: 4px;
 }
 
-.team-book-btn {
+.team-card-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 11px 0;
-  background: var(--forest);
-  color: var(--gold);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.team-request-btn,
+.team-website-btn {
+  flex: 1;
+  padding: 11px 8px;
   border-radius: 6px;
   font-family: var(--body);
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
-  transition: background 150ms;
+  transition: all 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 44px;
+  line-height: 1.2;
 }
 
-.team-book-btn:hover {
-  background: #3f5838;
+.team-request-btn {
+  background: var(--forest);
   color: var(--gold);
+  border: 1px solid var(--forest);
+}
+
+.team-request-btn:hover {
+  background: var(--forest-canopy);
+  color: var(--gold);
+}
+
+.team-website-btn {
+  background: transparent;
+  color: var(--forest-moss);
+  border: 1px solid rgba(74, 104, 66, 0.3);
+}
+
+.team-website-btn:hover {
+  background: rgba(74, 104, 66, 0.05);
+  border-color: var(--forest-moss);
 }
 
 .team-cta {

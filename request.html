@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request an Appointment | Aisling Wellness Center</title>
+  <meta name="description" content="Request a service or consultation at Aisling Wellness Center. Select your treatment and preferred provider.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .request-section {
+      background: var(--linen);
+      padding: 100px 0 80px;
+      min-height: 100vh;
+    }
+
+    .request-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #ddd8c8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a8270;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: #fdfdfb;
+      border: 1px solid #dcd7c7;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-family: var(--body);
+      font-size: 14px;
+      color: var(--bark);
+      outline: none;
+      transition: border-color 200ms, box-shadow 200ms;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200, 185, 122, 0.1);
+    }
+
+    .form-textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .btn-submit {
+      flex: 2;
+      background: var(--forest);
+      color: var(--gold);
+      padding: 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 200ms;
+    }
+
+    .btn-submit:hover {
+      background: var(--forest-canopy);
+    }
+
+    .btn-reset {
+      flex: 1;
+      background: #f3f0e8;
+      color: #8a8270;
+      padding: 14px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid #dcd7c7;
+      cursor: pointer;
+      transition: all 200ms;
+    }
+
+    .btn-reset:hover {
+      background: #e9e5d8;
+      border-color: #c8b97a;
+      color: var(--bark);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .form-header h1 {
+      font-family: var(--display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+
+    .form-header p {
+      font-size: 13px;
+      color: #8a8270;
+    }
+
+    @media (max-width: 600px) {
+      .request-container {
+        padding: 24px;
+        border-radius: 0;
+        border: none;
+      }
+      .request-section {
+        padding: 80px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav id="nav"></nav>
+  <div id="nav-overlay"></div>
+  <div id="nav-drawer"></div>
+
+  <section class="request-section">
+    <div class="container">
+      <div class="request-container">
+        <div class="form-header">
+          <h1>Request an Appointment</h1>
+          <p>Tell us what you're looking for, and we'll reach out to schedule.</p>
+        </div>
+
+        <form id="request-form">
+          <div class="form-group">
+            <label for="user_name">Full Name</label>
+            <input type="text" id="user_name" name="user_name" class="form-input" placeholder="Your name" required>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px">
+            <div class="form-group">
+              <label for="user_email">Email Address</label>
+              <input type="email" id="user_email" name="user_email" class="form-input" placeholder="email@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="user_phone">Phone Number</label>
+              <input type="tel" id="user_phone" name="user_phone" class="form-input" placeholder="(806) 000-0000" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Service Category</label>
+            <select id="category" name="category" class="form-select">
+              <option value="">Select a category...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Specific Service</label>
+            <select id="service" name="service" class="form-select">
+              <option value="">Select a service...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="staff">Preferred Staff Member</label>
+            <select id="staff" name="staff" class="form-select">
+              <option value="">Any available staff member</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date_pref">Preferred Date & Time</label>
+            <input type="text" id="date_pref" name="date_pref" class="form-input" placeholder="e.g. Next Tuesday afternoon">
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" class="form-textarea" placeholder="Any specific concerns or questions?"></textarea>
+          </div>
+
+          <!-- Honeypot field to block spam bots -->
+          <div style="display:none">
+            <label for="honeypot">If you are human, leave this empty</label>
+            <input type="text" id="honeypot" name="honeypot" value="">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="form-reset" class="btn-reset">Reset</button>
+            <button type="submit" class="btn-submit">Submit Request</button>
+          </div>
+</form>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+
+  <!-- EmailJS Library -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    initShared('request');
+
+    // ── EmailJS Configuration ────────────────────────────────────────────────
+    // Replace these with your actual IDs from EmailJS
+    const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; 
+    const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // ── Form & Data Logic ────────────────────────────────────────────────────
+    const form = document.getElementById('request-form');
+    const catSelect = document.getElementById('category');
+    const svcSelect = document.getElementById('service');
+    const staffSelect = document.getElementById('staff');
+    const resetBtn = document.getElementById('form-reset');
+
+    // Populate Categories
+    CATEGORIES.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.id;
+      opt.textContent = cat.label;
+      catSelect.appendChild(opt);
+    });
+
+    function populateServices(filteredSvcs) {
+      const currentVal = svcSelect.value;
+      svcSelect.innerHTML = '<option value="">Select a service...</option>';
+      filteredSvcs.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = s.name;
+        svcSelect.appendChild(opt);
+      });
+      if (filteredSvcs.find(s => s.id === currentVal)) svcSelect.value = currentVal;
+    }
+
+    function populateStaff(filteredStaff) {
+      const currentVal = staffSelect.value;
+      staffSelect.innerHTML = '<option value="">Any available staff member</option>';
+      filteredStaff.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.name;
+        staffSelect.appendChild(opt);
+      });
+      if (filteredStaff.find(p => p.id === currentVal)) staffSelect.value = currentVal;
+    }
+
+    // Initial population
+    populateServices(SERVICES);
+    populateStaff(PROVIDERS);
+
+    // ── Filtering Logic ──────────────────────────────────────────────────────
+    function updateFilters(source) {
+      const catId = catSelect.value;
+      const svcId = svcSelect.value;
+      const staffId = staffSelect.value;
+
+      let filteredSvcs = SERVICES;
+      let filteredStaff = PROVIDERS;
+
+      // Filter by Category
+      if (catId) {
+        const cat = CATEGORIES.find(c => c.id === catId);
+        const catSvcIds = cat.subCategories.flatMap(sub => sub.serviceIds);
+        filteredSvcs = SERVICES.filter(s => catSvcIds.includes(s.id));
+        // If we just picked a category, we might want to filter staff too
+        if (source === 'category') {
+          filteredStaff = PROVIDERS.filter(p => p.serviceIds.some(sid => catSvcIds.includes(sid)));
+        }
+      }
+
+      // Filter Services by Staff
+      if (staffId) {
+        const p = PROVIDERS.find(prov => prov.id === staffId);
+        filteredSvcs = filteredSvcs.filter(s => p.serviceIds.includes(s.id));
+      }
+
+      // Filter Staff by Service
+      if (svcId) {
+        const s = SERVICES.find(svc => svc.id === svcId);
+        filteredStaff = filteredStaff.filter(p => s.providerIds.includes(p.id));
+      }
+
+      // Update dropdowns
+      if (source !== 'service') populateServices(filteredSvcs);
+      if (source !== 'staff') populateStaff(filteredStaff);
+    }
+
+    catSelect.addEventListener('change', () => updateFilters('category'));
+    svcSelect.addEventListener('change', () => updateFilters('service'));
+    staffSelect.addEventListener('change', () => updateFilters('staff'));
+
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      populateServices(SERVICES);
+      populateStaff(PROVIDERS);
+    });
+
+    // ── Handle deep linking ──────────────────────────────────────────────────
+    function handleParams() {
+      const params = new URLSearchParams(location.search);
+      const sParam = params.get('service');
+      const pParam = params.get('provider');
+      const cParam = params.get('category');
+
+      if (cParam) catSelect.value = cParam;
+      if (sParam) svcSelect.value = sParam;
+      if (pParam) staffSelect.value = pParam;
+
+      if (cParam || sParam || pParam) updateFilters('init');
+    }
+    handleParams();
+
+    // ── Submission ───────────────────────────────────────────────────────────
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Basic Honeypot check
+      if (document.getElementById('honeypot').value !== '') {
+        console.warn('Bot detected.');
+        return;
+      }
+      
+      const btn = form.querySelector('.btn-submit');
+      const originalText = btn.textContent;
+      btn.textContent = "Sending...";
+      btn.disabled = true;
+
+      // Map IDs to friendly names for the email template
+      const templateParams = {
+        user_name: form.user_name.value,
+        user_email: form.user_email.value,
+        user_phone: form.user_phone.value,
+        category: catSelect.options[catSelect.selectedIndex]?.text || "None",
+        service: svcSelect.options[svcSelect.selectedIndex]?.text || "None",
+        staff: staffSelect.options[staffSelect.selectedIndex]?.text || "Any",
+        date_pref: form.date_pref.value,
+        notes: form.notes.value
+      };
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(() => {
+          alert("Thank you! Your request has been sent. We will contact you shortly.");
+          form.reset();
+          updateFilters('reset');
+        }, (error) => {
+          console.error("EmailJS Error:", error);
+          alert("Oops! Something went wrong. Please try again or call us at (806) 715-6646.");
+        })
+        .finally(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        });
+    });
+  </script>
+</body>
+
+</html>

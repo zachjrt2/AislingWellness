@@ -417,23 +417,29 @@
 
       <span class="providers-label">Choose your provider</span>
       <div class="providers-grid">
-        ${svcProviders.map(p => `
-          <div class="provider-card" data-id="${p.id}">
-            <div class="provider-top">
-              ${p.photo ? `<img src="${p.photo}" alt="${p.name}" class="provider-avatar-img">` : `
-                <div class="provider-avatar" style="background:${p.avatarBg};color:${p.avatarColor}">${p.avatarInitials}</div>
-              `}
-              <div>
-                <div class="provider-name">${p.name}</div>
-                <div class="provider-creds">${p.credentials} · ${p.years} yrs</div>
+        ${svcProviders.map(p => {
+          const category = CATEGORIES.find(c => c.subCategories.some(sub => sub.serviceIds.includes(svc.id)));
+          const catId = category ? category.id : '';
+          return `
+            <div class="provider-card" data-id="${p.id}">
+              <div class="provider-top">
+                ${p.photo ? `<img src="${p.photo}" alt="${p.name}" class="provider-avatar-img">` : `
+                  <div class="provider-avatar" style="background:${p.avatarBg};color:${p.avatarColor}">${p.avatarInitials}</div>
+                `}
+                <div>
+                  <div class="provider-name">${p.name}</div>
+                  <div class="provider-creds">${p.credentials} · ${p.years} yrs</div>
+                </div>
+              </div>
+              <p class="provider-bio-short">${p.bio.split('.')[0]}.</p>
+              <div class="provider-actions">
+                <a href="request.html?service=${svc.id}&provider=${p.id}&category=${catId}" class="provider-request-btn">
+                  Book with ${p.name.split(' ')[0]}
+                </a>
               </div>
             </div>
-            <p class="provider-bio-short">${p.bio.split('.')[0]}.</p>
-            <a href="${p.bookingUrl}" target="_blank" rel="noopener" class="provider-book-btn">
-              Book with ${p.name.split(' ')[0]} →
-            </a>
-          </div>
-        `).join('')}
+          `;
+        }).join('')}
         <div class="match-card">
           <p>Not sure who to choose?</p>
           <a href="tel:+18067156646">Call us — we'll match you</a>

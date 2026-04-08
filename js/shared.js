@@ -37,6 +37,7 @@ function renderNav(activePage = '') {
   const links = [
     { href: 'index.html', label: 'Home' },
     { href: 'book.html', label: 'Services' },
+    { href: 'request.html', label: 'Request' },
     { href: 'team.html', label: 'Our team' },
     { href: 'about.html', label: 'About' },
   ];
@@ -70,6 +71,7 @@ function renderDrawer() {
     <nav class="drawer-links">
       <a href="index.html">Home</a>
       <a href="book.html">Services</a>
+      <a href="request.html">Request Appt</a>
       <a href="team.html">Our team</a>
       <a href="about.html">About</a>
     </nav>

@@ -113,10 +113,16 @@
               </button>
             `).join('')}
           </div>
-          <a href="${p.bookingUrl}" target="_blank" rel="noopener" class="team-book-btn">
-            ${icon('calendar', 14, '#c8b97a')}
-            Book with ${p.name.split(' ')[0]}
-          </a>
+          <div class="team-card-actions">
+            <a href="request.html?provider=${p.id}" class="team-request-btn">
+              Book with ${p.name.split(' ')[0]}
+            </a>
+            ${p.bookingUrl && p.bookingUrl !== 'https://aislingwellnesscenter.com/book' ? `
+              <a href="${p.bookingUrl}" target="_blank" rel="noopener" class="team-website-btn">
+                ${p.name.split(' ')[0]}'s Website
+              </a>
+            ` : ''}
+          </div>
         </div>
       </div>
     `).join('') : `
