@@ -104,7 +104,7 @@
         <div class="team-card-body">
           <h2>${p.name}</h2>
           <div class="team-card-title">${p.title}</div>
-          <div class="team-card-creds">${p.credentials} · ${p.years} years experience</div>
+          <div class="team-card-creds">${p.credentials}${p.years ? ` · ${p.years} years experience` : ''}</div>
           <p class="team-card-bio">${p.bio}</p>
           <div class="specialty-label">Specialties</div>
           <div class="specialty-tags">
