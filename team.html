@@ -17,7 +17,7 @@
 <!-- Header -->
 <div class="team-header">
   <div class="team-header-mark"><img src="images/banner-logo-1.png"></div>
-  <div style="position:relative;z-index:1;text-align:center">
+  <div class="reveal-fade" style="position:relative;z-index:1;text-align:center">
     <span class="section-label" style="text-align:center;margin-bottom:16px">The people behind the practice</span>
     <h1 style="font-family:var(--display);font-size:clamp(32px,5vw,52px);font-weight:300;color:#eae5d5;line-height:1.15;margin-bottom:16px">Meet the team</h1>
     <p style="font-size:14px;color:#7a9070;line-height:1.7;max-width:500px;margin:0 auto">Licensed specialists united by a genuine care for the people in their hands.</p>
@@ -34,8 +34,9 @@
 <div id="filter-status-container"></div>
 
 <!-- Grid -->
+<main>
 <section class="section" style="padding-top:0">
-  <div class="container">
+  <div class="container reveal-up">
     <div class="team-grid" id="team-grid"></div>
 
     <!-- CTA -->
@@ -51,6 +52,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer id="footer"></footer>
 
@@ -94,7 +96,7 @@
     grid.innerHTML = filtered.length ? filtered.map(p => `
       <div class="team-card">
         <div class="team-card-photo" style="background:${p.avatarBg}">
-          ${p.photo ? `<img src="${p.photo}" alt="${p.name}" class="team-photo-img">` : `
+          ${p.photo ? `<img src="${p.photo}" alt="${p.name}" class="team-photo-img" loading="lazy">` : `
             <div class="team-avatar" style="background:${p.avatarBg};border:2px solid ${p.avatarColor}55;color:${p.avatarColor}">
               ${p.avatarInitials}
             </div>

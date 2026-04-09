@@ -19,7 +19,7 @@
 
   <!-- Page header -->
   <div class="book-header">
-    <div class="book-header-inner">
+    <div class="book-header-inner reveal-fade">
       <h1
         style="font-family:var(--display);font-size:clamp(26px,4vw,36px);font-weight:300;color:#eae5d5;margin-bottom:6px">
         Book a Treatment</h1>
@@ -33,10 +33,10 @@
   <div id="mobile-pills"></div>
 
   <!-- Main layout -->
-  <div class="book-layout">
-    <aside id="sidebar"></aside>
-    <div id="detail"></div>
-  </div>
+  <main class="book-layout">
+    <aside id="sidebar" class="reveal-fade"></aside>
+    <div id="detail" class="reveal-up"></div>
+  </main>
 
   <footer id="footer"></footer>
 
@@ -424,7 +424,7 @@
           return `
             <div class="provider-card" data-id="${p.id}">
               <div class="provider-top">
-                ${p.photo ? `<img src="${p.photo}" alt="${p.name}" class="provider-avatar-img">` : `
+                ${p.photo ? `<img src="${p.photo}" alt="${p.name}" class="provider-avatar-img" loading="lazy">` : `
                   <div class="provider-avatar" style="background:${p.avatarBg};color:${p.avatarColor}">${p.avatarInitials}</div>
                 `}
                 <div>

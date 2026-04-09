@@ -231,10 +231,9 @@
     initShared('request');
 
     // ── EmailJS Configuration ────────────────────────────────────────────────
-    // Replace these with your actual IDs from EmailJS
-    const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; 
-    const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+    const EMAILJS_PUBLIC_KEY = "PSu7NY4QcG7N2qEEL"; 
+    const EMAILJS_SERVICE_ID = "service_7vk598t";
+    const EMAILJS_TEMPLATE_ID = "template_hpx6ayk";
 
     emailjs.init(EMAILJS_PUBLIC_KEY);
 
@@ -367,7 +366,9 @@
         service: svcSelect.options[svcSelect.selectedIndex]?.text || "None",
         staff: staffSelect.options[staffSelect.selectedIndex]?.text || "Any",
         date_pref: form.date_pref.value,
-        notes: form.notes.value
+        notes: form.notes.value,
+        staff_id: staffSelect.value || "any",
+        service_id: svcSelect.value || "none"
       };
 
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)

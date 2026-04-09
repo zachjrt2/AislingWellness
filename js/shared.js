@@ -146,9 +146,40 @@ function stars(rating, size = 14) {
   ).join('')}</div>`;
 }
 
+// ─── SCROLL REVEALS ──────────────────────────────────────────────────────────
+function initScrollReveals() {
+  // Check for prefers-reduced-motion to respect accessibility globally in JS too if needed
+  // though we handled it mostly in CSS
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-up, .reveal-fade').forEach(el => {
+    if (prefersReducedMotion) {
+      el.classList.add('is-revealed');
+    } else {
+      observer.observe(el);
+    }
+  });
+}
+
 // ─── INIT SHARED ─────────────────────────────────────────────────────────────
 function initShared(activePage) {
   renderNav(activePage);
   renderDrawer();
   renderFooter();
+  initScrollReveals();
 }

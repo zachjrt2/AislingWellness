@@ -141,6 +141,7 @@ button {
 
 .btn-gold:hover {
   background: var(--gold-dark);
+  box-shadow: 0 4px 14px rgba(200, 185, 122, 0.3);
 }
 
 .btn-ghost {
@@ -162,6 +163,7 @@ button {
 .btn-ghost:hover {
   border-color: var(--gold);
   background: rgba(200, 185, 122, 0.08);
+  box-shadow: 0 4px 14px rgba(200, 185, 122, 0.15);
 }
 
 .btn-ghost--bark {
@@ -235,8 +237,10 @@ button {
 }
 
 #nav.scrolled {
-  background: #0a1208;
+  background: rgba(10, 18, 8, 0.85);
   border-color: #1a2a18;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .nav-inner {
@@ -538,7 +542,7 @@ button {
   border-radius: 10px;
   padding: 24px 22px;
   cursor: pointer;
-  transition: border-color 200ms, background 200ms;
+  transition: border-color 200ms, background 200ms, transform 200ms, box-shadow 200ms;
   display: block;
   color: inherit;
 }
@@ -546,6 +550,8 @@ button {
 .service-card:hover {
   border-color: #4a6842;
   background: #131f11;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .service-card-header {
@@ -624,6 +630,13 @@ button {
   padding: 22px 20px;
   display: flex;
   flex-direction: column;
+  transition: border-color 200ms, transform 200ms, box-shadow 200ms;
+}
+
+.review-card:hover {
+  border-color: #2a3e28;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .review-card .stars {
@@ -1344,11 +1357,13 @@ button {
   border-radius: 10px;
   padding: 18px 16px;
   cursor: pointer;
-  transition: border-color 150ms;
+  transition: border-color 150ms, transform 200ms, box-shadow 200ms;
 }
 
 .provider-card:hover {
   border-color: #8aaa70;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .provider-card.selected {
@@ -1515,11 +1530,13 @@ button {
   border: 1px solid #ddd8c8;
   border-radius: 12px;
   overflow: hidden;
-  transition: border-color 200ms;
+  transition: border-color 200ms, transform 200ms, box-shadow 200ms;
 }
 
 .team-card:hover {
   border-color: #8aaa70;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .team-card-photo {
@@ -2005,6 +2022,24 @@ button {
   }
 }
 
+/* ── SCROLL REVEALS ── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.reveal-up.is-revealed,
+.reveal-fade.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   :root {
@@ -2067,6 +2102,8 @@ button {
   #hero-content *,
   .hero-scroll,
   .hero-ctas,
+  .reveal-up,
+  .reveal-fade,
   [style*="opacity: 0"],
   [style*="opacity:0"] {
     opacity: 1 !important;
