@@ -308,6 +308,12 @@
       <input type="hidden" name="_subject" value="New Provider Submission — Aisling Wellness Center">
       <input type="hidden" name="_next" value="https://aislingwellnesscenter.com">
 
+      <!-- Bot Protection: Honeypot -->
+      <input type="text" name="_gotcha" style="display:none">
+      
+      <!-- Bot Protection: Load timestamp for time-on-page check -->
+      <input type="hidden" name="submission_time_check" id="submission-time-check">
+
       <!-- ── BASIC INFO ── -->
       <div class="section">
         <div class="section-label">Basic information</div>
@@ -484,6 +490,36 @@
 
     </form>
   </div>
+
+  <script>
+    // ── BOT PROTECTION ───────────────────────────────────────────────────────
+    const loadTime = Date.now();
+    
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const currentTime = Date.now();
+      const timeOnPage = (currentTime - loadTime) / 1000; // in seconds
+      
+      // Honeypot check (though Formspree handles _gotcha, we can extra check if needed)
+      const gotcha = document.querySelector('input[name="_gotcha"]').value;
+      
+      // If honeypot is filled or submission is too fast (e.g. < 4 seconds), likely a bot.
+      // We don't block 4s completely but we mark it or can block it.
+      if (gotcha !== '') {
+        e.preventDefault();
+        console.warn('Bot detected via honeypot.');
+        return;
+      }
+
+      if (timeOnPage < 4) {
+        e.preventDefault();
+        alert("Please take a moment to review the form before submitting.");
+        console.warn('Submission too fast, blocked for bot protection.');
+        return;
+      }
+      
+      document.getElementById('submission-time-check').value = `Submitted in ${timeOnPage.toFixed(1)}s`;
+    });
+  </script>
 
 </body>
 

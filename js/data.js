@@ -1036,6 +1036,7 @@ const PROVIDERS = [
     bio: "Teressa is the warm heartbeat of Aisling — the person who greets you at the door and makes you feel at home before a single treatment begins. Her massage work is fluid, intuitive, and deeply attentive. She reads the body with years of trained instinct and has a gift for knowing exactly what each client needs, often before they say it.",
     specialties: ["Swedish massage", "Deep tissue", "Couples massage", "Prenatal massage"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
+    staffEmail: "aislingwc@gmail.com",
     serviceIds: ["swedish", "deep-tissue", "couples"]
   },
 
@@ -1289,7 +1290,7 @@ const PROVIDERS = [
     avatarColor: "#7a9e68",
     bio: "Taylor Hock is a dedicated lash artist with 6 years of experience in the beauty industry. She specializes in intricate volume and mega volume techniques, focusing on creating custom looks that enhance each client’s natural beauty while maintaining lash health.",
     specialties: ["Volume Full Sets", "Mega Volume Artistry", "Lash Design", "Lash Maintenance"],
-    bookingUrl: "https://www.instagram.com/lazymorninglashes/",
+    bookingUrl: "https://aislingwellnesscenter.com/book",
     staffEmail: "taylor@aislingwellness.com",
     serviceIds: [
       "volume-full-set",
@@ -1316,7 +1317,7 @@ const PROVIDERS = [
     avatarColor: "#1e3040",
     bio: "Vivian Jimenez has been a nurse practitioner for over 16 years and in the medical field for over 25 years. She holds a Doctor of Nursing Practice from Texas Woman’s University and a Master of Nursing from West Texas A&M. With a background in emergency care, internal medicine, and aesthetics, Vivian focuses on personalized treatments like bioidentical hormone therapy and IV wellness, helping clients maintain their natural beauty with science-backed care.",
     specialties: ["Bioidentical Hormone Therapy", "Peptide Therapy", "Vitamin IV Therapy", "Aesthetic Injections"],
-    bookingUrl: "mailto:beautifyaesthiticaslbk@gmail.com",
+    bookingUrl: "https://aislingwellnesscenter.com/book",
     staffEmail: "beautifyaesthiticaslbk@gmail.com",
     serviceIds: [
       "iv-therapy",

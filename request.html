@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Request an Appointment | Aisling Wellness Center</title>
-  <meta name="description" content="Request a service or consultation at Aisling Wellness Center. Select your treatment and preferred provider.">
+  <meta name="description"
+    content="Request a service or consultation at Aisling Wellness Center. Select your treatment and preferred provider.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/home-logo.png">
   <style>
@@ -136,9 +137,91 @@
         border-radius: 0;
         border: none;
       }
+
       .request-section {
         padding: 80px 0 0;
       }
+    }
+
+    /* ── REDIRECT MODAL ── */
+    #redirect-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 48, 34, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #redirect-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 440px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid #ddd8c8;
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+
+    #redirect-modal.active .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--linen);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: var(--forest);
+    }
+
+    .modal-card h2 {
+      font-family: var(--display);
+      font-size: 26px;
+      color: var(--forest);
+      margin-bottom: 12px;
+      font-weight: 300;
+    }
+
+    .modal-card p {
+      font-size: 14px;
+      color: #8a8270;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .countdown-ring {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
     }
   </style>
 </head>
@@ -166,11 +249,13 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px">
             <div class="form-group">
               <label for="user_email">Email Address</label>
-              <input type="email" id="user_email" name="user_email" class="form-input" placeholder="email@example.com" required>
+              <input type="email" id="user_email" name="user_email" class="form-input" placeholder="email@example.com"
+                required>
             </div>
             <div class="form-group">
               <label for="user_phone">Phone Number</label>
-              <input type="tel" id="user_phone" name="user_phone" class="form-input" placeholder="(806) 000-0000" required>
+              <input type="tel" id="user_phone" name="user_phone" class="form-input" placeholder="(806) 000-0000"
+                required>
             </div>
           </div>
 
@@ -197,12 +282,14 @@
 
           <div class="form-group">
             <label for="date_pref">Preferred Date & Time</label>
-            <input type="text" id="date_pref" name="date_pref" class="form-input" placeholder="e.g. Next Tuesday afternoon">
+            <input type="text" id="date_pref" name="date_pref" class="form-input"
+              placeholder="e.g. Next Tuesday afternoon">
           </div>
 
           <div class="form-group">
             <label for="notes">Additional Notes</label>
-            <textarea id="notes" name="notes" class="form-textarea" placeholder="Any specific concerns or questions?"></textarea>
+            <textarea id="notes" name="notes" class="form-textarea"
+              placeholder="Any specific concerns or questions?"></textarea>
           </div>
 
           <!-- Honeypot field to block spam bots -->
@@ -215,25 +302,47 @@
             <button type="button" id="form-reset" class="btn-reset">Reset</button>
             <button type="submit" class="btn-submit">Submit Request</button>
           </div>
-</form>
+        </form>
       </div>
     </div>
   </section>
 
   <footer id="footer"></footer>
 
+  <!-- Redirect Modal -->
+  <div id="redirect-modal">
+    <div class="modal-card">
+      <div class="modal-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </div>
+      <h2 id="redirect-staff-name">External Booking</h2>
+      <p id="redirect-message"></p>
+      <div class="countdown-ring">Redirecting in <span id="redirect-timer">3</span>...</div>
+      <div class="modal-actions">
+        <button type="button" class="btn-reset" id="redirect-cancel" style="flex:1">Cancel</button>
+        <button type="button" class="btn-submit" id="redirect-continue" style="flex:2">Continue now</button>
+      </div>
+    </div>
+  </div>
+
   <!-- EmailJS Library -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
+
   <script src="js/data.js"></script>
   <script src="js/shared.js"></script>
   <script>
     initShared('request');
 
     // ── EmailJS Configuration ────────────────────────────────────────────────
-    const EMAILJS_PUBLIC_KEY = "PSu7NY4QcG7N2qEEL"; 
-    const EMAILJS_SERVICE_ID = "service_7vk598t";
+    const EMAILJS_PUBLIC_KEY = "PSu7NY4QcG7N2qEEL";
+    const EMAILJS_SERVICE_ID = "service_70rzhim";
     const EMAILJS_TEMPLATE_ID = "template_hpx6ayk";
+    const EMAILJS_CONF_TEMPLATE_ID = "template_13hqkl6";
 
     emailjs.init(EMAILJS_PUBLIC_KEY);
 
@@ -319,7 +428,57 @@
 
     catSelect.addEventListener('change', () => updateFilters('category'));
     svcSelect.addEventListener('change', () => updateFilters('service'));
-    staffSelect.addEventListener('change', () => updateFilters('staff'));
+    staffSelect.addEventListener('change', () => {
+      const staffId = staffSelect.value;
+      const provider = PROVIDERS.find(p => p.id === staffId);
+
+      if (provider && provider.bookingUrl && provider.bookingUrl !== 'https://aislingwellnesscenter.com/book') {
+        initiateRedirect(provider);
+      } else {
+        updateFilters('staff');
+      }
+    });
+
+    // ── REDIRECT MODAL LOGIC ─────────────────────────────────────────────────
+    let redirectTimer = null;
+    let redirectUrl = "";
+
+    function initiateRedirect(provider) {
+      const modal = document.getElementById('redirect-modal');
+      const nameEl = document.getElementById('redirect-staff-name');
+      const msgEl = document.getElementById('redirect-message');
+      const timerEl = document.getElementById('redirect-timer');
+
+      redirectUrl = provider.bookingUrl;
+      nameEl.textContent = provider.name;
+      msgEl.innerHTML = `<strong>${provider.name}</strong> receives booking requests directly on their own site. We are taking you there now.`;
+
+      let timeLeft = 3;
+      timerEl.textContent = timeLeft;
+
+      modal.classList.add('active');
+
+      redirectTimer = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(redirectTimer);
+          window.location.href = redirectUrl;
+        }
+      }, 1000);
+    }
+
+    document.getElementById('redirect-cancel').addEventListener('click', () => {
+      clearInterval(redirectTimer);
+      document.getElementById('redirect-modal').classList.remove('active');
+      staffSelect.value = ""; // Reset the field
+      updateFilters('staff');
+    });
+
+    document.getElementById('redirect-continue').addEventListener('click', () => {
+      clearInterval(redirectTimer);
+      window.location.href = redirectUrl;
+    });
 
     resetBtn.addEventListener('click', () => {
       form.reset();
@@ -342,20 +501,41 @@
     }
     handleParams();
 
+    // ── BOT PROTECTION ───────────────────────────────────────────────────────
+    const loadTime = Date.now();
+
     // ── Submission ───────────────────────────────────────────────────────────
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      const currentTime = Date.now();
+      const timeOnPage = (currentTime - loadTime) / 1000;
 
       // Basic Honeypot check
       if (document.getElementById('honeypot').value !== '') {
-        console.warn('Bot detected.');
+        console.warn('Bot detected via honeypot.');
         return;
       }
-      
+
+      // Time check (Minimum 4 seconds)
+      if (timeOnPage < 4) {
+        alert("Please take a moment to review the form before submitting.");
+        console.warn('Submission too fast, blocked for bot protection.');
+        return;
+      }
+
       const btn = form.querySelector('.btn-submit');
       const originalText = btn.textContent;
       btn.textContent = "Sending...";
       btn.disabled = true;
+
+      // Determine target staff email and subject line
+      const selectedStaffId = staffSelect.value;
+      const provider = PROVIDERS.find(p => p.id === selectedStaffId);
+      
+      const targetEmail = (provider && provider.staffEmail) ? provider.staffEmail : "aislingwc@gmail.com";
+      const targetName = (provider) ? provider.name : "Aisling Wellness Center";
+      const subjectLine = `New Appointment Request - ${targetName}`;
 
       // Map IDs to friendly names for the email template
       const templateParams = {
@@ -367,13 +547,20 @@
         staff: staffSelect.options[staffSelect.selectedIndex]?.text || "Any",
         date_pref: form.date_pref.value,
         notes: form.notes.value,
-        staff_id: staffSelect.value || "any",
-        service_id: svcSelect.value || "none"
+        staff_id: selectedStaffId || "any",
+        service_id: svcSelect.value || "none",
+        staff_email: targetEmail,
+        cc_email: "aislingwc@gmail.com",
+        subject_line: subjectLine
       };
 
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(() => {
-          alert("Thank you! Your request has been sent. We will contact you shortly.");
+          // Send Client Confirmation Email
+          return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONF_TEMPLATE_ID, templateParams);
+        })
+        .then(() => {
+          alert("Thank you! Your request has been sent. A confirmation email has been sent to you as well.");
           form.reset();
           updateFilters('reset');
         }, (error) => {

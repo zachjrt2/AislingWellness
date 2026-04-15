@@ -434,9 +434,15 @@
               </div>
               <p class="provider-bio-short">${p.bio.split('.')[0]}.</p>
               <div class="provider-actions">
-                <a href="request.html?service=${svc.id}&provider=${p.id}&category=${catId}" class="provider-request-btn">
-                  Book with ${p.name.split(' ')[0]}
-                </a>
+                ${(p.bookingUrl && p.bookingUrl !== 'https://aislingwellnesscenter.com/book') ? `
+                  <a href="${p.bookingUrl}" target="_blank" rel="noopener" class="provider-request-btn">
+                    Book with ${p.name.split(' ')[0]}
+                  </a>
+                ` : `
+                  <a href="request.html?service=${svc.id}&provider=${p.id}&category=${catId}" class="provider-request-btn">
+                    Book with ${p.name.split(' ')[0]}
+                  </a>
+                `}
               </div>
             </div>
           `;
