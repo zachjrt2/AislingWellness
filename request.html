@@ -376,7 +376,11 @@
     function populateStaff(filteredStaff) {
       const currentVal = staffSelect.value;
       staffSelect.innerHTML = '<option value="">Any available staff member</option>';
-      filteredStaff.forEach(p => {
+      
+      // Shuffle the staff list for fairness
+      const shuffled = shuffleArray([...filteredStaff]);
+      
+      shuffled.forEach(p => {
         const opt = document.createElement('option');
         opt.value = p.id;
         opt.textContent = p.name;
@@ -384,6 +388,13 @@
       });
       if (filteredStaff.find(p => p.id === currentVal)) staffSelect.value = currentVal;
     }
+
+    // Re-randomize when the user clicks the dropdown
+    staffSelect.addEventListener('mousedown', () => {
+      // Small delay ensures we don't interfere with the click opening the menu
+      // but still refreshes the order
+      updateFilters('staff');
+    });
 
     // Initial population
     populateServices(SERVICES);

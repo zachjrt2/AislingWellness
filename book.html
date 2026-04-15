@@ -418,7 +418,7 @@
 
       <span class="providers-label">Choose your provider</span>
       <div class="providers-grid">
-        ${svcProviders.map(p => {
+        ${shuffleArray([...svcProviders]).map(p => {
           const category = CATEGORIES.find(c => c.subCategories.some(sub => sub.serviceIds.includes(svc.id)));
           const catId = category ? category.id : '';
           return `
