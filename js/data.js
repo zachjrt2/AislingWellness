@@ -19,7 +19,7 @@ const CATEGORIES = [
         label: "Clinical Facials",
         serviceIds: [
           "signature-facial", "signature-glow-enzyme", "european-facial", "express-facial",
-          "not-sure-facial", "mini-facial", "back-treatment", "mama-mia", "swich-dermal",
+          "not-sure-facial", "acne-facial", "mini-facial", "back-treatment", "mama-mia", "swich-dermal",
           "firming-peptide", "lymphatic-facial", "oxygen-rx", "oxygen-rx-express", "ultimate-glow"
         ]
       },
@@ -286,6 +286,15 @@ const SERVICES = [
     fullDescription: "Perfect for those with limited time but seeking a professional skin boost. This concentrated treatment focuses on efficiency without compromising results, including cleansing, targeted exfoliation, and high-performance serums.",
     tags: ["Quick refresh", "Efficiency", "Glow", "On-the-go"],
     duration: "30 min", price: "$60", area: "Face",
+    providerIds: ["marci"]
+  },
+
+  {
+    id: "acne-facial", name: "Acne Facial", category: "laser", icon: "face",
+    description: "A deep-cleansing facial designed to target acne, calm inflammation, and prevent future breakouts.",
+    fullDescription: "Perfect for oily, congested, or acne-prone skin. This specialized facial focuses on deep pore cleansing, gentle exfoliation, professional extractions, and a calming mask to reduce redness and promote healing. Does not require enrollment in a program.",
+    tags: ["Acne", "Deep cleansing", "Extractions", "Calming"],
+    duration: "60 min", price: "$95", area: "Face",
     providerIds: ["marci"]
   },
 
@@ -1124,7 +1133,7 @@ const PROVIDERS = [
     avatarBg: "rgba(30, 48, 64, 0.2)",
     avatarColor: "#1e3040",
     bio: "While working in the social work field, Marci realized her passion for helping people was best expressed on an individual level. As a licensed esthetician since 2010, she helps clients feel great about their skin while boosting their self-esteem. Marci's reputation is built on 15 years of experience, ethical practices, and a commitment to delivering outstanding, result-driven outcomes. She specializes in chemical peels, microneedling, and holistic techniques like facial cupping and lymphatic drainage.",
-    specialties: ["TCA Peels", "Microneedling", "European Facials", "Waxing", "Lymphatic Drainage"],
+    specialties: ["TCA Peels", "Microneedling", "European Facials", "Waxing", "Lymphatic Drainage", "Acne Facials", "Dermaplane Facials", "Microdermabrasion Facials"],
     bookingUrl: "https://www.lubbock-esthetics.com/",
     staffEmail: "marci@aislingwellness.com",
     serviceIds: [
@@ -1133,6 +1142,7 @@ const PROVIDERS = [
       "european-facial",
       "express-facial",
       "not-sure-facial",
+      "acne-facial",
       "back-treatment",
       "microdermabrasion",
       "dermaplane-facial",
