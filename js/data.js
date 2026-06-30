@@ -41,7 +41,7 @@ const CATEGORIES = [
     id: "sculpting",
     label: "Body Sculpting",
     subCategories: [
-      { label: "Non-Invasive Sculpting", serviceIds: ["emsculpt-neo"] }
+      { label: "Non-Invasive Sculpting", serviceIds: ["emsculpt-neo", "emface"] }
     ]
   },
 
@@ -431,6 +431,15 @@ const SERVICES = [
     fullDescription: "EmSculpt Neo combines HIFEM+ electromagnetic energy (which induces powerful muscle contractions impossible through voluntary exercise) with synchronized RF heating (which destroys fat cells). Clinical studies show an average of 25% more muscle and 30% less fat in the treatment area after a full protocol.",
     tags: ["Fat reduction", "Muscle building", "Non-invasive", "No downtime"],
     duration: "30 min per session", price: "From $750/session", area: "Abdomen, glutes, arms, calves",
+    providerIds: ["kasden"]
+  },
+
+  {
+    id: "emface", name: "EmFace", category: "sculpting", icon: "face",
+    description: "Non-invasive facial rejuvenation that lifts, tones, and smooths the face.",
+    fullDescription: "EmFace is an FDA-cleared, non-invasive facial rejuvenation treatment that lifts, tones, and smooths the face without needles, surgery, or downtime. It works by combining two technologies—Synchronized Radiofrequency (RF) and High-Intensity Focused Electrical Stimulation (HIFES™)—to target both the skin and the underlying facial muscles.",
+    tags: ["Facial lifting", "Skin toning", "Non-invasive", "No downtime"],
+    duration: "20 min per session", price: "From $750/session", area: "Face",
     providerIds: ["kasden"]
   },
 
@@ -1109,6 +1118,7 @@ const PROVIDERS = [
       "microneedling",
       "signature-facial",
       "emsculpt-neo",
+      "emface",
       "microdermabrasion",
       "dermaplane-facial",
       "mini-facial",
@@ -1507,7 +1517,7 @@ const CREDENTIALS = [
 const HOME_SERVICES = [
   { id: "massage", name: "Massage therapy", desc: "Swedish, deep tissue, and couples massage.", icon: "hands" },
   { id: "laser", name: "Laser & skin", desc: "Chemical peels, microneedling, and custom facials.", icon: "glow" },
-  { id: "sculpting", name: "Body sculpting", desc: "EmSculpt Neo muscle building and fat reduction.", icon: "body" },
+  { id: "sculpting", name: "Body sculpting", desc: "EmSculpt Neo & EmFace muscle building, fat reduction, and facial lifting.", icon: "body" },
   { id: "wellness", name: "IV & wellness", desc: "IV therapy, health optimization, and clinical consults.", icon: "droplet" },
   { id: "injectables", name: "Injectables", desc: "Botox, fillers, and PRF — natural, expert results.", icon: "needle" },
   { id: "weight", name: "Weight loss", desc: "Semaglutide, tirzepatide, and medical programs.", icon: "scale" },
