@@ -439,7 +439,7 @@ const SERVICES = [
     description: "Non-invasive facial rejuvenation that lifts, tones, and smooths the face.",
     fullDescription: "EmFace is an FDA-cleared, non-invasive facial rejuvenation treatment that lifts, tones, and smooths the face without needles, surgery, or downtime. It works by combining two technologies—Synchronized Radiofrequency (RF) and High-Intensity Focused Electrical Stimulation (HIFES™)—to target both the skin and the underlying facial muscles.",
     tags: ["Facial lifting", "Skin toning", "Non-invasive", "No downtime"],
-    duration: "20 min per session", price: "From $750/session", area: "Face",
+    duration: "20 min per session", price: "", area: "Face",
     providerIds: ["kasden"]
   },
 
@@ -1112,7 +1112,7 @@ const PROVIDERS = [
     avatarColor: "#6b8560",
     bio: "Kasden Davis is the owner of Kasden Aesthetics in Lubbock, Texas, and has been a licensed aesthetician since 2019. Specializing in dermaplaning, microneedling, and customized facials, she focuses on creating personalized skincare experiences that address each client’s unique needs. Living in a dry climate, she emphasizes hydration and skin barrier support to restore glow and maintain healthy, radiant skin year-round. Her goal is to provide results-driven treatments in a relaxing, supportive environment.",
     specialties: ["Dermaplaning", "Microneedling", "Customized Facials", "Lash Lift", "Brow Lamination"],
-    bookingUrl: "https://aislingwellnesscenter.com/book",
+    bookingUrl: "https://www.kasdenaesthetics.com/",
     staffEmail: "kasden@aislingwellness.com",
     serviceIds: [
       "microneedling",
