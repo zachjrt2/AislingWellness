@@ -1004,7 +1004,7 @@ const SERVICES = [
     fullDescription: "Tirzepatide acts on two separate hormone receptors (GIP and GLP-1) to more powerfully regulate appetite, blood sugar, and metabolism. Clinical trials show 15–20% body weight loss over treatment. Our program wraps the medication in comprehensive clinical support and goal tracking.",
     tags: ["Medical weight loss", "Dual agonist", "Clinically supervised", "Advanced"],
     duration: "Ongoing program", price: "Consultation required", area: "Systemic",
-    providerIds: ["vivian"]
+    providerIds: ["regan"]
   },
 
   {
@@ -1089,6 +1089,7 @@ const PROVIDERS = [
     serviceIds: [
       "bhrt",
       "metabolic-reset",
+      "tirzepatide",
       "pcos",
       "gut-health",
       "health-optimization",
@@ -1344,7 +1345,6 @@ const PROVIDERS = [
       "gut-health",
       "health-optimization",
       "semaglutide",
-      "tirzepatide",
       "metabolic-reset",
       "botox",
       "neurotoxin-daxxify",
