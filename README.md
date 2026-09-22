@@ -61,7 +61,7 @@ For video: add your MP4 to `images/hero.mp4` and update `index.html` — find th
 1. Add photos to `images/team/teressa.jpg`, `images/team/rachel.jpg`, etc.
 2. In `team.html`, replace the avatar `<div>` for each provider with:
    ```html
-   <img src="images/team/teressa.jpg" alt="Teressa M." style="width:100%;height:100%;object-fit:cover">
+   <img src="images/team/teressa.jpg" alt="Teressa Sisk" style="width:100%;height:100%;object-fit:cover">
    ```
 
 ## Wire up real booking links

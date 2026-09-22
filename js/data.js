@@ -52,6 +52,10 @@ const CATEGORIES = [
       {
         label: "Clinical & Functional",
         serviceIds: ["iv-therapy", "gut-health", "health-optimization", "consultation-skin", "consultation-full"]
+      },
+      {
+        label: "Detox Therapies",
+        serviceIds: ["foot-detox"]
       }
     ]
   },
@@ -140,7 +144,7 @@ const SERVICES = [
     fullDescription: "Our Swedish massage is the gold standard of relaxation — a full-body experience using long, fluid effleurage strokes, gentle kneading, and rhythmic tapping to melt away surface tension and quiet the mind. It improves circulation, eases muscle tightness, and leaves you feeling genuinely restored rather than just temporarily unwound.",
     tags: ["Relaxation", "Circulation", "Stress relief", "All levels"],
     duration: "60 or 90 min", price: "From $85", area: "Full body",
-    providerIds: ["teressa", "erin"]
+    providerIds: ["erin"]
   },
 
   {
@@ -149,7 +153,7 @@ const SERVICES = [
     fullDescription: "Deep tissue massage targets the inner layers of muscle and connective tissue using slow, deliberate strokes and sustained pressure. Particularly effective for chronic pain, stubborn knots, postural tension from desk work, and recovery from physical exertion. Our therapists work methodically and communicate throughout.",
     tags: ["Chronic pain", "Recovery", "Tension release", "Therapeutic"],
     duration: "60 or 90 min", price: "From $95", area: "Targeted or full body",
-    providerIds: ["teressa", "erin"]
+    providerIds: ["erin"]
   },
 
   {
@@ -158,7 +162,7 @@ const SERVICES = [
     fullDescription: "Share the experience in our beautifully appointed couples suite. Two therapists work simultaneously so you and your guest enjoy identical treatments side by side. A meaningful way to celebrate an occasion, decompress together, or simply gift someone an afternoon they won't forget.",
     tags: ["Romantic", "Gift idea", "Relaxation", "Side by side"],
     duration: "60 or 90 min", price: "From $170", area: "Full body",
-    providerIds: ["teressa", "erin"]
+    providerIds: ["erin"]
   },
 
   // ── LASER ──
@@ -431,7 +435,7 @@ const SERVICES = [
     fullDescription: "EmSculpt Neo combines HIFEM+ electromagnetic energy (which induces powerful muscle contractions impossible through voluntary exercise) with synchronized RF heating (which destroys fat cells). Clinical studies show an average of 25% more muscle and 30% less fat in the treatment area after a full protocol.",
     tags: ["Fat reduction", "Muscle building", "Non-invasive", "No downtime"],
     duration: "30 min per session", price: "From $750/session", area: "Abdomen, glutes, arms, calves",
-    providerIds: ["kasden"]
+    providerIds: ["kasden", "teressa"]
   },
 
   {
@@ -487,6 +491,15 @@ const SERVICES = [
     tags: ["Comprehensive", "Consultation", "Advanced", "Clinical"],
     duration: "60 min", price: "$60", area: "Face & systemic",
     providerIds: ["kasden"]
+  },
+
+  {
+    id: "foot-detox", name: "Ionic Foot Detox", category: "wellness", icon: "droplet",
+    description: "Relaxing bio-energetic foot bath to support the body's natural detoxification.",
+    fullDescription: "Our Ionic Foot Detox is a gentle, restorative treatment designed to help draw out impurities, improve circulation, and rebalance your body's energy pathways. Settle into a warm, mineralized ionized foot bath while the system promotes cellular detox, leaving you feeling light, refreshed, and renewed.",
+    tags: ["Detox", "Circulation", "Relaxation", "Cellular renewal"],
+    duration: "30–45 min", price: "From $45", area: "Feet",
+    providerIds: ["teressa"]
   },
 
   // ── LASHES & BROWS ──
@@ -1048,14 +1061,20 @@ const SERVICES = [
 
 const PROVIDERS = [
   {
-    id: "teressa", name: "Teressa M.", title: "Licensed Massage Therapist", credentials: "LMT", years: 8,
+    id: "teressa",
+    name: "Teressa Sisk",
+    title: "Director of Operations & Body Sculpting Specialist",
+    credentials: "Body Specialist",
+    years: 8,
     photo: "images/staff/Teressa-Sisk-Director-of-Operations-Teeth-Whitening-Foot-Detox-1024x1536.jpg",
-    avatarInitials: "TM", avatarBg: "rgba(45,74,40,0.2)", avatarColor: "#2d4a28",
-    bio: "Teressa is the warm heartbeat of Aisling — the person who greets you at the door and makes you feel at home before a single treatment begins. Her massage work is fluid, intuitive, and deeply attentive. She reads the body with years of trained instinct and has a gift for knowing exactly what each client needs, often before they say it.",
-    specialties: ["Swedish massage", "Deep tissue", "Couples massage", "Prenatal massage"],
+    avatarInitials: "TS",
+    avatarBg: "rgba(45,74,40,0.2)",
+    avatarColor: "#2d4a28",
+    bio: "Teressa is the warm heartbeat of Aisling — the person who greets you at the door and makes you feel at home before a single treatment begins. As Director of Operations specializing in non-invasive body sculpting and ionic foot detox, she brings an attentive, personalized touch to each client's journey. Teressa is passionate about helping guests achieve visible results, restore vitality, and experience true total-body wellness.",
+    specialties: ["Body Sculpting", "EmSculpt Neo", "Foot Detox", "Ionic Foot Detox"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
     staffEmail: "aislingwc@gmail.com",
-    serviceIds: ["swedish", "deep-tissue", "couples"]
+    serviceIds: ["emsculpt-neo", "foot-detox"]
   },
 
   {
