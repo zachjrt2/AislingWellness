@@ -305,10 +305,10 @@ const SERVICES = [
   {
     id: "not-sure-facial", name: "Not Sure Facial", category: "laser", icon: "face",
     description: "Consultation combined with a customized facial to find what's best for you.",
-    fullDescription: "Unsure of what your skin needs? This hybrid session begins with a comprehensive consultation and analysis with Marci, followed by a personalized facial treatment tailored to your skin's immediate condition. Perfect for first-time clients.",
+    fullDescription: "Unsure of what your skin needs? This hybrid session begins with a comprehensive consultation and analysis, followed by a personalized facial treatment tailored to your skin's immediate condition. Perfect for first-time clients.",
     tags: ["Consultation", "Customized", "New clients", "Analysis"],
     duration: "75 min", price: "$100", area: "Face & neck",
-    providerIds: ["marci"]
+    providerIds: ["marci", "kasden", "jaime"]
   },
 
   {
@@ -1138,6 +1138,7 @@ const PROVIDERS = [
       "microneedling",
       "signature-facial",
       "express-facial",
+      "not-sure-facial",
       "emsculpt-neo",
       "emface",
       "microdermabrasion",
@@ -1216,6 +1217,7 @@ const PROVIDERS = [
       "signature-facial",
       "signature-glow-enzyme",
       "express-facial",
+      "not-sure-facial",
       "mini-facial",
       "back-treatment",
       "dermaglow-facial",
