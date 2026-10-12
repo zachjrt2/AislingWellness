@@ -290,7 +290,7 @@ const SERVICES = [
     fullDescription: "Perfect for those with limited time but seeking a professional skin boost. This concentrated treatment focuses on efficiency without compromising results, including cleansing, targeted exfoliation, and high-performance serums.",
     tags: ["Quick refresh", "Efficiency", "Glow", "On-the-go"],
     duration: "30 min", price: "$60", area: "Face",
-    providerIds: ["marci"]
+    providerIds: ["kasden", "marci", "jaime"]
   },
 
   {
@@ -299,7 +299,7 @@ const SERVICES = [
     fullDescription: "Perfect for oily, congested, or acne-prone skin. This specialized facial focuses on deep pore cleansing, gentle exfoliation, professional extractions, and a calming mask to reduce redness and promote healing. Does not require enrollment in a program.",
     tags: ["Acne", "Deep cleansing", "Extractions", "Calming"],
     duration: "60 min", price: "$95", area: "Face",
-    providerIds: ["marci"]
+    providerIds: ["jaime"]
   },
 
   {
@@ -317,7 +317,7 @@ const SERVICES = [
     fullDescription: "Our back treatment addresses hard-to-reach skin concerns. Includes deep cleansing, exfoliation with steam, extractions where needed, and a restorative mask. Leaves the skin on your back clear, smooth, and revitalized.",
     tags: ["Body care", "Cleansing", "Smooth skin", "Hard-to-reach"],
     duration: "60 min", price: "$125", area: "Full back",
-    providerIds: ["marci"]
+    providerIds: ["marci", "jaime"]
   },
 
   {
@@ -344,7 +344,7 @@ const SERVICES = [
     fullDescription: "Our mini facial is designed to give you a clinical skin boost in half the time. Includes double cleansing, light exfoliation, and targeted serum application. Perfect as a maintenance treatment between full sessions.",
     tags: ["Quick refresh", "Maintenance", "Hydration", "On-the-go"],
     duration: "30 min", price: "$75", area: "Face",
-    providerIds: ["kasden"]
+    providerIds: ["kasden", "marci", "jaime"]
   },
 
   {
@@ -435,7 +435,7 @@ const SERVICES = [
     fullDescription: "EmSculpt Neo combines HIFEM+ electromagnetic energy (which induces powerful muscle contractions impossible through voluntary exercise) with synchronized RF heating (which destroys fat cells). Clinical studies show an average of 25% more muscle and 30% less fat in the treatment area after a full protocol.",
     tags: ["Fat reduction", "Muscle building", "Non-invasive", "No downtime"],
     duration: "30 min per session", price: "From $750/session", area: "Abdomen, glutes, arms, calves",
-    providerIds: ["kasden", "teressa"]
+    providerIds: ["kasden", "teressa", "jaime"]
   },
 
   {
@@ -498,7 +498,7 @@ const SERVICES = [
     description: "Relaxing bio-energetic foot bath to support the body's natural detoxification.",
     fullDescription: "Our Ionic Foot Detox is a gentle, restorative treatment designed to help draw out impurities, improve circulation, and rebalance your body's energy pathways. Settle into a warm, mineralized ionized foot bath while the system promotes cellular detox, leaving you feeling light, refreshed, and renewed.",
     tags: ["Detox", "Circulation", "Relaxation", "Cellular renewal"],
-    duration: "30–45 min", price: "From $45", area: "Feet",
+    duration: "30–45 min", price: "From $25", area: "Feet",
     providerIds: ["teressa"]
   },
 
@@ -1055,7 +1055,7 @@ const SERVICES = [
     fullDescription: "Restore fuller, healthier hair naturally with Platelet-Rich Fibrin (PRF) therapy. This regenerative treatment uses your body's own growth factors to stimulate dormant follicles, improve scalp circulation, and strengthen hair at the root — without synthetic additives. Over a series of treatments, PRF helps reduce shedding and encourages new growth for thicker, denser hair. Enhance your results with peptide therapy add-ons, which support follicle activity, boost collagen production, and extend the growth phase of your hair cycle from within. Together, PRF and peptides provide a powerful, inside-out approach to lasting hair restoration.",
     tags: ["Hair loss", "PRF", "Peptides", "Scalp health"],
     duration: "60–90 min", price: "Consultation required", area: "Scalp",
-    providerIds: ["regan", "vivian"]
+    providerIds: ["regan", "vivian", "teressa", "jaime"]
   },
 ];
 
@@ -1071,10 +1071,10 @@ const PROVIDERS = [
     avatarBg: "rgba(45,74,40,0.2)",
     avatarColor: "#2d4a28",
     bio: "Teressa is the warm heartbeat of Aisling — the person who greets you at the door and makes you feel at home before a single treatment begins. As Director of Operations specializing in non-invasive body sculpting and ionic foot detox, she brings an attentive, personalized touch to each client's journey. Teressa is passionate about helping guests achieve visible results, restore vitality, and experience true total-body wellness.",
-    specialties: ["Body Sculpting", "EmSculpt Neo", "Foot Detox", "Ionic Foot Detox"],
+    specialties: ["Body Sculpting", "EmSculpt Neo", "Foot Detox", "Ionic Foot Detox", "Hair Restoration"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
     staffEmail: "aislingwc@gmail.com",
-    serviceIds: ["emsculpt-neo", "foot-detox"]
+    serviceIds: ["emsculpt-neo", "foot-detox", "prf-hair"]
   },
 
   {
@@ -1137,6 +1137,7 @@ const PROVIDERS = [
     serviceIds: [
       "microneedling",
       "signature-facial",
+      "express-facial",
       "emsculpt-neo",
       "emface",
       "microdermabrasion",
@@ -1172,7 +1173,7 @@ const PROVIDERS = [
       "european-facial",
       "express-facial",
       "not-sure-facial",
-      "acne-facial",
+      "mini-facial",
       "back-treatment",
       "microdermabrasion",
       "dermaplane-facial",
@@ -1211,7 +1212,12 @@ const PROVIDERS = [
     serviceIds: [
       "acne-consult-treatment",
       "acne-fr-current",
+      "acne-facial",
+      "signature-facial",
       "signature-glow-enzyme",
+      "express-facial",
+      "mini-facial",
+      "back-treatment",
       "dermaglow-facial",
       "swich-dermal",
       "firming-peptide",
@@ -1222,7 +1228,9 @@ const PROVIDERS = [
       "mama-mia",
       "microneedling",
       "dermaplane-only",
-      "chemical-peel"
+      "chemical-peel",
+      "emsculpt-neo",
+      "prf-hair"
     ]
   },
 
