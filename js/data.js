@@ -33,6 +33,10 @@ const CATEGORIES = [
       {
         label: "Chemical Peels",
         serviceIds: ["chemical-peel", "tca-peel", "acne-peel", "micro-peel", "herbal-peel"]
+      },
+      {
+        label: "Laser Hair Removal",
+        serviceIds: ["alma-harmony-laser-hair"]
       }
     ]
   },
@@ -41,7 +45,8 @@ const CATEGORIES = [
     id: "sculpting",
     label: "Body Sculpting",
     subCategories: [
-      { label: "Non-Invasive Sculpting", serviceIds: ["emsculpt-neo", "emface"] }
+      { label: "Non-Invasive Sculpting", serviceIds: ["emsculpt-neo", "emface"] },
+      { label: "Body Contouring", serviceIds: ["standard-body-sculpting", "rf-cavitation-sculpting"] }
     ]
   },
 
@@ -56,6 +61,10 @@ const CATEGORIES = [
       {
         label: "Detox Therapies",
         serviceIds: ["foot-detox"]
+      },
+      {
+        label: "Pelvic Floor",
+        serviceIds: ["emsella-pelvic-floor"]
       }
     ]
   },
@@ -104,7 +113,7 @@ const CATEGORIES = [
     id: "hair",
     label: "Hair Restoration",
     subCategories: [
-      { label: "Regenerative Therapy", serviceIds: ["prf-hair"] }
+      { label: "Regenerative Therapy", serviceIds: ["prf-hair", "ted-hair-restoration"] }
     ]
   },
 
@@ -144,7 +153,7 @@ const SERVICES = [
     fullDescription: "Our Swedish massage is the gold standard of relaxation — a full-body experience using long, fluid effleurage strokes, gentle kneading, and rhythmic tapping to melt away surface tension and quiet the mind. It improves circulation, eases muscle tightness, and leaves you feeling genuinely restored rather than just temporarily unwound.",
     tags: ["Relaxation", "Circulation", "Stress relief", "All levels"],
     duration: "60 or 90 min", price: "From $85", area: "Full body",
-    providerIds: ["erin"]
+    providerIds: ["erin", "flo"]
   },
 
   {
@@ -153,7 +162,7 @@ const SERVICES = [
     fullDescription: "Deep tissue massage targets the inner layers of muscle and connective tissue using slow, deliberate strokes and sustained pressure. Particularly effective for chronic pain, stubborn knots, postural tension from desk work, and recovery from physical exertion. Our therapists work methodically and communicate throughout.",
     tags: ["Chronic pain", "Recovery", "Tension release", "Therapeutic"],
     duration: "60 or 90 min", price: "From $95", area: "Targeted or full body",
-    providerIds: ["erin"]
+    providerIds: ["erin", "flo"]
   },
 
   {
@@ -162,7 +171,7 @@ const SERVICES = [
     fullDescription: "Share the experience in our beautifully appointed couples suite. Two therapists work simultaneously so you and your guest enjoy identical treatments side by side. A meaningful way to celebrate an occasion, decompress together, or simply gift someone an afternoon they won't forget.",
     tags: ["Romantic", "Gift idea", "Relaxation", "Side by side"],
     duration: "60 or 90 min", price: "From $170", area: "Full body",
-    providerIds: ["erin"]
+    providerIds: ["erin", "flo"]
   },
 
   // ── LASER ──
@@ -1008,7 +1017,7 @@ const SERVICES = [
     fullDescription: "Semaglutide is a GLP-1 receptor agonist that regulates appetite and blood sugar. Our program includes an initial consultation and lab work, personalized dosing, weekly injections, and ongoing clinical monitoring. Most patients experience meaningful weight loss within the first 4–8 weeks. Requires consultation prior to starting.",
     tags: ["Medical weight loss", "GLP-1", "Clinically supervised", "Appetite regulation"],
     duration: "Ongoing program", price: "Consultation required", area: "Systemic",
-    providerIds: ["vivian"]
+    providerIds: ["regan"]
   },
 
   {
@@ -1026,7 +1035,7 @@ const SERVICES = [
     fullDescription: "Our medical weight loss programs are designed to help you achieve sustainable results through a comprehensive, evidence-based approach. Each plan combines nutrition counseling, exercise guidance, and — when appropriate — metabolic or peptide support to optimize fat loss, muscle preservation, and overall health. We focus on creating realistic, personalized strategies that fit your lifestyle. You'll receive one-on-one support, ongoing progress monitoring, and education to build lasting habits for improved energy, body composition, and confidence.",
     tags: ["Nutrition", "Lifestyle", "Peptides", "Sustainable results"],
     duration: "60–90 min (initial)", price: "Consultation required", area: "Systemic",
-    providerIds: ["regan", "vivian"]
+    providerIds: ["regan"]
   },
 
   // ── HORMONE & FUNCTIONAL HEALTH ──
@@ -1057,6 +1066,55 @@ const SERVICES = [
     duration: "60–90 min", price: "Consultation required", area: "Scalp",
     providerIds: ["regan", "vivian", "teressa", "jaime"]
   },
+
+  // ── TED HAIR RESTORATION ──
+  {
+    id: "ted-hair-restoration", name: "TED Hair Restoration", category: "hair", icon: "glow",
+    description: "Advanced, needle-free hair restoration using ultrasound energy and air pressure.",
+    fullDescription: "TransEpidermal Drug Delivery (TED) is a cutting-edge, needle-free hair restoration treatment that uses low-frequency ultrasound energy combined with air pressure to drive a customized growth factor solution deep into the scalp. Unlike PRF injections, TED requires no needles and zero downtime — making it an excellent option for those who prefer a more comfortable treatment experience. It works by stimulating follicle activity, improving scalp circulation, and delivering active ingredients directly where they're needed most. A series of sessions is recommended for optimal, lasting results.",
+    tags: ["Hair loss", "Needle-free", "No downtime", "Scalp health"],
+    duration: "60–90 min", price: "Consultation required", area: "Scalp",
+    providerIds: ["teressa", "jaime", "taylor"]
+  },
+
+  // ── BODY SCULPTING (TERESSA) ──
+  {
+    id: "standard-body-sculpting", name: "Standard Body Sculpting", category: "sculpting", icon: "body",
+    description: "Non-invasive body contouring to shape, firm, and tone targeted areas.",
+    fullDescription: "Our Standard Body Sculpting treatment uses proven non-invasive technology to target stubborn areas of fat and improve body contour. Each session is personalized to your goals — whether you're looking to slim, firm, or smooth specific trouble zones. A great entry point into body sculpting with no surgery and no downtime.",
+    tags: ["Body contouring", "Non-invasive", "Toning", "No downtime"],
+    duration: "45–60 min", price: "Consultation required", area: "Abdomen, flanks, thighs, arms",
+    providerIds: ["teressa"]
+  },
+
+  {
+    id: "rf-cavitation-sculpting", name: "RF & Cavitation Body Sculpting", category: "sculpting", icon: "body",
+    description: "Radiofrequency and ultrasonic cavitation to break down fat and tighten skin.",
+    fullDescription: "This advanced body sculpting session combines Radiofrequency (RF) energy and Ultrasonic Cavitation to target fat cells and tighten the overlying skin simultaneously. Cavitation uses low-frequency ultrasound waves to disrupt and liquefy fat cell membranes, while RF energy heats the deeper dermal layers to stimulate collagen and elastin — resulting in a smoother, firmer, more contoured appearance. Ideal for stubborn fat deposits and skin laxity. No incisions, no anesthesia, no downtime.",
+    tags: ["RF", "Cavitation", "Fat reduction", "Skin tightening"],
+    duration: "60–75 min", price: "Consultation required", area: "Abdomen, flanks, thighs, arms",
+    providerIds: ["teressa"]
+  },
+
+  // ── LASER HAIR REMOVAL ──
+  {
+    id: "alma-harmony-laser-hair", name: "Alma Harmony Laser Hair Removal", category: "laser", icon: "glow",
+    description: "Advanced laser hair removal using the Alma Harmony platform for safe, lasting results.",
+    fullDescription: "Alma Harmony laser hair removal uses advanced multi-technology laser energy to target and destroy hair follicles at the root — delivering long-lasting hair reduction on virtually any skin tone. The Alma Harmony platform is renowned for its precision, speed, and comfort, making it one of the most effective laser hair removal systems available. Treatments can be performed on the face, underarms, legs, bikini area, back, and more. A series of sessions is needed to address hair in all growth phases, with most clients achieving significant, lasting reduction.",
+    tags: ["Laser", "Hair removal", "Long-lasting", "Alma Harmony"],
+    duration: "Varies by area", price: "Consultation required", area: "Face, underarms, legs, bikini, back",
+    providerIds: ["vivian", "tracy"]
+  },
+
+  // ── PELVIC FLOOR ──
+  {
+    id: "emsella-pelvic-floor", name: "Emsella Pelvic Floor Therapy", category: "wellness", icon: "body",
+    description: "FDA-cleared electromagnetic therapy to strengthen pelvic floor muscles and treat incontinence.",
+    fullDescription: "Emsella is an FDA-cleared, non-invasive treatment that uses High-Intensity Focused Electromagnetic (HIFEM) technology to stimulate thousands of powerful pelvic floor muscle contractions in a single session — the equivalent of performing over 11,000 Kegels in 28 minutes. This helps restore neuromuscular control of the pelvic floor, improving urinary incontinence, bladder control, and intimate wellness for both women and men. Clients remain fully clothed throughout the treatment. Most patients benefit from a series of 6 sessions, with results that continue to improve over the weeks following treatment.",
+    tags: ["Pelvic floor", "Incontinence", "Non-invasive", "Intimate wellness"],
+    duration: "28 min per session", price: "Consultation required", area: "Pelvic floor",
+    providerIds: ["tracy", "vivian"]
+  },
 ];
 
 const PROVIDERS = [
@@ -1071,10 +1129,10 @@ const PROVIDERS = [
     avatarBg: "rgba(45,74,40,0.2)",
     avatarColor: "#2d4a28",
     bio: "Teressa is the warm heartbeat of Aisling — the person who greets you at the door and makes you feel at home before a single treatment begins. As Director of Operations specializing in non-invasive body sculpting and ionic foot detox, she brings an attentive, personalized touch to each client's journey. Teressa is passionate about helping guests achieve visible results, restore vitality, and experience true total-body wellness.",
-    specialties: ["Body Sculpting", "EmSculpt Neo", "Foot Detox", "Ionic Foot Detox", "Hair Restoration"],
+    specialties: ["Body Sculpting", "EmSculpt Neo", "RF & Cavitation Body Sculpting", "TED Hair Restoration", "Foot Detox"],
     bookingUrl: "https://aislingwellnesscenter.com/book",
     staffEmail: "aislingwc@gmail.com",
-    serviceIds: ["emsculpt-neo", "foot-detox", "prf-hair"]
+    serviceIds: ["emsculpt-neo", "foot-detox", "prf-hair", "ted-hair-restoration", "standard-body-sculpting", "rf-cavitation-sculpting"]
   },
 
   {
@@ -1232,7 +1290,8 @@ const PROVIDERS = [
       "dermaplane-only",
       "chemical-peel",
       "emsculpt-neo",
-      "prf-hair"
+      "prf-hair",
+      "ted-hair-restoration"
     ]
   },
 
@@ -1351,7 +1410,8 @@ const PROVIDERS = [
       "mega-volume-fill",
       "mega-mini-fill",
       "mini-fill",
-      "lash-removal"
+      "lash-removal",
+      "ted-hair-restoration"
     ]
   },
 
@@ -1373,8 +1433,6 @@ const PROVIDERS = [
       "iv-therapy",
       "gut-health",
       "health-optimization",
-      "semaglutide",
-      "metabolic-reset",
       "botox",
       "neurotoxin-daxxify",
       "dermal-fillers",
@@ -1382,7 +1440,9 @@ const PROVIDERS = [
       "bhrt",
       "pcos",
       "microneedling",
-      "prf-hair"
+      "prf-hair",
+      "alma-harmony-laser-hair",
+      "emsella-pelvic-floor"
     ]
   },
 
@@ -1400,6 +1460,22 @@ const PROVIDERS = [
     bookingUrl: "https://aislingwellnesscenter.com/book",
     staffEmail: "ertx33@aol.com",
     serviceIds: ["swedish", "deep-tissue", "couples"]
+  },
+
+  {
+    id: "flo",
+    name: "Flo Stone",
+    title: "Licensed Massage Therapist",
+    credentials: "LMT",
+    photo: "",
+    avatarInitials: "FS",
+    avatarBg: "rgba(128, 0, 128, 0.2)",
+    avatarColor: "#800080",
+    bio: "",
+    specialties: [],
+    bookingUrl: "https://flowing-hands.square.site/",
+    staffEmail: "",
+    serviceIds: ["emsulpt", "swedish", "deep-tissue", "couples"]
   },
 
   {
@@ -1431,6 +1507,26 @@ const PROVIDERS = [
       "brow-lamination",
       "lash-removal",
       "add-on-wispy-wet"
+    ]
+  },
+
+  {
+    id: "tracy",
+    name: "Tracy Davis",
+    title: "Aisling Associate",
+    credentials: "",
+    years: null,
+    photo: "",
+    avatarInitials: "TD",
+    avatarBg: "rgba(154, 184, 138, 0.2)",
+    avatarColor: "#6b8560",
+    bio: "Tracy is a valued member of the Aisling Wellness team. Her full bio and specialty details are coming soon — stay tuned!",
+    specialties: ["Alma Harmony Laser Hair Removal", "Emsella Pelvic Floor Therapy"],
+    bookingUrl: "https://aislingwellnesscenter.com/book",
+    staffEmail: "",
+    serviceIds: [
+      "alma-harmony-laser-hair",
+      "emsella-pelvic-floor"
     ]
   },
 ];
