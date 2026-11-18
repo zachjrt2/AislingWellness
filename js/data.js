@@ -7,7 +7,8 @@ const CATEGORIES = [
     id: "massage",
     label: "Massage & Body",
     subCategories: [
-      { label: "Therapeutic Massage", serviceIds: ["swedish", "deep-tissue", "couples"] }
+      { label: "Therapeutic Massage", serviceIds: ["swedish", "deep-tissue", "couples", "mini-massage"] },
+      { label: "Specialty Massage", serviceIds: ["hot-stone-massage", "bamboo-massage", "cupping-massage", "migraine-cold-stone"] }
     ]
   },
 
@@ -172,6 +173,51 @@ const SERVICES = [
     tags: ["Romantic", "Gift idea", "Relaxation", "Side by side"],
     duration: "60 or 90 min", price: "From $170", area: "Full body",
     providerIds: ["erin", "flo"]
+  },
+
+  {
+    id: "mini-massage", name: "Mini Massage — Neck, Shoulders & Back", category: "massage", icon: "hands",
+    description: "A focused 30-minute session targeting the neck, shoulders, and upper back.",
+    fullDescription: "Perfect for those short on time but carrying big tension. This targeted 30-minute session zeroes in on the neck, shoulders, and upper back — the areas most affected by stress, screen time, and poor posture. A fast, effective reset that leaves you noticeably looser and lighter.",
+    tags: ["Quick relief", "Neck & shoulders", "Tension", "30 min"],
+    duration: "30 min", price: "From $55", area: "Neck, shoulders & upper back",
+    providerIds: ["flo"]
+  },
+
+  {
+    id: "hot-stone-massage", name: "Hot Stone Massage", category: "massage", icon: "hands",
+    description: "Smooth, heated basalt stones melt deep muscle tension for profound relaxation.",
+    fullDescription: "Smooth basalt stones are heated and placed along key energy points of the body, then used as an extension of the therapist's hands to deliver a deeper, more penetrating warmth than hands alone can provide. The heat relaxes muscles rapidly, allowing for more effective therapeutic work without additional pressure. Deeply soothing for chronic tension, cold sensitivity, and stress.",
+    tags: ["Hot stones", "Deep relaxation", "Therapeutic", "Muscle tension"],
+    duration: "60 or 90 min", price: "From $110", area: "Full body",
+    providerIds: ["flo"]
+  },
+
+  {
+    id: "bamboo-massage", name: "Bamboo Massage", category: "massage", icon: "hands",
+    description: "Warm bamboo canes used to roll, knead, and release deep muscle tension.",
+    fullDescription: "Bamboo massage uses smooth, warmed bamboo canes of varying lengths to knead and roll the muscles with consistent, firm pressure. The technique is especially effective for breaking up fascial adhesions, improving circulation, and releasing stubborn knots that hands alone may not fully reach. Leaves the skin smooth and the body deeply relaxed.",
+    tags: ["Bamboo", "Deep tissue", "Circulation", "Therapeutic"],
+    duration: "60 or 90 min", price: "From $110", area: "Full body",
+    providerIds: ["flo"]
+  },
+
+  {
+    id: "cupping-massage", name: "Cupping Therapy", category: "massage", icon: "hands",
+    description: "Silicone or glass cups create suction to lift tissue, release fascia, and improve circulation.",
+    fullDescription: "Cupping uses suction cups placed on the skin to gently lift the underlying tissue — the opposite of traditional compression-based massage. This decompression effect releases fascial adhesions, draws fresh blood flow into stagnant areas, and reduces inflammation. Particularly effective for back pain, tight IT bands, and post-workout recovery. Temporary cupping marks are normal and fade within a few days.",
+    tags: ["Cupping", "Fascia release", "Circulation", "Recovery"],
+    duration: "60 min", price: "From $95", area: "Back, shoulders, legs",
+    providerIds: ["flo"]
+  },
+
+  {
+    id: "migraine-cold-stone", name: "Migraine Relief — Cold Stone Therapy", category: "massage", icon: "hands",
+    description: "Chilled marble stones applied to key pressure points to ease migraine pain and tension.",
+    fullDescription: "Cold stone therapy uses chilled marble stones applied to the face, forehead, sinuses, and neck to constrict blood vessels, reduce inflammation, and relieve the throbbing pressure associated with migraines and tension headaches. Combined with gentle massage of the scalp, temples, and upper shoulders, this treatment offers targeted, drug-free relief. Best booked at the first sign of a migraine or as a preventative session.",
+    tags: ["Migraine relief", "Cold stones", "Headaches", "Therapeutic"],
+    duration: "60 min", price: "From $95", area: "Head, face & neck",
+    providerIds: ["flo"]
   },
 
   // ── LASER ──
@@ -1467,15 +1513,15 @@ const PROVIDERS = [
     name: "Flo Stone",
     title: "Licensed Massage Therapist",
     credentials: "LMT",
-    photo: "",
+    photo: "images/staff/flowinghands.png",
     avatarInitials: "FS",
     avatarBg: "rgba(128, 0, 128, 0.2)",
     avatarColor: "#800080",
-    bio: "",
-    specialties: [],
+    bio: "Flo Stone is a Licensed Massage Therapist and graduate of Ocean's Massage School (2020). Operating through her practice Flowing Hands, Flo brings a nurturing, therapeutic approach to every session. She specializes in medical and deep tissue massage, migraine relief using cold stone therapy, and a full menu of specialty techniques including hot stones, bamboo massage, and cupping. Whether you need a quick 30-minute neck and shoulder refresh or a 90-minute full-body escape, Flo tailors each session to your unique needs.",
+    specialties: ["Medical & Deep Tissue Massage", "Migraine Relief (Cold Stones)", "Hot Stone Massage", "Bamboo Massage", "Cupping", "Swedish Massage"],
     bookingUrl: "https://flowing-hands.square.site/",
     staffEmail: "",
-    serviceIds: ["emsulpt", "swedish", "deep-tissue", "couples"]
+    serviceIds: ["swedish", "deep-tissue", "couples", "mini-massage", "hot-stone-massage", "bamboo-massage", "cupping-massage", "migraine-cold-stone"]
   },
 
   {
