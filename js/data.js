@@ -46,8 +46,7 @@ const CATEGORIES = [
     id: "sculpting",
     label: "Body Sculpting",
     subCategories: [
-      { label: "Non-Invasive Sculpting", serviceIds: ["emsculpt-neo", "emface"] },
-      { label: "Body Contouring", serviceIds: ["standard-body-sculpting", "rf-cavitation-sculpting"] }
+      { label: "Non-Invasive Sculpting", serviceIds: ["emsculpt-neo", "emface"] }
     ]
   },
 
@@ -58,10 +57,6 @@ const CATEGORIES = [
       {
         label: "Clinical & Functional",
         serviceIds: ["iv-therapy", "gut-health", "health-optimization", "consultation-skin", "consultation-full"]
-      },
-      {
-        label: "Detox Therapies",
-        serviceIds: ["foot-detox"]
       },
       {
         label: "Pelvic Floor",
@@ -490,7 +485,7 @@ const SERVICES = [
     fullDescription: "EmSculpt Neo combines HIFEM+ electromagnetic energy (which induces powerful muscle contractions impossible through voluntary exercise) with synchronized RF heating (which destroys fat cells). Clinical studies show an average of 25% more muscle and 30% less fat in the treatment area after a full protocol.",
     tags: ["Fat reduction", "Muscle building", "Non-invasive", "No downtime"],
     duration: "30 min per session", price: "From $750/session", area: "Abdomen, glutes, arms, calves",
-    providerIds: ["kasden", "teressa", "jaime"]
+    providerIds: ["kasden", "jaime"]
   },
 
   {
@@ -546,15 +541,6 @@ const SERVICES = [
     tags: ["Comprehensive", "Consultation", "Advanced", "Clinical"],
     duration: "60 min", price: "$60", area: "Face & systemic",
     providerIds: ["kasden"]
-  },
-
-  {
-    id: "foot-detox", name: "Ionic Foot Detox", category: "wellness", icon: "droplet",
-    description: "Relaxing bio-energetic foot bath to support the body's natural detoxification.",
-    fullDescription: "Our Ionic Foot Detox is a gentle, restorative treatment designed to help draw out impurities, improve circulation, and rebalance your body's energy pathways. Settle into a warm, mineralized ionized foot bath while the system promotes cellular detox, leaving you feeling light, refreshed, and renewed.",
-    tags: ["Detox", "Circulation", "Relaxation", "Cellular renewal"],
-    duration: "30–45 min", price: "From $25", area: "Feet",
-    providerIds: ["teressa"]
   },
 
   // ── LASHES & BROWS ──
@@ -1110,7 +1096,7 @@ const SERVICES = [
     fullDescription: "Restore fuller, healthier hair naturally with Platelet-Rich Fibrin (PRF) therapy. This regenerative treatment uses your body's own growth factors to stimulate dormant follicles, improve scalp circulation, and strengthen hair at the root — without synthetic additives. Over a series of treatments, PRF helps reduce shedding and encourages new growth for thicker, denser hair. Enhance your results with peptide therapy add-ons, which support follicle activity, boost collagen production, and extend the growth phase of your hair cycle from within. Together, PRF and peptides provide a powerful, inside-out approach to lasting hair restoration.",
     tags: ["Hair loss", "PRF", "Peptides", "Scalp health"],
     duration: "60–90 min", price: "Consultation required", area: "Scalp",
-    providerIds: ["regan", "vivian", "teressa", "jaime"]
+    providerIds: ["regan", "vivian", "jaime"]
   },
 
   // ── TED HAIR RESTORATION ──
@@ -1120,26 +1106,7 @@ const SERVICES = [
     fullDescription: "TransEpidermal Drug Delivery (TED) is a cutting-edge, needle-free hair restoration treatment that uses low-frequency ultrasound energy combined with air pressure to drive a customized growth factor solution deep into the scalp. Unlike PRF injections, TED requires no needles and zero downtime — making it an excellent option for those who prefer a more comfortable treatment experience. It works by stimulating follicle activity, improving scalp circulation, and delivering active ingredients directly where they're needed most. A series of sessions is recommended for optimal, lasting results.",
     tags: ["Hair loss", "Needle-free", "No downtime", "Scalp health"],
     duration: "60–90 min", price: "Consultation required", area: "Scalp",
-    providerIds: ["teressa", "jaime", "taylor"]
-  },
-
-  // ── BODY SCULPTING (TERESSA) ──
-  {
-    id: "standard-body-sculpting", name: "Standard Body Sculpting", category: "sculpting", icon: "body",
-    description: "Non-invasive body contouring to shape, firm, and tone targeted areas.",
-    fullDescription: "Our Standard Body Sculpting treatment uses proven non-invasive technology to target stubborn areas of fat and improve body contour. Each session is personalized to your goals — whether you're looking to slim, firm, or smooth specific trouble zones. A great entry point into body sculpting with no surgery and no downtime.",
-    tags: ["Body contouring", "Non-invasive", "Toning", "No downtime"],
-    duration: "45–60 min", price: "Consultation required", area: "Abdomen, flanks, thighs, arms",
-    providerIds: ["teressa"]
-  },
-
-  {
-    id: "rf-cavitation-sculpting", name: "RF & Cavitation Body Sculpting", category: "sculpting", icon: "body",
-    description: "Radiofrequency and ultrasonic cavitation to break down fat and tighten skin.",
-    fullDescription: "This advanced body sculpting session combines Radiofrequency (RF) energy and Ultrasonic Cavitation to target fat cells and tighten the overlying skin simultaneously. Cavitation uses low-frequency ultrasound waves to disrupt and liquefy fat cell membranes, while RF energy heats the deeper dermal layers to stimulate collagen and elastin — resulting in a smoother, firmer, more contoured appearance. Ideal for stubborn fat deposits and skin laxity. No incisions, no anesthesia, no downtime.",
-    tags: ["RF", "Cavitation", "Fat reduction", "Skin tightening"],
-    duration: "60–75 min", price: "Consultation required", area: "Abdomen, flanks, thighs, arms",
-    providerIds: ["teressa"]
+    providerIds: ["jaime", "taylor"]
   },
 
   // ── LASER HAIR REMOVAL ──
@@ -1164,23 +1131,6 @@ const SERVICES = [
 ];
 
 const PROVIDERS = [
-  {
-    id: "teressa",
-    name: "Teressa Sisk",
-    title: "Director of Operations & Body Sculpting Specialist",
-    credentials: "Body Specialist",
-    years: 8,
-    photo: "images/staff/Teressa-Sisk-Director-of-Operations-Teeth-Whitening-Foot-Detox-1024x1536.jpg",
-    avatarInitials: "TS",
-    avatarBg: "rgba(45,74,40,0.2)",
-    avatarColor: "#2d4a28",
-    bio: "Teressa is the warm heartbeat of Aisling — the person who greets you at the door and makes you feel at home before a single treatment begins. As Director of Operations specializing in non-invasive body sculpting and ionic foot detox, she brings an attentive, personalized touch to each client's journey. Teressa is passionate about helping guests achieve visible results, restore vitality, and experience true total-body wellness.",
-    specialties: ["Body Sculpting", "EmSculpt Neo", "RF & Cavitation Body Sculpting", "TED Hair Restoration", "Foot Detox"],
-    bookingUrl: "https://aislingwellnesscenter.com/book",
-    staffEmail: "aislingwc@gmail.com",
-    serviceIds: ["emsculpt-neo", "foot-detox", "prf-hair", "ted-hair-restoration", "standard-body-sculpting", "rf-cavitation-sculpting"]
-  },
-
   {
     id: "regan",
     name: "Regan Bednorz",
@@ -1588,7 +1538,7 @@ const REVIEWS = [
   },
   {
     id: "r3", author: "Donna T.", initials: "DT", rating: 5, date: "December 2024",
-    text: "I have had the opportunity to enjoy services from almost everyone at Aisling and everyone did a fantastic job! I love how you are greeted upon entering by Teressa. She makes you feel so welcome."
+    text: "I have had the opportunity to enjoy services from almost everyone at Aisling and everyone did a fantastic job! I love how warmly you are greeted upon entering. The staff makes you feel so welcome."
   },
   {
     id: "r4", author: "Michelle R.", initials: "MR", rating: 5, date: "March 2025",
@@ -1616,7 +1566,7 @@ const REVIEWS = [
   },
   {
     id: "r10", author: "Marci Puryear", initials: "MP", rating: 5, date: "June 2025",
-    text: "The foot detox was so relaxing and made my feet feel so relaxed all day!! Teresa also whitened my teeth and I had zero sensitivity and they were 3 shades whiter! Clean and inviting atmosphere!"
+    text: "My visit was so relaxing! I also had my teeth whitened and had zero sensitivity and they were 3 shades whiter! Clean and inviting atmosphere!"
   },
   {
     id: "r11", author: "Tonda Elliott", initials: "TE", rating: 5, date: "July 2025",
@@ -1628,7 +1578,7 @@ const REVIEWS = [
   },
   {
     id: "r13", author: "Gabriel Sanders", initials: "GS", rating: 5, date: "June 2025",
-    text: "I got a foot detox from Teressa and it was an amazing experience! She was very attentive and explained everything to me so effectively! I will definitely be back as often as I can!"
+    text: "I had an amazing experience at Aisling! The staff was very attentive and explained everything to me so effectively! I will definitely be back as often as I can!"
   },
   {
     id: "r14", author: "Blake Smith", initials: "BS", rating: 5, date: "September 2025",
@@ -1659,7 +1609,7 @@ const REVIEWS = [
     text: "Great environment! Can find all wellness needs in one place. Highly recommend Gabes Healing Touch for massages!"
   },
   {
-    id: "r21", author: "Teressa Sisk", initials: "TS", rating: 5, date: "June 2025",
+    id: "r21", author: "Verified Guest", initials: "VG", rating: 5, date: "June 2025",
     text: "Everyone is so awesome at this place. From facials, waxers to massage therapist. You will be well taken care of."
   },
   {
@@ -1676,7 +1626,7 @@ const REVIEWS = [
   },
   {
     id: "r25", author: "Tillery Sims", initials: "TS", rating: 5, date: "April 2026",
-    text: "Such a beautiful place with great services! I had a body wrap by Teressa and the results on my arms were amazing! Erin Stone gives the greatest therapeutic massage."
+    text: "Such a beautiful place with great services! I had a body wrap and the results on my arms were amazing! Erin Stone gives the greatest therapeutic massage."
   },
 ];
 
